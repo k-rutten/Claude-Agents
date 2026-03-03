@@ -104,6 +104,23 @@ Rationale: [one sentence]
 
 ---
 
+
+**Fixture Scenarios**
+
+Every prototype must include a scenario switcher. Specify the fixtures for the builder:
+
+| Scenario | Data / State | What it tests |
+|----------|-------------|---------------|
+| ✅ Happy path | [describe data] | Core user flow works end-to-end |
+| ❌ Error state | [describe error] | System communicates failure clearly |
+| 📭 Empty state | [no data / first use] | Onboarding or zero-state experience |
+| ⏳ Loading state | [async pending] | Perceived performance and skeleton UI |
+| [Context-specific] | [describe] | [what edge case this covers] |
+
+Add role-based, edge-case, or partial-state scenarios as relevant to the concept.
+
+---
+
 **Test Script**
 Goal: Validate [core hypothesis from Define]
 Participant: [target user profile]
