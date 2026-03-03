@@ -70,7 +70,35 @@ Write production-ready code:
 - Use the project's established patterns (from design system rules if present)
 - Add accessibility attributes (aria labels, roles, keyboard navigation)
 
-### Step 6 — Flag Gaps
+### Step 6 — Add Fixture Tool
+
+Every implementation ships with a built-in scenario switcher. No exceptions.
+
+**Always include as a minimum:**
+- ✅ Happy path — everything works, data loaded, user is on track
+- ❌ Error state — something went wrong (network, validation, permission)
+- 📭 Empty state — no data yet, first-time user, zero results
+- ⏳ Loading state — async in progress
+
+**Add context-specific scenarios based on what's in the Figma:**
+- Different user roles (admin vs viewer, free vs paid)
+- Edge case data (long names, missing fields, max items)
+- Partial states (halfway through a flow, partially filled)
+
+**Implementation pattern (adapt to framework):**
+```js
+const SCENARIOS = {
+  happy:   { user: 'Jane Doe', items: [...], status: 'active' },
+  error:   { error: 'Failed to load. Please try again.', items: [] },
+  empty:   { user: 'Jane Doe', items: [], status: 'active' },
+  loading: { loading: true },
+};
+```
+
+Render a small floating panel in the corner with buttons to switch scenarios.
+Visually distinct but unobtrusive — a testing tool, not part of the UI.
+
+### Step 7 — Flag Gaps
 
 After implementation, note:
 - Any design ambiguities you resolved (and how)
@@ -82,9 +110,10 @@ After implementation, note:
 ## Output
 
 Provide:
-1. The implementation code (complete, runnable)
+1. The implementation code (complete, runnable, with fixture panel)
 2. A short summary of decisions made
-3. Any gaps or flags for the designer/team
+3. The list of scenarios included and what each tests
+4. Any gaps or flags for the designer/team
 
 ---
 
