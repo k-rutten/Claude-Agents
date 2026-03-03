@@ -64,6 +64,38 @@ both work — the key is committing, not hedging.
 
 ---
 
+## Fixture Tool — Always Included
+
+Every prototype ships with a built-in scenario switcher. No exceptions.
+
+The fixture panel lets you toggle between scenarios without touching code.
+
+**Always include these scenarios as a minimum:**
+- ✅ Happy path — everything works, data loaded, user is on track
+- ❌ Error state — something went wrong (network, validation, permission)
+- 📭 Empty state — no data yet, first-time user, zero results
+- ⏳ Loading state — async in progress
+
+**Add scenario-specific fixtures based on context:**
+- Different user roles (admin vs viewer, free vs paid)
+- Edge case data (very long names, missing fields, max items)
+- Partial states (partially filled form, halfway through a flow)
+
+**Implementation pattern (adapt to framework):**
+```js
+const SCENARIOS = {
+  happy:   { user: 'Jane Doe', items: [...], status: 'active' },
+  error:   { error: 'Failed to load. Please try again.', items: [] },
+  empty:   { user: 'Jane Doe', items: [], status: 'active' },
+  loading: { loading: true },
+};
+```
+
+Render a small floating panel in the corner (dev-tool style) with buttons to switch scenarios.
+The panel should be visually distinct but unobtrusive — it's a testing tool, not part of the UI.
+
+---
+
 ## Implementation Standards
 
 Write code that is:
@@ -80,9 +112,10 @@ Match whatever framework the user specifies.
 ## Output
 
 Provide:
-1. The complete, runnable code
+1. The complete, runnable code (with fixture panel included)
 2. A one-sentence summary of the aesthetic direction chosen and why
-3. Any notable design decisions worth flagging (so the user can tweak)
+3. The list of scenarios included and what each tests
+4. Any notable design decisions worth flagging
 
 Keep the summary short — the code speaks for itself.
 
