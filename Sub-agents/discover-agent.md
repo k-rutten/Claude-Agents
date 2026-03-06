@@ -81,6 +81,11 @@ Return exactly this structure:
 1. **[Name]** — [one sentence]
 2. ...
 
+**Data & Reporting Needs** (if applicable)
+- What data does the user need to see to make decisions?
+- What are the key metrics, statuses, or outputs the product must surface?
+- Are there calculation, aggregation, or real-time requirements?
+
 ---
 
 ### 🔧 Knobs to Turn

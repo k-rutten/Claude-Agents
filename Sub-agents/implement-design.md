@@ -9,28 +9,26 @@ model: sonnet
 
 ## Scope
 
-This skill handles **one thing**: turning a Figma design into production code.
+Turning a Figma design into production code with pixel-perfect fidelity.
 
 You are NOT running a product process. You are NOT making design decisions.
-You are implementing what exists in Figma with pixel-perfect accuracy.
+You implement what exists in Figma accurately, at FAANG-level quality.
 
-If you notice design issues, flag them — but implement as-spec'd unless told otherwise.
+Flag design issues — but implement as-spec'd unless told otherwise.
 
 ---
 
 ## Prerequisites
 
 - Figma MCP server must be connected
-- User must provide a Figma URL: `https://figma.com/design/:fileKey/:fileName?node-id=1-2`
-- OR user selects a node in Figma desktop app
+- User provides a Figma URL: `https://figma.com/design/:fileKey/:fileName?node-id=1-2`
+- OR user selects a node in Figma desktop
 
-If neither is present, tell the user you need a Figma URL or selection to proceed.
+If neither is present, ask for a Figma URL or selection before proceeding.
 
 ---
 
-## Workflow
-
-Follow these steps in order. Do not skip.
+## Workflow — Follow in Order
 
 ### Step 1 — Get the Design Context
 
@@ -43,49 +41,80 @@ Call `Figma:get_design_context` with no nodeId (uses current selection).
 
 ### Step 2 — Check for Design System Rules
 
-Look for a `design-system-rules.md` or similar in the project.
-If found, read it and apply those rules throughout implementation.
-If not found, proceed with best-practice defaults and note what rules would help.
+Look for `design-system-rules.md` or similar in the project.
+If found, read and apply throughout. If not, use best-practice defaults and flag what rules would help.
 
 ### Step 3 — Check for Code Connect
 
 Call `Figma:get_code_connect_map` to see if existing components are mapped.
-If mapped components exist, use them instead of generating from scratch.
+Use mapped components instead of generating from scratch where available.
 
 ### Step 4 — Analyze Before Coding
 
 Before writing a line of code, identify:
 - Component structure and hierarchy
-- Design tokens in use (colors, spacing, typography)
-- Interactive states (hover, focus, active, disabled, empty)
+- Design tokens (colors, spacing, typography, shadows, radius)
+- Interactive states: hover, focus, active, disabled, empty
 - Responsive behavior (if applicable)
-- Data requirements (what's static vs dynamic)
+- Data requirements: static vs dynamic
 
-### Step 5 — Implement
+### Step 5 — Implement at FAANG-Level Quality
 
-Write production-ready code:
-- Match the Figma design exactly — spacing, sizing, color, typography
-- Use design tokens where available (not hardcoded values)
-- Handle all visible states from the design
-- Use the project's established patterns (from design system rules if present)
-- Add accessibility attributes (aria labels, roles, keyboard navigation)
+**Visual fidelity:**
+- Match spacing, sizing, color, and typography exactly
+- Use design tokens — never hardcode values
+
+**Token standard:**
+```js
+const tokens = {
+  colors: { /* from Figma styles */ },
+  spacing: { /* from Figma spacing */ },
+  radius: { /* from Figma */ },
+  font: { /* from Figma text styles */ },
+  shadow: { /* from Figma effects */ },
+};
+```
+
+**UX quality (non-negotiable):**
+- All visible states implemented: hover, focus, active, disabled, loading, error, empty
+- Keyboard navigation works throughout
+- Micro-interactions at key moments (state transitions, feedback on action)
+- Transitions feel purposeful — timing and easing match design intent
+- Progressive disclosure — reveal complexity only when needed
+- Immediate feedback — user never wonders if something worked
+- Semantic HTML + ARIA attributes for accessibility
+- Focus states visible and consistent
+
+**Data-heavy components (dashboards, tables, calculators):**
+- Define data shape explicitly, mock with realistic data
+- Tables: sortable columns, row hover, pagination
+- Charts: axis labels, hover tooltips, accessible colors
+- Calculators: show formula or logic on hover/info
+- Skeleton loading per component — not full-page spinners
+- Handle max/min data edge cases in layout
+
+**Multi-step forms:**
+- Progress indicator visible at all times
+- Inline validation on blur, not just submit
+- Error messages specific and actionable
+- User input preserved on error
+- Review step on critical flows
 
 ### Step 6 — Add Fixture Tool
 
-Every implementation ships with a built-in scenario switcher. No exceptions.
+Every implementation ships with a scenario switcher. No exceptions.
 
-**Always include as a minimum:**
-- ✅ Happy path — everything works, data loaded, user is on track
-- ❌ Error state — something went wrong (network, validation, permission)
-- 📭 Empty state — no data yet, first-time user, zero results
-- ⏳ Loading state — async in progress
+**Minimum scenarios:**
+- ✅ Happy path — data loaded, flow works end-to-end
+- ❌ Error state — network failure, validation error, permission denied
+- 📭 Empty state — no data, first use, zero results
+- ⏳ Loading state — async in progress, skeletons visible
 
-**Add context-specific scenarios based on what's in the Figma:**
-- Different user roles (admin vs viewer, free vs paid)
-- Edge case data (long names, missing fields, max items)
-- Partial states (halfway through a flow, partially filled)
+**Add context-specific scenarios from the Figma:**
+- User roles (admin vs viewer, free vs paid)
+- Edge case data (long strings, missing fields, max items)
+- Partial states (halfway through flow, partial data)
 
-**Implementation pattern (adapt to framework):**
 ```js
 const SCENARIOS = {
   happy:   { user: 'Jane Doe', items: [...], status: 'active' },
@@ -95,29 +124,26 @@ const SCENARIOS = {
 };
 ```
 
-Render a small floating panel in the corner with buttons to switch scenarios.
-Visually distinct but unobtrusive — a testing tool, not part of the UI.
+Floating panel in corner — visually distinct, unobtrusive.
 
 ### Step 7 — Flag Gaps
 
-After implementation, note:
-- Any design ambiguities you resolved (and how)
+After implementing:
+- Design ambiguities you resolved (and how)
 - Missing states not shown in Figma
-- Anything that needs design system rules to be consistent long-term
+- Design system rules needed for consistency long-term
 
 ---
 
 ## Output
 
-Provide:
-1. The implementation code (complete, runnable, with fixture panel)
-2. A short summary of decisions made
-3. The list of scenarios included and what each tests
-4. Any gaps or flags for the designer/team
+1. Implementation code (complete, runnable, tokens defined, fixture panel included)
+2. Short summary of decisions made
+3. Scenarios included and what each tests
+4. Gaps and flags for the designer/team
 
 ---
 
 ## Handoff Note
 
-If this implementation is part of a larger product-lead workflow, signal completion
-with: "Implementation complete — ready for next step in the product-lead pipeline."
+If part of a product-lead workflow: "Implementation complete — ready for next step in the pipeline."

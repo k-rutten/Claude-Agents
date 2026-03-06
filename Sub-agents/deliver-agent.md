@@ -104,6 +104,21 @@ Rationale: [one sentence]
 
 ---
 
+**Site Architecture & Routing** (lean, prototype-first)
+
+For any multi-screen or app-level prototype, define the minimum viable structure:
+
+| Route / Screen | Path | Entry point |
+|---------------|------|-------------|
+| [Screen name] | /path | [How user gets here] |
+
+- Only include routes needed to test the core concept — no speculative pages
+- Shared layouts (nav, sidebar): note once, apply everywhere
+- Mobile-first: flag if responsive behavior matters for this prototype
+- Link every screen — a prototype you can't navigate isn't a prototype
+
+---
+
 
 **Fixture Scenarios**
 

@@ -85,6 +85,11 @@ Return exactly this structure:
 **Prioritized Focus for Develop**
 [One paragraph: which HMWs to lead with, constraints to honor, what's out of scope]
 
+**Data & Display Requirements** (if applicable)
+- Key data the user must see to complete their job
+- Calculation or aggregation logic that must work correctly
+- Real-time vs. static data needs
+
 ---
 
 ### 🔧 Knobs to Turn
