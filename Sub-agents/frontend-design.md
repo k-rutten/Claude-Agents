@@ -140,9 +140,11 @@ Apply these principles on every interface, without being asked:
 
 ---
 
-## Fixture Tool — Always Included
+## Fixture Tool & Analytics Panel — Always Included
 
-Every prototype ships with a built-in scenario switcher. No exceptions.
+Every prototype ships with both a scenario switcher and a built-in analytics panel. No exceptions.
+
+### Scenario Switcher
 
 **Always include:**
 - ✅ Happy path — data loaded, user on track
@@ -161,7 +163,36 @@ const SCENARIOS = {
 };
 ```
 
-Floating panel in corner — visually distinct, unobtrusive.
+### Analytics Panel (built-in, no external service)
+
+Every prototype also ships with a right-side analytics panel with two tabs:
+
+**📊 Data tab — live session metrics:**
+- Total events fired
+- Steps completed vs total
+- Errors encountered
+- Flow completion status
+- Time per step (bar chart)
+- Reverse-chronological event log
+
+**✦ Ask AI tab — Claude reads the data:**
+- Passes full event log + session stats to Claude via the Anthropic API
+- User asks natural language questions: "Where are people dropping off?", "Is the hypothesis confirmed?", "What's taking longest?"
+- Claude responds with specific, actionable analysis tied to the hypothesis
+
+**Analytics engine — always instrument these events:**
+```js
+track('flow_start', { scenario })         // on load / scenario switch
+track('step_start', { step })             // entering each step
+track('field_input', { step, field })     // on user input (debounced)
+track('error', { step, field, message })  // on validation failure
+track('step_complete', { step })          // on successful advance
+track('step_back', { step })             // on back navigation
+track('cta_click', { label, step })      // on any CTA
+track('flow_complete', {})               // on successful finish
+```
+
+The AI system prompt includes: event log, session stats, step timings, and the hypothesis under test (from the deliver-agent spec if available). The panel is a floating right-side drawer — always visible, never blocking the prototype.
 
 ---
 

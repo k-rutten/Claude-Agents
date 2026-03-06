@@ -144,9 +144,11 @@ For any multi-screen or app-level prototype, define the minimum viable structure
 ---
 
 
-**Fixture Scenarios**
+**Fixture & Analytics Spec**
 
-Every prototype must include a scenario switcher. Specify the fixtures for the builder:
+Every prototype must include a scenario switcher AND a built-in analytics panel with AI chat. Specify both for the builder:
+
+**Scenarios** (for the fixture switcher):
 
 | Scenario | Data / State | What it tests |
 |----------|-------------|---------------|
@@ -157,6 +159,19 @@ Every prototype must include a scenario switcher. Specify the fixtures for the b
 | [Context-specific] | [describe] | [what edge case this covers] |
 
 Add role-based, edge-case, or partial-state scenarios as relevant to the concept.
+
+**Analytics & Measurement Plan** (for the AI analytics panel):
+
+| Event name | Trigger | Maps to hypothesis |
+|-----------|---------|-------------------|
+| [event_name] | [when it fires] | [which hypothesis it validates] |
+
+- **Hypothesis under test:** [copied from define-agent output]
+- **Primary metric:** [completion rate / time-on-task / error rate / etc.]
+- **Success threshold:** [specific number — "we were right when X% complete step Y"]
+- **Failure signal:** [what tells us to rethink]
+
+The builder must instrument every event in this table and wire them to the AI analytics panel (built-in, no external service). The panel ships with two tabs: live data (metrics, step timings, event log) and AI chat (Claude reads the session data and answers natural language questions about it).
 
 ---
 

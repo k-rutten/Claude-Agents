@@ -111,11 +111,11 @@ Identify before writing a line:
 - Design system patterns applied consistently
 - Accessibility attributes throughout
 
-### Step 6 — Add Fixture Tool
+### Step 6 — Add Fixture Tool & Analytics Panel
 
-Every implementation ships with a built-in scenario switcher. No exceptions.
+Every implementation ships with both a scenario switcher and a built-in analytics panel. No exceptions.
 
-**Minimum scenarios:**
+**Scenario switcher — minimum scenarios:**
 - ✅ Happy path — data loaded, user on track
 - ❌ Error state — failure with helpful message
 - 📭 Empty state — no data, zero results
@@ -135,7 +135,24 @@ const SCENARIOS = {
 };
 ```
 
-Floating panel in the corner — visually distinct, unobtrusive.
+**Analytics panel — always ship alongside the prototype:**
+
+A right-side panel with two tabs (never blocks the prototype):
+
+**📊 Data tab:** total events, steps completed, errors hit, completion status, time per step (bar chart), reverse-chronological event log.
+
+**✦ Ask AI tab:** Claude reads the full session data (event log, timings, stats, hypothesis) via the Anthropic API and answers natural language questions. Suggested prompts: "Where are people dropping off?", "Is the hypothesis confirmed?", "What's taking the most time?"
+
+**Always instrument these events:**
+```js
+track('flow_start', { scenario })
+track('step_start', { step })
+track('field_input', { step, field })
+track('error', { step, field, message })
+track('step_complete', { step })
+track('cta_click', { label, step })
+track('flow_complete', {})
+```
 
 ### Step 7 — Flag Gaps
 
