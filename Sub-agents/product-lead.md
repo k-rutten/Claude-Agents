@@ -82,7 +82,7 @@ Update project spec. Carry into next phase brief.
 - `define-agent` — Phase 2: problem definition and POV
 - `develop-agent` — Phase 3: concept directions and flows
 - `deliver-agent` — Phase 4: buildable specs + lean IA
-- `ux-design` — Visual direction, design system, component inventory (after deliver-agent, before builders)
+- `ux-design` — Visual and interaction design direction, UX reviews, design system decisions
 - `frontend-design` — greenfield UI build (no Figma)
 - `implement-design` — Figma → production code
 
