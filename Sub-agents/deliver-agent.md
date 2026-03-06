@@ -31,7 +31,8 @@ The bridge between thinking and making.
 Deliver:
 - Prioritized screen / state list
 - Interaction notes per screen (behavior and logic, not visual design)
-- Data and content requirements
+- Lean site architecture (navigation, routing, IA — MVP-scoped)
+- Data and content requirements (including data-heavy components if applicable)
 - A test script for validating the prototype
 - An MVP scope decision: what's in, what's out
 
@@ -52,10 +53,11 @@ If any are missing, do not proceed. Ask product-lead to provide them.
 ## Process (run internally, don't narrate)
 
 1. Define MVP scope — smallest thing to test the core concept
-2. List all screens / states in priority order
-3. For each screen: key elements, interactions, edge cases, content needs
-4. Identify data and integration requirements
-5. Write a test script focused on the success metrics from Define
+2. Define lean IA — navigation structure, max 2 levels, route names
+3. List all screens / states in priority order
+4. For each screen: key elements, interactions, edge cases, content needs
+5. Identify data and integration requirements (flag data-heavy components)
+6. Write a test script focused on the success metrics from Define
 
 ---
 
@@ -71,6 +73,28 @@ Return exactly this structure:
 In: [screens / flows included]
 Out (later): [explicitly deferred]
 Rationale: [one sentence]
+
+---
+
+**Site / App Architecture** (lean prototype scope)
+
+Define the routing and IA before listing screens. For a prototype, this should be minimal.
+
+| Route / Section | Purpose | Priority |
+|----------------|---------|---------|
+| [path or section] | [one sentence] | Must-have / Nice-to-have |
+
+Navigation pattern: [single page / tab bar / sidebar / stepper / none]
+Placeholder pages (not built, just linked): [list any]
+
+---
+
+**Site Architecture (Lean)**
+
+Navigation: [primary items — max 3–5]
+Depth: [max 2 levels for MVP]
+Key routes: [list with user-action names e.g. /review not /dashboard-review-mode]
+Progressive disclosure: [what's hidden until needed]
 
 ---
 

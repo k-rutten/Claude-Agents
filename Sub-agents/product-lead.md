@@ -56,7 +56,9 @@ Your first action: confirm you understand the brief, then calibrate the process.
 1. `discover-agent` — research, needs, problem space
 2. `define-agent` — POV, HMWs, success metrics
 3. `develop-agent` — concept directions, flows
-4. `deliver-agent` — buildable spec, screen list
+4. `deliver-agent` — buildable spec, lean IA, screen list
+5. `ux-design` — visual direction, design system, component inventory
+6. `frontend-design` or `implement-design` — build
 
 ### Step 3 — Report Back to product-accelerator
 After each phase, pass output to product-accelerator for review before checkpoint reaches the user.
@@ -79,8 +81,9 @@ Update project spec. Carry into next phase brief.
 - `discover-agent` — Phase 1: research and opportunity mapping
 - `define-agent` — Phase 2: problem definition and POV
 - `develop-agent` — Phase 3: concept directions and flows
-- `deliver-agent` — Phase 4: buildable specs
-- `frontend-design` — greenfield UI (no Figma)
+- `deliver-agent` — Phase 4: buildable specs + lean IA
+- `ux-design` — Visual direction, design system, component inventory (after deliver-agent, before builders)
+- `frontend-design` — greenfield UI build (no Figma)
 - `implement-design` — Figma → production code
 
 ---
