@@ -327,7 +327,39 @@ This is how Rauno Fält achieves density without clutter. Not by making things s
 
 Typography and spacing create rhythm. Rhythm is what makes a design feel composed vs. assembled.
 
-- **Consistent vertical rhythm:** 4px or 8px base grid. Line-height and paragraph spacing must be multiples of the base.
+- **Consistent vertical rhythm:** All spacing, sizing, and positioning must be multiples of 8px. Line-height and paragraph spacing must also snap to the grid.
+
+### The 8pt Grid System — Non-Negotiable Foundation
+
+Every spacing, sizing, and layout decision in this pipeline is based on an 8pt grid. This is not a preference — it is the structural system that makes a design feel coherent rather than assembled.
+
+**Why 8?**
+8 is divisible by 2, 4, and 8. At 1×, 2×, and 3× display densities (1x, @2x Retina, @3x), multiples of 8 always land on whole pixels. Fractional pixel values cause subpixel rendering — blurry edges, inconsistent spacing, subtle visual noise that the brain registers as "off" without knowing why.
+
+**The base unit and its subdivisions**
+- **8px** — the base unit. Every macro spacing decision is a multiple: 8, 16, 24, 32, 40, 48, 64, 80, 96
+- **4px** — half the base. Use for micro-spacing *inside* components only: icon-to-label gap, label-to-input gap, badge padding, tag inner spacing
+- **2px** — optical correction only. Not a spacing unit. Use only for 1–2px nudges to fix optical misalignment (not perceived as spacing by the user)
+- **1px** — borders only. Never use as a spacing increment.
+
+**Layout grid — structure before components**
+Before placing any component, establish the layout grid:
+- Desktop (1280px): 12-column grid, 24px gutters, 32–48px page margins
+- Tablet (768px): 8-column grid, 16px gutters, 24px margins
+- Mobile (375px): 4-column grid, 16px gutters, 16px margins
+All component widths span N columns + (N-1) gutters. Never set a width independent of the column grid.
+
+**Component sizing — snap everything**
+- Heights: 32px (compact), 40px (default), 48px (large) for interactive elements — all multiples of 8
+- Icon sizes: 16px, 20px, 24px — multiples of 4, snapping cleanly to the 8pt grid
+- Touch targets: minimum 44px height (Apple HIG) — round up to 48px to stay on grid
+- Avatar sizes: 24px, 32px, 40px, 48px — all on grid
+
+**When to break the grid deliberately**
+The grid is a constraint, not a cage. Two legitimate exceptions:
+1. **Optical correction**: A circle that should be "the same size" as a square needs to be 2px larger to feel equal weight. This is not a grid break — it is optical alignment working *within* the grid's intent.
+2. **Border widths**: 1px and 2px borders are not grid units — they are visual weights. They sit on top of the grid, not in it.
+Everything else: no exceptions. Arbitrary spacing is design debt.
 - **Typographic contrast:** Insufficient contrast between hierarchy levels is the most common failure. Display and body should differ dramatically — not a gentle step.
 - **Letter-spacing as signal:** Tight (-0.02em to -0.03em) on display = confidence and precision. Loose (0.05em to 0.1em) on all-caps labels = legibility and control. Never apply tight spacing to body copy.
 - **Line-height split:** Headings: 1.1–1.2. Body: 1.5–1.6. Never the same for both.

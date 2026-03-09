@@ -62,6 +62,10 @@ Extract all values from the Figma design and define them as tokens.
   --text-sm: [from Figma]; --text-base: [from Figma]; --text-lg: [from Figma];
 
   --space-1: 4px; --space-2: 8px; --space-4: 16px; --space-6: 24px; --space-8: 32px;
+```
+
+**8pt grid verification:**
+When extracting spacing from Figma, verify every value is a multiple of 8px (or 4px for tight inner spacing). If Figma contains off-grid values (e.g. 10px, 14px, 18px padding), flag them to the designer before implementing — do not silently implement broken spacing. Off-grid values indicate either a missing grid constraint in Figma or an intentional optical correction (2px nudge max). Ask which it is.
 
   --radius-sm: [from Figma]; --radius-md: [from Figma]; --radius-lg: [from Figma];
   --shadow-sm: [from Figma]; --shadow-md: [from Figma];

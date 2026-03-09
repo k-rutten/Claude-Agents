@@ -35,7 +35,7 @@ These two inputs determine font, color, density, motion timing, and copy tone. W
 **Never use hardcoded values.** Always define and use design tokens for:
 - Colors (primary, secondary, neutral, semantic: success/error/warning/info)
 - Typography (size scale, weight, line-height, font families)
-- Spacing (4px or 8px base scale)
+- Spacing (8pt grid — all values must be multiples of 8px at the macro level, 4px for micro-spacing inside components)
 - Border radius, shadow, z-index
 
 **Token pattern (adapt to framework):**
@@ -49,11 +49,15 @@ const tokens = {
     warning: '#F59E0B',
     neutral: { 100: '#F8FAFC', 500: '#64748B', 900: '#0F172A' },
   },
+  // 8pt grid: every value is a multiple of 8 (4pt for micro-spacing inside components)
   space: { 1: '4px', 2: '8px', 3: '12px', 4: '16px', 6: '24px', 8: '32px', 12: '48px', 16: '64px' },
   radius: { sm: '4px', md: '8px', lg: '16px', full: '9999px' },
   font: { sans: "'DM Sans', system-ui, sans-serif", mono: "'JetBrains Mono', monospace" },
 };
 ```
+
+**The 8pt grid rule for implementation:**
+Every margin, padding, gap, width, and height value must be a multiple of 8px — or 4px for tight inner spacing (icon-to-label, label-to-input). No arbitrary values. If a spacing decision requires a value not in the scale, the design decision is wrong — not the scale. Use the nearest grid value and flag it.
 
 ---
 
