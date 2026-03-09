@@ -163,57 +163,135 @@ More choice creates more anxiety, less satisfaction, and higher regret.
 
 ---
 
-## Visual Composition — How the Eye Moves
+## Visual Composition — How the Eye Moves in Apps
 
-Gestalt governs grouping. Composition governs *flow* — how the eye enters, travels through, and lands on what matters. These are different skills.
+Gestalt governs grouping. Composition governs *flow* — how the eye enters, travels through, and lands on what matters. These are different skills, and they work differently in apps, dashboards, and platforms than they do on landing pages.
 
-### Reading Patterns
+**Scope:** These patterns apply to product interfaces — SaaS tools, dashboards, platforms, internal tools. Not marketing pages.
 
-**F-Pattern** — Users scan left-to-right on the first line, then progressively shorter horizontal scans, then a vertical scan down the left edge.
-*Apply:* Place the most important information in the top-left zone and along the left edge. Headers at the top earn full attention; body copy mid-screen gets skimmed; bottom-right corners are nearly invisible.
-*Violate when:* The content is highly visual or data-dense — then switch to Z-pattern thinking.
+### Scanning Patterns in App Interfaces
 
-**Z-Pattern** — Eyes start top-left, sweep to top-right, diagonal down to bottom-left, sweep to bottom-right.
-*Apply:* The natural rhythm of marketing pages, landing pages, hero sections. The hero image/headline → supporting statement → CTA follows this diagonal naturally.
-*Use for:* Sparse, high-hierarchy pages where the CTA is the destination.
+**Dashboard scanning — the inverted-T**
+Users scanning a data dashboard look at page-level controls first (filters, date ranges, top navigation), then scan column headers or section titles horizontally, then drop vertically through the first column of data looking for anomalies.
+*Apply:* Place the most important KPI or status indicator top-left in the content area — it's the first data point eyes land on. Design filters and controls to live at the top of each section, not scattered. Group related metrics in columns, not rows — the vertical scan finds them faster.
 
-**Gutenberg Diagram** — Attention is highest in top-left (primary optical area) and bottom-right (terminal area). Top-right and bottom-left are low-attention dead zones.
-*Apply:* Logo top-left (highest trust). CTA bottom-right (natural terminus of the journey). Navigation top-right (glanced, not read). Footer bottom-left (fine print lives here without apology).
+**Sidebar navigation — the home-base pattern**
+In sidebar-nav apps, the eye anchors to the nav rail as a "home base" and returns to it after every action. The content area is processed between nav glances.
+*Apply:* Active nav item must have the highest contrast in the sidebar at all times — this is the user's location signal. Content area left edge (immediately right of the nav) gets the most attention — primary content belongs there. Right edge of the content area is the lowest attention zone; use it for supplementary info, never for required actions.
 
-### Visual Weight
+**Card/grid scanning — column-first in professional tools**
+Professionals scanning card grids in B2B tools read column-by-column, not row-by-row. They're looking for the first card that matches a pattern, not reading every card.
+*Apply:* Primary identifying information (name, title, status) goes top-left of each card. Secondary metadata bottom. Status indicators and action triggers top-right of each card — that's where the eye moves after the primary identifier.
 
-Every element has weight. Heavier elements pull the eye. Composition is the management of pull.
+**Table scanning — the fixed anchor**
+Users scanning tables fix on the leftmost column (primary identifier) and scan vertically. Numerical columns are scanned with the eye jumping to the rightmost value in each row.
+*Apply:* Primary identifier always leftmost, frozen on scroll. Numbers right-aligned always — left-aligned numbers cannot be compared at a glance. Status or severity indicators in a dedicated narrow leftmost column (before the identifier) — they need to break normal scan flow to be effective.
+
+### Visual Weight — Managing Focal Hierarchy
+
+Every element has weight. Heavier elements pull the eye. Composition is the deliberate management of attention.
 
 **What increases visual weight:**
 - Size: larger = heavier
 - Color: saturated and dark > muted and light
-- Contrast: high contrast element pulls from a low contrast field
-- Complexity: detailed illustration vs. flat icon
+- Contrast: high-contrast element pulls from a low-contrast field
 - Isolation: an element surrounded by whitespace is heavier than one in a group
+- Motion: any moving element immediately dominates a static composition
 
-**Rules:**
+**Rules for app composition:**
 - The eye always goes to the highest contrast element first — design this deliberately
 - One element should dominate visually per section. If everything competes, nothing wins.
+- Status indicators (errors, warnings, alerts) must have the highest visual weight in their region — they need to interrupt the normal scan path
+- Primary actions must be visually heavier than secondary actions. If they look the same weight, one of them is wrong.
 - Whitespace is not empty — it is the lightest element in the composition, and it controls the weight of everything around it
+
+### App Viewport & Chrome Constraints
+
+B2B apps and platforms are primarily desktop experiences used by professionals. Design for this reality.
+
+**Typical working viewport:** 1280–1440px wide. Design for 1280px minimum, test at 1440px.
+
+**Persistent chrome eats canvas:**
+- Top header/navbar: 48–64px
+- Sidebar navigation: 240–280px collapsed, 64px icon-only
+- Remaining content area: ~960–1100px at 1280px viewport
+
+*Apply:* The content canvas is smaller than it looks. Every composition decision must account for persistent chrome. Never design full-bleed at 1440px without checking what happens at 1280px with a sidebar.
+
+**Density is a feature in professional tools:**
+- Loose, airy layouts work for consumer apps. Professional tools used 8+ hours/day by trained users benefit from higher information density.
+- European B2B users especially: prefer efficiency over decoration. Whitespace signals "not enough data" in a dashboard context, not "premium."
+- Rule: design for information density appropriate to the user's task frequency. Daily-use tools → tighter. Infrequent-use tools → more breathing room.
+
+### App-Specific Composition Patterns
+
+**Sidebar navigation composition**
+The sidebar is not secondary — it's the primary orientation layer.
+- Active state must be unmistakable: background color + text weight change, not just color
+- Section groupings in the nav must use visual weight (section label lighter than items), not borders
+- Icon + label is always better than icon-only for primary nav items in professional tools (users shouldn't need to hover to know where they are)
+- Never hide the nav by default — it's the user's map
+
+**Modal and overlay depth**
+Depth is a composition dimension. Apps have a z-axis.
+- Backdrop overlay communicates that background content is suspended — it must be visually subdued (40–50% opacity dark) but not completely obscured
+- Modal should have one clear focal point — the primary action. Every other element in the modal is subordinate.
+- Nested modals are always wrong. Find another pattern.
+- Sheet/drawer (slides from edge) = additive context, user stays in flow. Modal = full interrupt, requires decision before proceeding. Use appropriately.
+
+**Multi-panel layouts**
+When a screen has multiple distinct panels (nav + list + detail), establish a clear visual hierarchy between them.
+- The "active" panel (where the user is currently working) should have the highest visual weight of all panels
+- Dividers between panels: use background color difference, never a visible border line — borders add visual noise without adding information
+- The reading direction is always left-to-right: nav → list → detail. Never reverse this without deliberate reason.
 
 ### Visual Rhythm
 
 Typography and spacing create rhythm. Rhythm is what makes a design feel composed vs. assembled.
 
-- **Consistent vertical rhythm:** Use a baseline grid (typically 4px or 8px). Line-height and paragraph spacing should be multiples of the base.
-- **Typographic contrast:** The biggest sin in typography is insufficient contrast between levels. The ratio between display and body should be dramatic — not a gentle step.
-- **Letter-spacing as signal:** Tight letter-spacing (-0.02em to -0.03em) on display text creates confidence and precision. Loose letter-spacing on all-caps labels (0.05em to 0.1em) creates legibility and control. Never apply tight spacing to body copy.
-- **Line-height split:** Headings: 1.1–1.2. Body: 1.5–1.6. Never use the same line-height for both.
+- **Consistent vertical rhythm:** Use a baseline grid (4px or 8px). Line-height and paragraph spacing must be multiples of the base.
+- **Typographic contrast:** The biggest sin in product typography is insufficient contrast between hierarchy levels. Display and body should differ dramatically — not a gentle step.
+- **Letter-spacing as signal:** Tight letter-spacing (-0.02em to -0.03em) on display text = confidence and precision. Loose letter-spacing on all-caps labels (0.05em to 0.1em) = legibility and control. Never apply tight spacing to body copy.
+- **Line-height split:** Headings: 1.1–1.2. Body: 1.5–1.6. Never the same for both.
 
-### Above-the-Fold Strategy
+---
 
-The viewport on load is the product's argument. It must answer three questions before the user scrolls:
-1. What is this?
-2. Who is it for?
-3. Why should I care right now?
+## European User Context — Always Applied
 
-If a user has to scroll to answer any of these — the above-the-fold is broken.
-The primary CTA should be visible without scrolling on the most common viewport size.
+The products in this pipeline are designed for European users, primarily in professional/B2B contexts. European user behaviour and preferences differ meaningfully from the US-centric defaults that dominate most design thinking.
+
+### Information Density Preference
+European professional users — particularly Dutch, German, Scandinavian, and French B2B users — prefer higher information density than their US counterparts.
+- A screen that feels "clean and spacious" to an American eye can feel "empty and unfinished" to a European professional.
+- In dashboard and platform contexts: show more data, not less. Earn whitespace; don't default to it.
+- Tabular data should be dense. A European accountant or analyst expects to see all their data — not have it paginated into unnecessary steps.
+
+### Trust and Directness
+European users are more skeptical of marketing language and performance-optimised copy patterns.
+- Drop the superlatives. "The world's most powerful platform" reads as hollow to a Dutch or German user.
+- Direct, functional copy > persuasive microcopy. "Save" not "Save your progress." "Submit" not "Submit and join thousands of happy customers."
+- Trust is earned through consistency and restraint, not through social proof banners and urgency patterns.
+- Empty states should be informative and helpful, not cheerleader-y. "You haven't added any projects yet. Add one →" not "Wow, it's so empty here! Let's get started 🚀"
+
+### Privacy and GDPR Visual Patterns
+GDPR compliance is not optional and must be designed with care, not bolted on.
+- Cookie consent: must be genuinely equal-choice — Accept and Decline must be visually equal weight. Never a bold Accept with a greyed-out Decline.
+- Privacy notices: must be accessible and legible, not hidden in 8px grey text
+- Data collection forms: label exactly what data is collected and why, adjacent to the field — not in a separate privacy policy link
+- Deletion and data export flows: must be first-class user actions, not buried in account settings
+
+### Language and Localisation Readiness
+Many European B2B products serve multilingual teams or need to localise.
+- Design for string expansion: Dutch, German, and French text typically runs 20–30% longer than English equivalents. Buttons and labels must accommodate this.
+- Never hard-code text widths. Flexible containers always.
+- Date formats: DD/MM/YYYY is standard across most of Europe. Never assume MM/DD/YYYY.
+- Number formats: 1.000,00 (dot as thousands separator, comma as decimal) is standard in NL, DE, and most of continental Europe. Design number inputs to handle this.
+
+### Functional Aesthetic Preference
+European product design taste leans toward functional, considered, and restrained over playful, expressive, and startup-casual.
+- Reference: Moleskine, Braun, Aesop — considered, purposeful, nothing wasted
+- Illustration and decoration should be sparse and intentional, not filling empty space
+- Color palettes tend toward more muted, considered choices. Loud brand colors work for consumer brands; B2B European users respond better to confident restraint.
 
 ---
 
@@ -539,6 +617,10 @@ Never ship Functional. Never accept Good as done if Polished is achievable.
 Chase Exquisite on every deliverable — even if the brief doesn't ask for it.
 
 ---
+
+## Pattern-Specific Guidance
+
+### Complex Forms
 - Map the full field list before designing anything
 - Group fields into logical steps by cognitive theme, not arbitrary count
 - Identify field dependencies (conditional logic) — design the branches
