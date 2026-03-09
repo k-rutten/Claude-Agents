@@ -163,29 +163,32 @@ More choice creates more anxiety, less satisfaction, and higher regret.
 
 ---
 
-## Visual Composition — How the Eye Moves in Apps
+## Visual Composition — How the Eye Moves
 
-Gestalt governs grouping. Composition governs *flow* — how the eye enters, travels through, and lands on what matters. These are different skills, and they work differently in apps, dashboards, and platforms than they do on landing pages.
+Gestalt governs grouping. Composition governs *flow* — how the eye enters, travels through, and lands on what matters. These are different skills.
 
-**Scope:** These patterns apply to product interfaces — SaaS tools, dashboards, platforms, internal tools. Not marketing pages.
+Reading psychology doesn't change based on medium. The F-pattern, Z-pattern, and Gutenberg Diagram apply wherever humans read and scan — including apps, dashboards, and platforms. The context changes how you apply them, not whether they apply.
 
-### Scanning Patterns in App Interfaces
+### Universal Reading Patterns — Applied to Apps
 
-**Dashboard scanning — the inverted-T**
-Users scanning a data dashboard look at page-level controls first (filters, date ranges, top navigation), then scan column headers or section titles horizontally, then drop vertically through the first column of data looking for anomalies.
-*Apply:* Place the most important KPI or status indicator top-left in the content area — it's the first data point eyes land on. Design filters and controls to live at the top of each section, not scattered. Group related metrics in columns, not rows — the vertical scan finds them faster.
+**F-Pattern — any text-heavy or list-heavy screen**
+The eye scans fully across the first item, then progressively shorter horizontal scans, then drops vertically down the left edge.
+*Where it applies in apps:* Content feeds, notification lists, settings screens, search results, activity logs, sidebar navigation, any vertically scrollable list.
+*Apply:* The most important identifier in each row belongs on the left. Status indicators, names, titles — left edge. Secondary metadata, timestamps, actions — right side (lower attention). The leftmost column is the scan column — if it's ambiguous or cluttered, the entire list fails.
+*Anti-pattern:* Right-aligning primary identifiers in a list because it looks "balanced" — users never see them.
 
-**Sidebar navigation — the home-base pattern**
-In sidebar-nav apps, the eye anchors to the nav rail as a "home base" and returns to it after every action. The content area is processed between nav glances.
-*Apply:* Active nav item must have the highest contrast in the sidebar at all times — this is the user's location signal. Content area left edge (immediately right of the nav) gets the most attention — primary content belongs there. Right edge of the content area is the lowest attention zone; use it for supplementary info, never for required actions.
+**Z-Pattern — sparse, high-hierarchy screens**
+The eye starts top-left, sweeps to top-right, diagonals down to bottom-left, sweeps to bottom-right.
+*Where it applies in apps:* Onboarding steps, confirmation dialogs, empty states, modal content, welcome screens, single-focus flows.
+*Apply:* Top-left: context or product identity. Top-right: secondary status or skip action. Bottom-left: supporting information. Bottom-right: the primary action — it's the natural terminus of the Z path. This is why "Next" and "Confirm" buttons work in the bottom-right. It's not convention — it's the end of the eye path.
+*Anti-pattern:* Centering the primary CTA on a sparse modal screen — it breaks the Z flow and makes the eye work harder to land.
 
-**Card/grid scanning — column-first in professional tools**
-Professionals scanning card grids in B2B tools read column-by-column, not row-by-row. They're looking for the first card that matches a pattern, not reading every card.
-*Apply:* Primary identifying information (name, title, status) goes top-left of each card. Secondary metadata bottom. Status indicators and action triggers top-right of each card — that's where the eye moves after the primary identifier.
-
-**Table scanning — the fixed anchor**
-Users scanning tables fix on the leftmost column (primary identifier) and scan vertically. Numerical columns are scanned with the eye jumping to the rightmost value in each row.
-*Apply:* Primary identifier always leftmost, frozen on scroll. Numbers right-aligned always — left-aligned numbers cannot be compared at a glance. Status or severity indicators in a dedicated narrow leftmost column (before the identifier) — they need to break normal scan flow to be effective.
+**Gutenberg Diagram — applies at the component level, not just page level**
+Primary optical area: top-left (highest attention). Terminal area: bottom-right (natural landing point). Low attention zones: top-right and bottom-left.
+*Where it applies in apps:* Every individual card, tile, table row, modal, and dashboard widget obeys Gutenberg internally — not just full pages.
+*Apply in cards:* Primary title top-left. Status or priority indicator top-right (glanced, not read deeply). Key metric or description middle. Primary action bottom-right (where the eye finishes). Secondary/destructive actions bottom-left (low attention is a feature here — harder to accidentally trigger).
+*Apply in dashboard tiles:* Metric value and label top-left. Change indicator (up/down, %) top-right. Sparkline or trend across the middle. Context or time range bottom-left.
+*Anti-pattern:* Putting the primary action top-right on a card because "that's where edit/delete usually goes" — top-right is the glance zone, not the action zone.
 
 ### Visual Weight — Managing Focal Hierarchy
 
@@ -200,58 +203,86 @@ Every element has weight. Heavier elements pull the eye. Composition is the deli
 
 **Rules for app composition:**
 - The eye always goes to the highest contrast element first — design this deliberately
-- One element should dominate visually per section. If everything competes, nothing wins.
-- Status indicators (errors, warnings, alerts) must have the highest visual weight in their region — they need to interrupt the normal scan path
-- Primary actions must be visually heavier than secondary actions. If they look the same weight, one of them is wrong.
-- Whitespace is not empty — it is the lightest element in the composition, and it controls the weight of everything around it
+- One element dominates visually per section. If everything competes, nothing wins.
+- Status indicators (errors, warnings, alerts) must have the highest visual weight in their region — they must interrupt the normal scan path
+- Primary actions must be visually heavier than secondary actions. If they weigh the same, one is wrong.
+- Whitespace is not empty — it is the lightest element in the composition, controlling the weight of everything around it
 
 ### App Viewport & Chrome Constraints
 
-B2B apps and platforms are primarily desktop experiences used by professionals. Design for this reality.
+B2B apps and platforms are primarily desktop experiences. Design for this reality.
 
-**Typical working viewport:** 1280–1440px wide. Design for 1280px minimum, test at 1440px.
+**Typical working viewport:** 1280–1440px. Design for 1280px minimum, test at 1440px.
 
-**Persistent chrome eats canvas:**
+**Persistent chrome consumes canvas:**
 - Top header/navbar: 48–64px
-- Sidebar navigation: 240–280px collapsed, 64px icon-only
-- Remaining content area: ~960–1100px at 1280px viewport
+- Sidebar navigation: 240–280px full, 64px icon-only
+- Remaining content area at 1280px: ~960–1100px
 
-*Apply:* The content canvas is smaller than it looks. Every composition decision must account for persistent chrome. Never design full-bleed at 1440px without checking what happens at 1280px with a sidebar.
+The content canvas is smaller than it looks. Never design full-bleed compositions without accounting for sidebar. The first thing that breaks when a sidebar is added is compositions designed at full viewport width.
 
-**Density is a feature in professional tools:**
-- Loose, airy layouts work for consumer apps. Professional tools used 8+ hours/day by trained users benefit from higher information density.
-- European B2B users especially: prefer efficiency over decoration. Whitespace signals "not enough data" in a dashboard context, not "premium."
-- Rule: design for information density appropriate to the user's task frequency. Daily-use tools → tighter. Infrequent-use tools → more breathing room.
+**Density as a feature:**
+Professional tools used daily by trained users need information density. Airy consumer-product spacing signals "not enough data" in a B2B dashboard context.
+- Daily-use power tools → tighter density, more visible data, less decorative spacing
+- Infrequent-use tools → more breathing room, more guidance visible
+- European B2B users: lean toward higher information density than US-centric defaults. Whitespace reads as empty, not premium.
 
-### App-Specific Composition Patterns
+### Scanning Patterns Specific to App Surface Types
 
-**Sidebar navigation composition**
-The sidebar is not secondary — it's the primary orientation layer.
-- Active state must be unmistakable: background color + text weight change, not just color
-- Section groupings in the nav must use visual weight (section label lighter than items), not borders
-- Icon + label is always better than icon-only for primary nav items in professional tools (users shouldn't need to hover to know where they are)
-- Never hide the nav by default — it's the user's map
+**Dashboard surfaces — inverted-T scan**
+Users scan page-level controls first (date range, filters, top nav), sweep horizontally across section headings, then drop vertically through each column of data looking for anomalies.
+*Apply:* Most critical KPI top-left content area. Filters and controls at the top of each section, never scattered. Group related metrics in columns — the vertical scan finds them. Design explicitly for the "anomaly-seeking" mindset: make outliers visually distinct, not buried in uniform formatting.
 
-**Modal and overlay depth**
-Depth is a composition dimension. Apps have a z-axis.
-- Backdrop overlay communicates that background content is suspended — it must be visually subdued (40–50% opacity dark) but not completely obscured
-- Modal should have one clear focal point — the primary action. Every other element in the modal is subordinate.
-- Nested modals are always wrong. Find another pattern.
-- Sheet/drawer (slides from edge) = additive context, user stays in flow. Modal = full interrupt, requires decision before proceeding. Use appropriately.
+**Sidebar nav surfaces — home-base pattern**
+The eye anchors to the nav rail and returns after every action. Content area is processed in between nav glances.
+*Apply:* Active state must be unmistakable — background color + weight change, not color alone. Primary content immediately right of the nav gets the highest content-area attention. Far right edge of the content area is lowest attention — supplementary info only, never required actions.
 
-**Multi-panel layouts**
-When a screen has multiple distinct panels (nav + list + detail), establish a clear visual hierarchy between them.
-- The "active" panel (where the user is currently working) should have the highest visual weight of all panels
-- Dividers between panels: use background color difference, never a visible border line — borders add visual noise without adding information
-- The reading direction is always left-to-right: nav → list → detail. Never reverse this without deliberate reason.
+**Table surfaces — fixed anchor scan**
+Users fix on the leftmost column (primary identifier) and scan vertically. Numerical columns: eye jumps to rightmost digit of each row for comparison.
+*Apply:* Primary identifier leftmost, frozen on scroll. Numbers always right-aligned — left-aligned numbers cannot be compared at a glance. Status/severity as a narrow dedicated column before the primary identifier — needs to break the normal scan path to be effective.
+
+**Card/grid surfaces — pattern-matching scan in professional tools**
+Professional B2B users scan card grids looking for the first match to a pattern, not reading every card. They're comparing, not discovering.
+*Apply:* Primary identifier top-left of each card (F-pattern applied at card level). Status indicators top-right (glance zone). Primary action bottom-right (Gutenberg terminal area). Design for comparison — consistent card structure matters more than individual card expressiveness.
+
+### Reference Systems — Principles, Not Templates
+
+Apple HIG and Material Design are principle sources, not pattern libraries. Applying either system literally produces products that look like Apple apps or Google products — which is the opposite of a product with its own identity. Extract what explains *why* patterns work. Derive your own execution from the brand concept.
+
+**From Apple HIG — what's worth taking:**
+
+*Depth as spatial language:* iOS uses layers (base content → elevated sheets → overlaid modals) to communicate context and interruption level without borders. Higher = more temporary, more attention-demanding. Lower = ambient, background.
+*Apply:* Design with a z-axis. Content on the base layer. Contextual drawers and panels slightly elevated. Full-interrupt modals fully overlaid. The elevation communicates the severity of the interruption — don't flatten everything.
+
+*Navigation clarity — always know where you are:* HIG insists on unambiguous back navigation and clear hierarchy position. Users should never have to think about how to get back.
+*Apply:* Back actions are always available when the user is in a nested context. Current location in hierarchy is always visible. Never trap users in a flow without a clear escape that preserves their work.
+
+*Discoverability through progressive disclosure:* Complexity is revealed on demand, not front-loaded. Secondary actions live in menus, long-press, or swipe — not cluttering primary views.
+*Apply:* Map every action in a screen to primary (visible), secondary (one tap away), or destructive (confirmed, never accidental). Visible actions should be only what's needed to take the next step.
+
+**From Material Design — what's worth taking:**
+
+*Motion choreography — spatial continuity:* When an element transforms into a new view (a card expanding into a detail page), maintain spatial continuity — the animation should make clear that the new view *came from* the card. This is the container transform pattern.
+*Apply:* Any transition where content moves from one state to another should preserve the spatial relationship. List item → detail: the detail should expand from where the item was. Don't teleport content — move it.
+
+*Shared element transitions:* When navigating between views, elements shared between them (an image, a title, a card) should animate as continuous objects — not disappear and reappear.
+*Apply:* Identify which elements are "the same thing" across a navigation transition. Animate them as continuous. Everything else fades or slides behind.
+
+*Elevation as communication:* Material's shadow system communicates that elevated elements are interactive, temporary, or above the base layer. The shadow isn't decoration — it's information.
+*Apply:* Consistent shadow system: zero elevation for flat background content, subtle shadow for interactive cards, moderate shadow for floating action elements, full overlay shadow for dialogs. Shadow = "I'm interactive or temporary." No shadow = "I'm part of the background."
+
+**The rule on both systems:**
+Use the principles to understand *why* certain behaviours feel right. Use the brand concept to decide *how* those behaviours are expressed visually. A product with a "speed / craft / precision" concept should apply HIG's navigation clarity with zero decoration and fast transitions — not Apple's specific visual language. A product with "alive / heartbeat / creative energy" should apply Material's container transforms with spring physics and warm colors — not Google's specific elevation style.
+
+Never copy the component. Understand the principle. Express it through the concept.
 
 ### Visual Rhythm
 
 Typography and spacing create rhythm. Rhythm is what makes a design feel composed vs. assembled.
 
-- **Consistent vertical rhythm:** Use a baseline grid (4px or 8px). Line-height and paragraph spacing must be multiples of the base.
-- **Typographic contrast:** The biggest sin in product typography is insufficient contrast between hierarchy levels. Display and body should differ dramatically — not a gentle step.
-- **Letter-spacing as signal:** Tight letter-spacing (-0.02em to -0.03em) on display text = confidence and precision. Loose letter-spacing on all-caps labels (0.05em to 0.1em) = legibility and control. Never apply tight spacing to body copy.
+- **Consistent vertical rhythm:** 4px or 8px base grid. Line-height and paragraph spacing must be multiples of the base.
+- **Typographic contrast:** Insufficient contrast between hierarchy levels is the most common failure. Display and body should differ dramatically — not a gentle step.
+- **Letter-spacing as signal:** Tight (-0.02em to -0.03em) on display = confidence and precision. Loose (0.05em to 0.1em) on all-caps labels = legibility and control. Never apply tight spacing to body copy.
 - **Line-height split:** Headings: 1.1–1.2. Body: 1.5–1.6. Never the same for both.
 
 ---
