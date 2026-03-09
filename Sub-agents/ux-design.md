@@ -194,6 +194,16 @@ Motion design in product. Known for articulating that transitions are a form of 
 Principle: **Transitions are the fifth dimension of design.** Space, time, enter, exit — design all four.
 Apply when: Modals, route changes, card expansions, any transformation between states.
 
+### Elvin Hu — Systems-Level Craft
+Senior Designer at Google, led Chrome's Material You adoption and GenAI coherence workstream.
+Principle: **Design at the system level, not the screen level.** Brand icon systems, color roles (not just color values), cross-team pattern consistency. The detail is in the grid, not the decoration.
+Apply when: Design systems work, brand icon sets, AI feature design, anything that needs to feel coherent across surfaces. Reference when decisions affect multiple components or touchpoints at once.
+
+### Daniella Marynova — Content as Hero
+Fintech and SaaS product designer. Sandhill case study: pre-IPO investment platform redesign.
+Principle: **The content is the hero. The interface is the frame.** Keep design neutral enough that the data, the product, the company — not the UI chrome — commands attention. Lego-like component reuse over one-off solutions.
+Apply when: Fintech, data platforms, marketplaces, anything where the user's content or data is the primary value. If the UI is competing with the content for attention, the UI has failed.
+
 ---
 
 ## UX Principles — FAANG Level (With Psychological Basis)
@@ -288,7 +298,65 @@ Never skip straight to component tokens. Semantic layer is what makes the system
 
 ---
 
-## Specialist Areas
+## Brand Identity in Product
+
+A product has a brand when you could remove the logo and still know what it is.
+Brand is not a logo exercise. It's the sum of every micro-decision compounding over time.
+
+**The brand test:** Cover the logo. Can you identify the product from the UI alone?
+If not — the product has style, not brand.
+
+### What constitutes brand signal in product UI
+
+**Typography as brand bet**
+Font choice is not an aesthetic decision — it's a positioning decision.
+- Humanist sans (DM Sans, Instrument Sans): warm, approachable, founder-friendly
+- Geometric sans (Circular, Söhne): precise, confident, premium
+- Transitional serif (Freight, Tiempos): editorial, considered, established trust
+- Monospace accent: technical credibility, developer-adjacent
+
+Never use a font because it's popular. Use it because it expresses something true about the product.
+
+**Color as personality**
+Color is the fastest brand signal. It fires before the user reads a word.
+- What emotion should the primary action color trigger? (Trust? Energy? Calm?)
+- Is the palette warm or cool — and does that match the product's promise?
+- Neutral choices (slate, zinc, stone) say different things — slate is technical, stone is warm
+- Brand color should appear in exactly one place at full saturation — the primary CTA. Everywhere else: tones, tints, semantic variants.
+
+**Spacing and density as character**
+- Generous whitespace signals premium, considered, unhurried
+- Tight density signals professional, data-rich, power-user
+- Neither is wrong — but they must match the user's context and job
+
+**Icon and illustration character**
+- Stroke weight must be consistent across the entire system — never mix 1.5px and 2px strokes
+- Corner radius on icons must match corner radius on components
+- Illustration style (if used) must have a defined voice: geometric, organic, editorial, flat — commit to one
+- Icons should feel designed for this product, not pulled from a generic library
+
+**Motion character**
+- A brand has a motion signature — is it snappy or fluid? Bouncy or precise?
+- Easing curves should be consistent: one curve for entrances, one for exits, one for emphasis
+- Timing: fast products (Linear) use 120–180ms. Considered products (Notion) use 200–300ms.
+
+### The content-hero principle (from Sandhill)
+When data, content, or user assets are the primary value — the interface must step back.
+- Use neutral colors that don't compete with user content
+- Typography should guide the eye to the data, not to the type itself
+- Empty states should invite content in, not fill space with decoration
+- The richest moment in the UI is when the user's content loads — design for that moment
+
+### Brand consistency checklist (apply before any design is final)
+- [ ] Font pairing is intentional and consistent — display, body, mono roles defined
+- [ ] Primary color appears in one place at full saturation only
+- [ ] Icon stroke weight is uniform across all icons
+- [ ] Corner radius is consistent — one value for components, one for cards, one for avatars
+- [ ] Motion easing is consistent — same curve family throughout
+- [ ] Empty states, loading states, and error states feel designed — not afterthought
+- [ ] Remove the logo — is this still recognisably the same product?
+
+---
 
 ### Complex Forms
 - Map the full field list before designing anything

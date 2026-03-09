@@ -73,28 +73,57 @@ Generic = forgettable. Intentional = memorable. Commit, don't hedge.
 ## Design Standards
 
 **Typography**
-- Avoid Arial, Inter, Helvetica as primary fonts — too generic
+- Avoid Arial, Inter, Helvetica as primary fonts — too generic, carry no brand signal
 - Choose fonts with character: distinctive display + refined body
-- Type hierarchy must be immediately legible and visually interesting
+- Font pairing logic: humanist sans = warm/approachable, geometric sans = precise/premium, transitional serif = editorial/trusted
+- Type hierarchy must be immediately legible: size contrast of at least 4–6px between heading levels
+- Letter-spacing on headings: -0.02em to -0.03em for large display text. Never default tracking.
+- Line-height on body: 1.5–1.6. On headings: 1.1–1.2. Tight headings, readable body — always.
 
 **Color**
 - Don't default to blue buttons and white backgrounds
-- Palette must have a clear point of view
-- Use color to create hierarchy, not just decoration
+- Palette must have a clear point of view — what emotion does the primary action color trigger?
+- Brand color at full saturation appears in ONE place: the primary CTA. Everywhere else: tones, tints, semantic variants
+- Neutral palette choice matters: slate = technical, zinc = neutral, stone = warm. Pick intentionally.
+- Dark mode is not just inverted colors — surface hierarchy must be rebuilt: base / raised / overlay
 
 **Spacing & Layout**
 - Generous whitespace is almost always right
-- Consistent token-based spacing system
+- Consistent token-based spacing system — never eyeball it
 - Grid matters — use it intentionally
+- Section spacing should be 2–3x component spacing. Create clear visual breathing room between sections.
+
+**Detail Obsession — The Micro-Decisions That Separate Good from Great**
+These are non-negotiable. Every output is reviewed against this list mentally before shipping.
+
+- **Icon stroke weight**: uniform across all icons. Never mix 1.5px and 2px strokes in the same UI.
+- **Corner radius harmony**: one value for interactive components (buttons, inputs), one for cards, one for avatars/badges. Never arbitrary per-component.
+- **Shadow precision**: one shadow scale. sm/md/lg — not arbitrary per element. Shadows should suggest elevation, not decoration.
+- **Focus states**: every interactive element has a visible, designed focus ring. Not the browser default unless it's intentional.
+- **Placeholder text**: muted, not invisible. Never the same weight as entered text.
+- **Button padding**: consistent horizontal padding across all button sizes. Never tight on one, loose on another.
+- **Empty states**: designed, not blank. Every list, table, and data view has an empty state with a reason and an action.
+- **Loading states**: skeleton screens or spinners — pick one pattern and apply it everywhere.
+- **Transition consistency**: one easing curve family. One timing scale (fast: 120ms, default: 200ms, slow: 300ms). Never random.
+- **Scrollbar styling**: if custom, applied consistently. If default, hidden where it creates layout shift.
+
+**Brand Signal**
+A product has a brand when you could remove the logo and still recognise it.
+
+- Font choice is a brand decision — state the positioning intent, not just the name
+- Color palette has a personality — warm or cool, energetic or calm, premium or accessible
+- Icon set has a defined character — geometric, rounded, outlined, filled — commit to one
+- Motion has a signature — snappy (120–180ms, ease-out) or considered (200–300ms, ease-in-out)
+- Every micro-decision above compounds into brand recognition. Inconsistency destroys it.
 
 **Interaction**
-- Every interactive element needs a visible state change
-- Transitions purposeful, not decorative
-- Loading and empty states are part of the design
+- Every interactive element needs a visible state change on hover, focus, and active
+- Transitions purposeful, not decorative — motion answers "what just happened?"
+- Loading and empty states are part of the design, not afterthoughts
 
 **Accessibility**
 - WCAG AA minimum for contrast
-- Focus states must be visible
+- Focus states must be visible and designed
 - Semantic HTML — don't div everything
 
 ---
