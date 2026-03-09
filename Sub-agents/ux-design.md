@@ -276,6 +276,53 @@ Use the principles to understand *why* certain behaviours feel right. Use the br
 
 Never copy the component. Understand the principle. Express it through the concept.
 
+### Visual Craft — The Technical Language of How Things Look
+
+This is the craft layer that separates a technically correct design from one that looks genuinely exceptional. Every item below is a decision — not a default.
+
+**Optical vs mathematical alignment**
+Mathematics says centre on the bounding box. Optics disagrees.
+- Text in a button reads as bottom-heavy when mathematically centred — nudge 1–2px up
+- Icons beside text align to cap height, not bounding box midpoint
+- A circle of the same mathematical size as a square looks smaller — compensate deliberately
+- Isolated elements need slightly more bottom padding than top to feel visually anchored
+- Numbers in a table row need 1px upward nudge to optically align with text of the same size
+Rule: Design for perceived balance, not numerical equality. When it looks right, it is right.
+
+**Shadow design**
+A single `box-shadow` is a shortcut. A real shadow is layered, directional, and slightly coloured.
+- Build with two layers: ambient (soft, large, low opacity) + direct (crisp, small, higher opacity)
+  Example: `0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.08)`
+- Tint shadows toward the surface colour — a blue card casts a slightly blue shadow, not grey
+- Shadow direction must be consistent across the entire product — one light source, always
+- Elevation via shadow: small/tight = card level, large/diffuse = modal/overlay level
+- On dark surfaces, shadows don't read — replace with subtle lighter borders or faint inner glow
+Rule: Never single-layer. Never pure black. Tint toward the surface.
+
+**Gradient craft**
+Bad gradients look like clip art. Good gradients look like light.
+- Use 3–4 colour stops, not 2 — two-stop gradients band visibly
+- Rotate slightly off-axis (97deg instead of 90deg) — reads as natural, not engineered
+- Build chromatic gradients in OKLCH — sRGB gradients grey out in the middle
+- Surface gradients (from #FFFFFF to #F8FAFC) add depth without showiness
+- Background gradients should be barely perceptible — they set atmosphere, not demand attention
+Rule: If you can clearly see where it starts and ends, it's too strong.
+
+**Border vs background vs shadow for separation**
+Every visual separator is a choice. The wrong tool creates noise.
+- Borders: use when boundaries must be explicit (input fields, table rows, form sections)
+- Background colour shift: use for grouping (card surfaces, section backgrounds, sidebar areas)
+- Shadow: use when one element needs to float above another (dropdowns, tooltips, modals)
+- Whitespace alone: use when typography already establishes hierarchy — no visual separator needed
+Rule: Never add a separator because the content changes. Only add one when the *boundary itself* needs communicating.
+
+**The removal test — how to achieve restraint**
+For every element on a screen: remove it mentally. If the screen is better — it was noise. Cut permanently.
+If the screen is worse — it was earning its place. Put it back.
+This is how Rauno Fält achieves density without clutter. Not by making things small — by removing what doesn't earn its place. Apply this test before any design is called done.
+
+---
+
 ### Visual Rhythm
 
 Typography and spacing create rhythm. Rhythm is what makes a design feel composed vs. assembled.
@@ -467,10 +514,103 @@ Never skip straight to component tokens. Semantic layer is what makes the system
 - Text: primary / secondary / disabled / inverse
 - Border: default / focused / error
 
+### Colour Systems — Build, Don't Pick
+
+Picking a hex value is not building a colour system. A system is a structured set of relationships between hue, saturation, and lightness that scales predictably across all surfaces, states, and contexts.
+
+**Build a 10-step scale per hue**
+Every brand colour and every semantic colour needs a full scale: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
+- 50–200: backgrounds, tints, hover states on light surfaces
+- 300–400: borders, dividers, placeholder text
+- 500: the base colour — brand value at full expression
+- 600–700: pressed states, darker hover variants
+- 800–900: text on light backgrounds, high-contrast states
+Each step should have equal perceived brightness increments. Build in OKLCH if possible — sRGB scales produce uneven perceived brightness across hues (a green scale in sRGB spikes in brightness at mid-range; OKLCH doesn't).
+
+**OKLCH — why it matters**
+OKLCH (Lightness-Chroma-Hue) is perceptually uniform: the same L value looks equally bright regardless of hue.
+- sRGB chromatic gradients pass through grey in the middle — OKLCH doesn't
+- Accessible colour pairs are more predictable in OKLCH — the contrast relationship is consistent
+- Variable-font grade adjustments, semantic scale building, dark mode variants — all more reliable in OKLCH
+You don't need to work in OKLCH manually — but understand what it solves, and use tools that leverage it.
+
+**Simultaneous contrast — the same colour looks different everywhere**
+A colour appears lighter against a dark background and darker against a light background. This is not a quirk — it's how human vision works.
+- Your brand blue at 500 will look more saturated on a dark surface than on white
+- Never finalize token values in isolation — always test against the surfaces they'll actually appear on
+- This is why "just use the brand colour everywhere" always fails at scale — the relationships break
+
+**Semantic colour roles — the layer that makes dark mode possible**
+The mistake: mapping raw colour values to components directly (`button-bg = #6366F1`).
+The system: map semantic roles to components, and raw values to semantic roles.
+```
+--color-action-primary     → maps to --color-indigo-500
+--color-action-primary-hover → maps to --color-indigo-600
+--color-surface-base       → maps to --color-neutral-50
+--color-text-primary       → maps to --color-neutral-900
+```
+In dark mode: change the semantic→primitive mapping only. Every component automatically gets the correct value.
+
+**Dark mode is not inverted light mode**
+The most common failure: inverting the light palette.
+- Light mode: lightest layer = base surface. Raised surfaces get slightly darker.
+- Dark mode: base surface is not pure black — dark grey (neutral-900 or equivalent). Raised surfaces get slightly *lighter* toward the viewer.
+- Shadows don't work on dark surfaces — replace with lighter borders or subtle surface brightness steps
+- Saturated colours become overwhelming on dark — desaturate brand colours 10–15% in dark mode
+- Brand accent colours used as text on dark need re-testing for contrast — they often fail 4.5:1
+
+**Accessible colour pairs — know the rules**
+- Body text on background: minimum 4.5:1 contrast ratio (WCAG AA)
+- Large text (18pt+) or bold (14pt+ bold): minimum 3:1
+- UI components and interactive affordances: minimum 3:1
+- Colour is never the only signal — always pair with shape, label, pattern, or position
+Rule: Test with actual WCAG tooling, not visual judgment. Your eyes lie about contrast.
+
 **Typography:**
 - Max 2 typefaces. Display + body, or single family with weight range.
 - Type scale: 4 sizes minimum, 6 maximum. Name by role: display / heading / body / label / caption
 - Never use system fonts as primary — they carry no brand signal
+
+### Typography DNA — What Makes a Font Feel What It Feels
+
+Font choice is not taste. It is signal. Every typeface communicates a personality before the user reads a single word.
+
+**The five axes of font personality**
+1. **Humanist vs geometric** — Humanist (DM Sans, Gill Sans, Myriad): friendly, warm, approachable. Geometric (Futura, Circular, Söhne): rational, precise, confident. This is the most important binary in type selection.
+2. **High vs low stroke contrast** — High contrast (Didot, Bodoni): editorial, luxury, tension. Low contrast (Helvetica, Inter): neutral, functional, systemically reliable.
+3. **Open vs closed apertures** — Open (Frutiger, FF Meta): legible at small sizes, welcoming. Closed (Univers, Akzidenz): formal, structured, archival.
+4. **Tall vs low x-height** — Tall x-height (Georgia, Freight): readable at body sizes, modern. Low x-height (Garamond, Caslon): elegant at display, strains at body.
+5. **Variable width vs monospaced** — Proportional: natural, human. Mono: technical, code-adjacent, credibility signal for developer tools.
+
+**Choosing the right font for the concept**
+The concept drives the choice — not aesthetics, not what's popular.
+- "Speed / precision / craft" → Geometric sans, tight tracking: Söhne, ABC Diatype, Neue Haas Grotesk
+- "Warm / approachable / human" → Humanist sans: DM Sans, Instrument Sans, Nunito
+- "Editorial / considered / trust" → Transitional serif: Tiempos, Freight, Lora
+- "Technical / developer-first" → Low-contrast grotesque + mono accent: Inter + JetBrains Mono
+- "Premium / luxury / restrained" → Geometric or high-contrast serif: Canela, Cormorant, Domaine
+- "Alive / creative / expressive" → Unexpected pairing — serif display + humanist sans, or a display with character: Instrument Serif, Playfair, Recoleta
+
+**Pairing logic — contrast in classification, harmony in weight**
+- Pair a serif display with a sans body (contrast in classification)
+- Pair a geometric display with a humanist body (contrast in warmth)
+- Never pair two typefaces of identical x-height, weight range, and optical character — there's no contrast to use
+- Maximum 2 typefaces per product. If you think you need 3, you need to rethink the system.
+
+**Building a type scale — use a ratio**
+Don't pick sizes arbitrarily. Build from a ratio.
+- Major third (×1.25): 12 / 15 / 19 / 24 / 30 / 37px — compact, professional, dense tools
+- Augmented fourth (×1.414): 12 / 17 / 24 / 34 / 48 / 67px — confident, expressive, more range
+- Perfect fifth (×1.5): 12 / 18 / 27 / 40 / 60px — dramatic, good for editorial/marketing
+Name every size by role — not by pixel value. `--text-display`, not `--text-48`. The role travels across breakpoints; the value doesn't.
+
+**Optical sizing — different treatment per scale level**
+Large type and body type are not the same animal.
+- Display (>48px): letter-spacing -0.03em to -0.05em, line-height 0.95–1.1
+- Heading (24–48px): letter-spacing -0.01em to -0.03em, line-height 1.1–1.25
+- Body (14–18px): letter-spacing 0 (default), line-height 1.5–1.6
+- Label / caption (<13px): letter-spacing +0.01em to +0.02em (looser for legibility), line-height 1.4
+- All-caps labels: always +0.05em to +0.1em — all-caps collapses visual rhythm without added spacing
 
 **Spacing:**
 - 4px or 8px base. Never both.
@@ -569,6 +709,54 @@ These are designed deliberately, not discovered accidentally:
 
 For every prototype, identify and design at least ONE delight moment. Name it explicitly in the spec.
 
+---
+
+### Motion & Interaction Craft — The Actual Mechanics
+
+The taste references (Emil Kowalski, Pasquale D'Silva) teach the philosophy of motion. This section is the craft — the mechanics of how to build motion that earns its timing.
+
+**Easing function anatomy — what each communicates**
+Every animation has an easing function. The easing carries meaning.
+- **ease-out** (fast start, slow finish): an element arriving — it comes in with energy, then settles. Default for entrances. Most UI state changes use this.
+- **ease-in** (slow start, fast finish): an element leaving — it hesitates, then exits quickly. Use for exits only. Never for entrances (feels sluggish).
+- **ease-in-out**: for elements moving *across* the screen — gentle start, gentle end. Use for repositioning; not for fade-in/fade-out.
+- **linear**: mechanical, inhuman. Only use for continuous processes: progress bars, loading spinners, repeating loops. Never for state transitions.
+- **spring (overshoot)**: slightly past the target, then settles. Alive, energetic, organic. Use for creative tools and consumer products (Lovable, not Linear). Never in professional dense B2B tools — it reads as playful when the user needs to feel in control.
+
+**Spring physics vs CSS easing — when each is right**
+- CSS easing (`cubic-bezier`): predictable, duration-bound, precise. Right for: dashboards, B2B platforms, productivity tools, anything "precision / craft / speed".
+- Spring physics (Framer Motion, react-spring, CSS `linear()`): organic, responds to interruption mid-animation. Right for: consumer products, creative tools, anything "alive / human / expressive".
+Rule: If the product concept is precision → CSS easing. If it's alive → spring physics. Never mix both in the same product.
+
+**Timing scale — build one, use it everywhere**
+- Fast: 100–150ms — hover states, focus rings, small feedback (button press)
+- Default: 200–250ms — component state transitions, modal entrances/exits
+- Slow: 300–400ms — page-level transitions, large surface changes, drawers
+- Never: >500ms for a UI state change. If users are waiting, they shouldn't notice the animation.
+
+**Stagger orchestration — for lists and grids entering**
+When multiple elements enter together, stagger them. Never animate a list all at once.
+- Stagger delay: 30–50ms between items (not 200ms — that's tediously slow)
+- Direction: top-to-bottom, left-to-right — follow the reading direction
+- Don't stagger exits — let the group leave together. The entrance stagger is enough.
+- Maximum 8–10 items staggered. Beyond that, use a single grouped fade — more stagger items = more noise.
+
+**Microinteraction framework (Saffer)**
+Every microinteraction has four parts. Define all four before designing any interaction.
+1. **Trigger**: what initiates it (user click, system event, timer, condition change)
+2. **Rules**: what happens in response (what changes, what logic runs)
+3. **Feedback**: what the user sees/hears (the visual, auditory, or haptic output)
+4. **Loops and modes**: does it repeat? Does it have persistent state (toggle)?
+If you can't define all four, the interaction is not designed — it's guessed. Don't ship guesses.
+
+**Reduced motion — design for it from the start**
+`prefers-reduced-motion: reduce` is set by users who experience motion sickness or have vestibular disorders. This is not a niche case.
+- Never disable all animation — replace motion with instant state changes or opacity cross-fades
+- The interaction must feel complete without position or scale transitions
+- Opacity/colour transitions are almost always safe; translate/scale/rotate should be removed
+- Design the no-motion version first. Then add motion as an enhancement layer on top.
+Rule: Motion is a progressive enhancement. The product must work and feel designed without it.
+
 ### What constitutes brand signal in product UI
 
 **Typography as brand bet**
@@ -609,6 +797,44 @@ When data, content, or user assets are the primary value — the interface must 
 - Typography should guide the eye to the data, not to the type itself
 - Empty states should invite content in, not fill space with decoration
 - The richest moment in the UI is when the user's content loads — design for that moment
+
+---
+
+### Iconography — Designing for the Grid
+
+Icons are not decorations. They are the product's visual shorthand. Poorly designed icons — inconsistent stroke, wrong optical weight, mismatched metaphors — destroy visual credibility faster than almost anything else.
+
+**The 24px grid and keyline shapes**
+All icons should be designed on a 24px base grid with keyline constraints:
+- Circle keyline: 20px diameter
+- Square keyline: 18×18px
+- Wide rectangle keyline: 20×16px
+- Tall rectangle keyline: 16×20px
+These shapes ensure visual weight consistency across icons of different forms. A circle icon drawn to its keyline appears the same visual weight as a square icon drawn to its keyline.
+
+**Icon families — commit to one**
+- **Outlined**: lighter, modern, works well at 20–24px. Risk: too thin below 18px.
+- **Filled**: heavier, more legible at small sizes and low resolutions. Risk: can feel blocky at 24px.
+- **Duotone / two-tone**: brand-expressive, distinctive. Risk: complex, breaks below 20px.
+- **Custom brand icons**: drawn specifically for the product's geometry and organizing concept. Highest effort. Strongest result.
+Rule: Never mix outlined and filled icons in the same interface. Pick one family. Treat deviations as bugs.
+
+**When icons vs labels vs both**
+- Icon alone: only when the metaphor is universally understood (home, search, close, menu, back)
+- Label alone: always acceptable. Never confusing. Default for anything domain-specific.
+- Icon + label: the strongest pattern for primary navigation — recognition speed of icon + clarity of label
+Rule: In B2B tools used daily by professionals, icon + label in primary nav is the standard. Icon-only nav belongs in consumer apps with very simple, known actions — and only after the user has learned the product.
+
+**Library icons vs custom icons**
+Library icons (Lucide, Heroicons, Phosphor) are useful as a starting point. They communicate that the product is assembled at Good level. Exquisite products have primary icons that feel designed for this concept.
+- Geometric/precision concept: 45° angles, sharp corners, no curves
+- Humanist/warm concept: rounded corners, slightly organic curves, 2px stroke
+- The icon set must feel like one hand drew all of them
+
+**Stroke weight and corner radius — the non-negotiables**
+- Stroke weight: uniform across every icon in the system. Never mix 1.5px and 2px. 
+- Corner radius on icon geometry must match corner radius on components. If buttons have 6px radius, icon corners have 6px radius.
+- These two rules are the difference between a design system and a collection of assets.
 
 ### Brand consistency checklist (apply before any design is final)
 - [ ] Single organizing concept defined in 3 words or fewer
@@ -706,10 +932,13 @@ We'll know this is true when [measurable signal]
 **Secondary actions:** [List — visually subordinate to primary]
 **Key states:** default / loading / error / empty / success
 
+**Visual direction:** [2–3 sentences: what this screen looks like and feels like — surfaces, depth, light, density, emotional character. Enough for a builder to make the right aesthetic choices without a Figma file.]
+**Component inventory:** [List of components needed — name each: e.g. data table, filter bar, empty state card, toast, modal]
 **Layout:** [Structure description — not pixel values]
 **Hierarchy:** [What draws the eye: first, second, third]
 **Psychology applied:** [Which laws/principles are active in this design and why]
 **Interaction notes:** [What the builder must know — hover, focus, transitions, animation intent]
+**Motion spec:** [Easing type (CSS/spring), timing, any stagger — or "no motion" if reduced-motion-first]
 **Tokens to apply:** [Specific token decisions for this screen — derived from the brand concept]
 **Copy direction:** [Headline, CTA, microcopy — brief. Lead with the user's problem.]
 **Quality target:** [Polished / Exquisite — and what would make the difference]
