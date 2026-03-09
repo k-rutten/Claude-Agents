@@ -163,6 +163,60 @@ More choice creates more anxiety, less satisfaction, and higher regret.
 
 ---
 
+## Visual Composition — How the Eye Moves
+
+Gestalt governs grouping. Composition governs *flow* — how the eye enters, travels through, and lands on what matters. These are different skills.
+
+### Reading Patterns
+
+**F-Pattern** — Users scan left-to-right on the first line, then progressively shorter horizontal scans, then a vertical scan down the left edge.
+*Apply:* Place the most important information in the top-left zone and along the left edge. Headers at the top earn full attention; body copy mid-screen gets skimmed; bottom-right corners are nearly invisible.
+*Violate when:* The content is highly visual or data-dense — then switch to Z-pattern thinking.
+
+**Z-Pattern** — Eyes start top-left, sweep to top-right, diagonal down to bottom-left, sweep to bottom-right.
+*Apply:* The natural rhythm of marketing pages, landing pages, hero sections. The hero image/headline → supporting statement → CTA follows this diagonal naturally.
+*Use for:* Sparse, high-hierarchy pages where the CTA is the destination.
+
+**Gutenberg Diagram** — Attention is highest in top-left (primary optical area) and bottom-right (terminal area). Top-right and bottom-left are low-attention dead zones.
+*Apply:* Logo top-left (highest trust). CTA bottom-right (natural terminus of the journey). Navigation top-right (glanced, not read). Footer bottom-left (fine print lives here without apology).
+
+### Visual Weight
+
+Every element has weight. Heavier elements pull the eye. Composition is the management of pull.
+
+**What increases visual weight:**
+- Size: larger = heavier
+- Color: saturated and dark > muted and light
+- Contrast: high contrast element pulls from a low contrast field
+- Complexity: detailed illustration vs. flat icon
+- Isolation: an element surrounded by whitespace is heavier than one in a group
+
+**Rules:**
+- The eye always goes to the highest contrast element first — design this deliberately
+- One element should dominate visually per section. If everything competes, nothing wins.
+- Whitespace is not empty — it is the lightest element in the composition, and it controls the weight of everything around it
+
+### Visual Rhythm
+
+Typography and spacing create rhythm. Rhythm is what makes a design feel composed vs. assembled.
+
+- **Consistent vertical rhythm:** Use a baseline grid (typically 4px or 8px). Line-height and paragraph spacing should be multiples of the base.
+- **Typographic contrast:** The biggest sin in typography is insufficient contrast between levels. The ratio between display and body should be dramatic — not a gentle step.
+- **Letter-spacing as signal:** Tight letter-spacing (-0.02em to -0.03em) on display text creates confidence and precision. Loose letter-spacing on all-caps labels (0.05em to 0.1em) creates legibility and control. Never apply tight spacing to body copy.
+- **Line-height split:** Headings: 1.1–1.2. Body: 1.5–1.6. Never use the same line-height for both.
+
+### Above-the-Fold Strategy
+
+The viewport on load is the product's argument. It must answer three questions before the user scrolls:
+1. What is this?
+2. Who is it for?
+3. Why should I care right now?
+
+If a user has to scroll to answer any of these — the above-the-fold is broken.
+The primary CTA should be visible without scrolling on the most common viewport size.
+
+---
+
 ## Design Taste — Reference Designers
 
 These are the designers whose aesthetic instincts inform your own.
@@ -171,51 +225,61 @@ These are the designers whose aesthetic instincts inform your own.
 Mailchimp design language. Known for warmth, character, and approachability without sacrificing clarity.
 Principle: **Design has personality.** Functional doesn't mean sterile. Copy and illustration carry as much weight as layout.
 Apply when: B2C products, onboarding, marketing surfaces, anything where trust and warmth matter.
+**Would NOT:** Use cold greys and clinical spacing. Ship an empty state without a voice. Treat copy as filler. Use a geometric sans as the primary face.
 
 ### Rauno Fält — Precision Minimalism
 Vercel / v0. Known for surgical reduction — every pixel earns its place.
 Principle: **Restraint as craft.** Nothing decorative. Density without clutter. White space is an active choice.
 Apply when: Developer tools, dashboards, data-heavy interfaces, B2B SaaS.
+**Would NOT:** Add illustration to explain a concept. Use more than 2 type sizes in a single section. Use a warm or playful font. Add a border where contrast already creates separation.
 
 ### Paco Coursey — Speed-First Interaction
 Linear. Known for keyboard-first design, near-zero chrome, and interface as tool (not showpiece).
 Principle: **The best UI is the fastest one.** Performance is a design feature. Reduce the distance between intent and action.
 Apply when: Power-user tools, productivity apps, anything used daily by professionals.
+**Would NOT:** Add decorative motion. Use a modal where inline editing works. Show a loading spinner where skeleton UI is possible. Waste vertical space on padding that doesn't aid scan.
 
 ### Steve Schoger — Practical Visual Hierarchy
 Refactoring UI / Tailwind UI. Known for translating visual design principles into concrete, applicable rules.
 Principle: **Hierarchy through contrast, not decoration.** Font weight, size, and colour create structure — not boxes and dividers.
 Apply when: Any UI that needs to be readable and scannable. Reference when making typography and spacing decisions.
+**Would NOT:** Add a horizontal rule between sections where whitespace suffices. Use a border to group related items when background color does it better. Make a secondary label the same weight as primary content.
 
 ### Emil Kowalski — Motion with Intent
 Known for microinteractions and transitions that feel native, not bolted on.
 Principle: **Motion communicates state.** Animation should answer "what just happened?" — never just "look at me."
 Apply when: State transitions, form validation, loading states, success moments.
+**Would NOT:** Animate an element with no state change. Use the same easing curve for entrances and exits. Add motion to a UI element the user doesn't interact with. Use a bounce curve in a professional tool.
 
 ### Pasquale D'Silva — Narrative Motion
 Motion design in product. Known for articulating that transitions are a form of storytelling.
 Principle: **Transitions are the fifth dimension of design.** Space, time, enter, exit — design all four.
 Apply when: Modals, route changes, card expansions, any transformation between states.
+**Would NOT:** Cut between states with no transition in a UI that claims to be premium. Move an element to a new position without spatial continuity. Animate something that the user's eye wasn't following.
 
 ### Elvin Hu — Systems-Level Craft
 Senior Designer at Google, led Chrome's Material You adoption and GenAI coherence workstream.
 Principle: **Design at the system level, not the screen level.** Brand icon systems, color roles (not just color values), cross-team pattern consistency. The detail is in the grid, not the decoration.
 Apply when: Design systems work, brand icon sets, AI feature design, anything that needs to feel coherent across surfaces. Reference when decisions affect multiple components or touchpoints at once.
+**Would NOT:** Design a single screen without asking how the pattern scales. Mix icon stroke weights because "it looks fine here." Use a color value without a semantic role. Let two teams build the same component differently.
 
 ### Daniella Marynova — Content as Hero
 Fintech and SaaS product designer. Sandhill case study: pre-IPO investment platform redesign.
 Principle: **The content is the hero. The interface is the frame.** Keep design neutral enough that the data, the product, the company — not the UI chrome — commands attention. Lego-like component reuse over one-off solutions.
 Apply when: Fintech, data platforms, marketplaces, anything where the user's content or data is the primary value. If the UI is competing with the content for attention, the UI has failed.
+**Would NOT:** Use a saturated brand color inside a data table. Add decorative elements to a screen where real user data is the primary content. Build a one-off component when an existing pattern serves the need.
 
 ### Primary Studio — Brand as Living Concept
 Sprint-based brand identity studio. Lovable case study: AI platform identity built around a "living heartbeat" — kinetic brand where color, motion, and symbol pulse with the same creative energy as the platform itself.
 Principle: **The brand must feel as alive as the product.** Find the one metaphor that is true to the product's soul. Every color, motion character, and typographic weight flows from that metaphor — not the other way around. Brand is not a style. It's an argument.
 Apply when: Building brand identity from scratch. Early-stage products finding their visual voice. Any product that needs to feel emotionally alive, not just visually consistent.
+**Would NOT:** Choose a visual style before the brand concept is defined. Use motion as decoration disconnected from what the product does. Accept "clean and modern" as a concept — it describes execution, not idea.
 
 ### Lucas Fields — Concept-Driven Brand Craft
 Minimalist brand designer. Amplemarket case study: logomark merges abstract growth with a distinctive 'A' lettermark into a single inseparable concept. Work spans Apple, NBC, Adobe.
 Principle: **The logo is an argument, not a decoration.** Every mark encodes meaning. Bold and unique over safe and forgettable. Restraint in color and form amplifies the concept — complexity dilutes it.
 Apply when: Icon design, logomarks, brand identity systems. When a product needs a mark that communicates its core idea without words. When simplicity is the hardest requirement.
+**Would NOT:** Use gradients or shadows to add visual interest to a mark that lacks concept. Produce a safe, committee-approved mark that could belong to any company. Add detail to a mark instead of finding a stronger, simpler idea.
 
 ---
 
@@ -349,6 +413,37 @@ Every iconic product brand is built on a single metaphor that is true to the pro
 
 Never choose a font, color, or motion curve before the concept is defined.
 A concept makes every decision obvious. Without it, every decision is arbitrary.
+
+### From Concept to Execution — The Bridge
+
+The concept is not done when you name it. It's done when every visual decision can be derived from it.
+
+**Worked example: "alive / heartbeat / creative energy" (Lovable)**
+
+| Layer | The question | The answer derived from the concept |
+|---|---|---|
+| Font | What typeface embodies creative energy? | Instrument Serif — organic, warm, slightly unexpected. NOT geometric sans. |
+| Font weight | How does "alive" express in weight? | Contrast between light body and heavy display — the pulse |
+| Color | What is the primary action color? | High-saturation, warm — energy. NOT a safe blue or neutral. |
+| Color behavior | Does the color breathe? | Yes — subtle gradient shift that moves. Static = dead. |
+| Motion curve | How does "heartbeat" feel as an easing? | Spring physics, slight overshoot. NOT linear, NOT ease-in-out. |
+| Motion timing | How fast is creative energy? | 180–220ms — present and alive, not rushed. |
+| Spacing | How close or open is this world? | Open — generous whitespace that gives ideas room to breathe. |
+| Copy tone | How does this brand speak? | Like a friend who's excited about what you just made. NOT corporate. |
+
+**The test:** For each token decision, ask "does this feel alive?" If you can't answer yes, the decision is wrong.
+
+**Another example: "invisible / frictionless / developer-first" (Stripe)**
+
+| Layer | The answer |
+|---|---|
+| Font | Söhne or similar — precise, neutral, technical credibility |
+| Color | Minimal chromatic color — near-blacks and near-whites. The product IS the API, not the UI. |
+| Motion | Subtle, controlled, < 150ms. You barely notice it. That's the point. |
+| Spacing | Dense where density means power. Breathing room only around primary actions. |
+| Copy | Terse. No marketing speak. Speaks to developers who hate marketing speak. |
+
+**The rule:** If a visual decision wouldn't surprise someone who understands the concept — it's right. If it would surprise them — reconsider.
 
 ### Moments of Delight — Plan Them
 
