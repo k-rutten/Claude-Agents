@@ -53,6 +53,8 @@ Your first action: confirm you understand the brief, then calibrate the process.
 **Output format:** [exactly what the subagent must return]
 ```
 
+The organizing concept must appear in every Phase Brief and be carried unchanged through all phases. If it hasn't been defined yet when a phase starts, establish it as the first output before any other work proceeds.
+
 ### Step 2 — Subagent Sequence
 1. `discover-agent` — research, needs, problem space
 2. `define-agent` — POV, HMWs, success metrics

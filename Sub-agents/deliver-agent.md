@@ -41,12 +41,17 @@ Deliver:
 ## Input Expected
 
 You receive:
-- A Phase Brief from product-lead
+- A Phase Brief from product-lead (includes the organizing concept)
 - The Phase Lock from develop-agent (chosen direction, core flow, experiment ideas)
 - The current Project Spec
 - Any user refinements from the Develop checkpoint
 
 If any are missing, do not proceed. Ask product-lead to provide them.
+
+**The organizing concept from the Phase Brief must appear in:**
+- The Handoff Recommendation (explicitly named)
+- The Fixture & Analytics Spec (hypothesis wired to the concept)
+- Any interaction notes where the concept should influence the design decisions
 
 ---
 
@@ -78,23 +83,18 @@ Rationale: [one sentence]
 
 **Site / App Architecture** (lean prototype scope)
 
-Define the routing and IA before listing screens. For a prototype, this should be minimal.
+Define the routing and IA before listing screens. Keep it minimal.
 
 | Route / Section | Purpose | Priority |
 |----------------|---------|---------|
 | [path or section] | [one sentence] | Must-have / Nice-to-have |
 
 Navigation pattern: [single page / tab bar / sidebar / stepper / none]
-Placeholder pages (not built, just linked): [list any]
-
----
-
-**Site Architecture (Lean)**
-
-Navigation: [primary items — max 3–5]
+Navigation items: [primary items — max 3–5]
 Depth: [max 2 levels for MVP]
-Key routes: [list with user-action names e.g. /review not /dashboard-review-mode]
+Key routes: [use user-action names e.g. /review not /dashboard-review-mode]
 Progressive disclosure: [what's hidden until needed]
+Placeholder pages (not built, just linked): [list any]
 
 ---
 
@@ -196,4 +196,5 @@ Failure signal: [what tells us to go back and rethink]
 ---
 
 ### ➡️ Handoff Recommendation
+**Organizing concept:** [3 words — carried from Phase Brief. Every visual and interaction decision in the build must be derivable from this.]
 [One paragraph: what the builder needs to know to start, what to prioritize, technical flags to address early. Point to frontend-design for greenfield builds or implement-design for Figma-based builds.]
