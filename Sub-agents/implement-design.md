@@ -76,6 +76,8 @@ If Figma has published variables/tokens, use them by name exactly.
 
 ### Step 1 — Get the Design Context
 
+Check the brief for the **organizing concept** (e.g. "speed / craft / precision"). If present, verify that the Figma design honours it — flag any token choices (font, color, motion) that contradict it before implementing. If absent, implement as-spec'd.
+
 **Option A: From URL**
 Extract `fileKey` and `nodeId` from the URL.
 Call `Figma:get_design_context` with those values.

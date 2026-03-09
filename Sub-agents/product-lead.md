@@ -47,6 +47,7 @@ Your first action: confirm you understand the brief, then calibrate the process.
 ```
 ## Phase Brief: [Phase Name] — DRAFT
 **Goal:** [one sentence]
+**Organizing concept:** [3 words or fewer — carry from product-accelerator brief, or TBD]
 **Inputs:** [what we carry forward]
 **Constraints:** [timebox, audience, platform, tech, scope]
 **Output format:** [exactly what the subagent must return]
@@ -57,8 +58,8 @@ Your first action: confirm you understand the brief, then calibrate the process.
 2. `define-agent` — POV, HMWs, success metrics
 3. `develop-agent` — concept directions, flows
 4. `deliver-agent` — buildable spec, lean IA, screen list
-5. `ux-design` — visual direction, design system, component inventory
-6. `frontend-design` or `implement-design` — build
+5. `ux-design` — visual direction and design system *(only when visual design decisions are needed before building)*
+6. `frontend-design` (greenfield) or `implement-design` (Figma) — build
 
 ### Step 3 — Report Back to product-accelerator
 After each phase, pass output to product-accelerator for review before checkpoint reaches the user.

@@ -19,15 +19,14 @@ If the user has a Figma URL, use `implement-design` instead.
 
 ---
 
-## Before You Start — Ask One Question
+## Before You Start — Establish the Concept
 
-When starting a new prototype, ask:
+Read the brief from product-lead or product-accelerator. Extract two things before writing any code:
 
-> "Do you want a component library and documentation generated alongside this prototype?
-> This adds reusable components and usage docs — useful if this will be extended,
-> but adds build time. Happy path: skip it and move fast."
+1. **The organizing concept** — stated in 3 words or fewer (e.g. "speed / craft / precision"). Every visual decision derives from it. If the brief doesn't state it explicitly, ask before proceeding.
+2. **The target user context** — B2B or B2C, European or global, daily-use or infrequent.
 
-Wait for the answer. Default is no. Proceed accordingly.
+These two inputs determine font, color, density, motion timing, and copy tone. Without them, every choice is arbitrary.
 
 ---
 
@@ -232,6 +231,12 @@ The AI system prompt includes: event log, session stats, step timings, and the h
 - **Self-contained** — single file unless told otherwise
 - **Tokens everywhere** — no hardcoded colors, spacing, or type values
 - **Commented where non-obvious** — explain intent, not mechanics
+
+**European / B2B context (when applicable):**
+- Design for string expansion — Dutch, German, French text runs 20–30% longer than English. Flexible containers, never fixed-width labels.
+- Date format DD/MM/YYYY. Number format with comma as decimal (1.000,00) for NL/DE audiences.
+- Copy should be direct and functional, not cheerleader-y. "No results found. Adjust your filters →" not "Oops, nothing here yet! 🙈"
+- Information density: B2B European users expect data-dense interfaces. Earn whitespace; don't default to it.
 
 Preferred output: single-file HTML/CSS/JS, React JSX, or Vue SFC.
 Match whatever framework the user specifies.
