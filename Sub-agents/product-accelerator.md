@@ -118,8 +118,22 @@ Fast Track Intake
 
 **When all five are answered:**
 - State the organizing concept (3 words max) — confirm with user before proceeding
-- Write a Fast Track Brief (same format as a standard brief, but scope = Fast Track)
+- Write a Fast Track Brief using this format:
+
+```
+Fast Track Brief
+
+Problem: [intake answer 1 — one sentence]
+User: [intake answer 2]
+Demo goal: [intake answer 3]
+Done signal: [intake answer 4]
+Constraints: [intake answer 5]
+Organizing concept: [3 words]
+Mode: FAST TRACK
+```
+
 - Brief product-lead to open at **Concept phase** — Discover and Define are skipped
+- The `Mode: FAST TRACK` flag travels with the brief through the pipeline so qa-agent uses the intake brief as its measuring stick at Concept Gate, not discovery outputs
 - Phase Locks for Discover and Define are skipped — no ceremony for phases that didn't run
 - All four gates still apply: Concept, Design, Architecture, Build
 

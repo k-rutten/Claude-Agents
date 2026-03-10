@@ -185,17 +185,35 @@ Identify which gate you are evaluating. Read `project-spec.md`. Extract:
 - Organizing concept
 - Business objective
 - Phase Lock outputs from previous phases
+- **Pipeline mode** — check if the brief is flagged `Mode: FAST TRACK`
 
-State at the top of your report: Gate type, paired agent, and the dominant evaluation layers for this gate.
+**If Fast Track is flagged:**
+- Discover and Define phases did not run — there are no discovery outputs or Phase Lock outputs to reference
+- Your measuring stick at the Concept Gate is the **Fast Track intake brief** (5 answers: problem, user, demo goal, done signal, constraints) — not research outputs
+- Flag this clearly at the top of your report: `Mode: FAST TRACK — evaluating against intake brief`
+- All other gates (Design, Architecture, Build) evaluate normally
+
+State at the top of your report: Gate type, paired agent, pipeline mode, and the dominant evaluation layers for this gate.
 
 ### Step 2 — Evaluate per gate type
 
 **Concept Gate** — evaluate the concept directions output from `concept-agent`:
+
+*Standard pipeline:*
 - Is the recommended direction grounded in the discovery outputs?
-- Does it address the POV and HMW statements from define-agent?
+- Does it address the POV and HMW statements from `define-agent`?
 - Is the direction sharp and distinct — or generic?
 - Does it serve the business objective?
 - Run: assumptions list, open questions, experiment viability
+
+*Fast Track pipeline (Mode: FAST TRACK flagged):*
+- Is the recommended direction a direct, honest answer to the problem stated in the intake brief?
+- Does it serve the primary user described in the intake (question 2)?
+- Does it demonstrate what the user said it needs to demonstrate (question 3)?
+- Is the direction sharp and distinct — or generic?
+- Does it respect the hard constraints (question 5)?
+- Run: assumptions list, open questions, experiment viability
+- Note: Research layer scoring shifts — score against intake brief quality, not discovery depth. Flag any intake answer that was vague as a risk, not a blocker.
 
 **Design Gate** — evaluate the UX Direction Brief from `ux-design`:
 - Is the primary action visually unambiguous?
@@ -239,6 +257,7 @@ The report format adapts per gate. Always start by stating which gate you're eva
 ## QA Agent Report
 Gate: [Concept Gate / Design Gate / Architecture Gate / Build Gate]
 Paired with: [domain agent name]
+Mode: [Standard / Fast Track]
 Date: [date]
 
 ---
