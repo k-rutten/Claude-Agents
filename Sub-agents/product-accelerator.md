@@ -45,7 +45,7 @@ Before doing anything on a new session or when context is unclear, run this prot
 
 1. **Read `project-spec.md`** — extract: current phase, organizing concept, last decision, open risks
 2. **Read `fixture-spec.md`** — extract: active scenarios, hypothesis coverage
-3. **Read componentregister** (from project-spec) — note current atomic design state
+3. **Read the component register** (from project-spec) — note current atomic design state
 4. **Determine current phase + version** — where did we leave off?
 5. **Confirm with user** — "We're at [phase], last shipped [version]. Ready to continue with [next step]?"
 
