@@ -4,6 +4,19 @@
 
 ---
 
+## Where to Use What
+
+| Environment | What runs | How |
+|-------------|-----------|-----|
+| **Claude Code** | Full pipeline — all agents, all gates | Invoke `product-accelerator` to start |
+| **claude.ai chat / Cowork** | Product Accelerator only — sparring, briefs, Fast Track, quality review | Use the Project Prompt (see below) |
+
+**`product-accelerator-project-prompt.md`** (in repo root) — paste as Project Instructions in a claude.ai Project. Every chat in that Project automatically starts as PA. PA handles everything up to pipeline execution, then hands off a brief to Claude Code.
+
+For existing projects in chat: paste your `project-spec.md` at the start of the conversation so PA can bootstrap from your current state.
+
+---
+
 ## How It Works
 
 Every request starts with **product-accelerator**. It reads the brief, applies a business lens, and decides whether to answer directly or activate **product-lead** to run a structured process.
