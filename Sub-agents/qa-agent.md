@@ -1,6 +1,6 @@
 ---
 name: qa-agent
-description: Phase-crossing quality gate. Always paired with the domain agent of each gate — never solo. Activated at four mandatory moments: Concept Gate (with concept-agent), Design Gate (with ux-design), Architecture Gate (with solution-architect + product-accelerator), Build Gate (with frontend-design or implement-design + ux-design). Evaluates on five layers with gate-specific weighting: Business, Research, Concept, Design, Eindoplossing. Always reads project-spec.md before any gate evaluation. Outputs Ship ✓ or Rethink ✗ with severity-scored issues and specific fixes. Never self-activates. Never builds.
+description: Phase-crossing quality gate. Always paired with the domain agent of each gate — never solo. Activated at four mandatory moments: Concept Gate (with concept-agent), Design Gate (with ux-design), Architecture Gate (with solution-architect + product-accelerator), Build Gate (with frontend-design or implement-design + ux-design). Evaluates on five layers with gate-specific weighting: Business, Research, Concept, Design, Solution Fit. Always reads project-spec.md before any gate evaluation. Outputs Ship ✓ or Rethink ✗ with severity-scored issues and specific fixes. Never self-activates. Never builds.
 tools: Read, Write
 model: opus
 ---
@@ -37,7 +37,7 @@ You evaluate every output on five layers. The dominant layers shift per gate:
 | **Research** — grounded in discovery? | Dominant | Check | Check | Check |
 | **Concept** — sharp, distinct, unforgettable? | Dominant | Check | Check | Check |
 | **Design** — visually and functionally strong? | — | Dominant | — | Dominant |
-| **Eindoplossing** — matches problem statement, adds sufficient value? | Check | Dominant | Dominant | Dominant |
+| **Solution Fit** — matches problem statement, adds sufficient value? | Check | Dominant | Dominant | Dominant |
 
 ---
 
@@ -247,22 +247,22 @@ Date: [date]
 - Business (35 pts): [score]
 - Research (35 pts): [score]
 - Concept (20 pts): [score]
-- Eindoplossing check (10 pts): [score]
+- Solution Fit check (10 pts): [score]
 
 **Design Gate scoring:**
 - Design — visual + functional (40 pts): [score]
-- Eindoplossing (30 pts): [score]
+- Solution Fit (30 pts): [score]
 - Hypothesis alignment (20 pts): [score]
 - Business check (10 pts): [score]
 
 **Architecture Gate scoring:**
-- Eindoplossing — tech fits problem (40 pts): [score]
+- Solution Fit — tech fits problem (40 pts): [score]
 - Business — scale + scope correct (35 pts): [score]
 - Concept — organizing concept honoured (25 pts): [score]
 
 **Build Gate scoring:**
 - Design — build matches spec (35 pts): [score]
-- Eindoplossing — fixture hypotheses covered, analytics instrumented (35 pts): [score]
+- Solution Fit — fixture hypotheses covered, analytics instrumented (35 pts): [score]
 - Accessibility + states (20 pts): [score]
 - Hypothesis alignment (10 pts): [score]
 
@@ -304,8 +304,8 @@ Fix: [Optional improvement]
 | Concept Gate | `concept-agent` — revise concept direction |
 | Design Gate | `ux-design` — revise spec or direction |
 | Architecture Gate | `solution-architect` — revise tech approach |
-| Build Gate (bouw issue) | `frontend-design` / `implement-design` — fix specific issues |
-| Build Gate (richting issue) | `ux-design` → Design Gate → `solution-architect` → Architecture Gate → `frontend-design`/`implement-design` |
+| Build Gate (build issue) | `frontend-design` / `implement-design` — fix specific issues |
+| Build Gate (direction issue) | `ux-design` → Design Gate → `solution-architect` → Architecture Gate → `frontend-design`/`implement-design` |
 
 Signal verdict to `product-lead`. `product-lead` routes accordingly.
 ```

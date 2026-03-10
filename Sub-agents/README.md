@@ -27,12 +27,12 @@ flowchart TD
 
     PA["🧠 product-accelerator
     Sparring · Quality Gate · Orchestrator
-    Re-entry classificatie
+    Re-entry classification
     [Opus]"]
 
     PL["📋 product-lead
     Process routing · Phase Briefs
-    Phase Locks · project-spec beheer
+    Phase Locks · project-spec management
     [Sonnet]"]
 
     DD["🔍 Double Diamond
@@ -44,17 +44,17 @@ flowchart TD
 
     UX["🎨 ux-design
     Buildable spec · Design System State
-    Motion & Interaction eigenaar
+    Motion & Interaction owner
     → DESIGN GATE
     [Opus]"]
 
     SA["🏗️ solution-architect
-    Lean tech aanpak · Component strategie
+    Lean tech approach · Component strategy
     → ARCHITECTURE GATE
     [Sonnet]"]
 
-    BUILD["⚙️ Bouwagent
-    frontend-design (geen Figma)
+    BUILD["⚙️ Build agent
+    frontend-design (no Figma)
     implement-design (Figma)
     → consistency check → BUILD GATE
     [Sonnet]"]
@@ -63,7 +63,7 @@ flowchart TD
     FIX[("📄 fixture-spec.md")]
 
     U -->|"Prompt"| PA
-    PA <-->|"Spar · Review · Goedkeuring"| U
+    PA <-->|"Sparring · Review · Approval"| U
     PA -->|"Brief"| PL
 
     PL --> DD
@@ -71,87 +71,87 @@ flowchart TD
     UX -->|"Design Gate ✓"| SA
     SA -->|"Architecture Gate ✓"| BUILD
     BUILD -->|"Build Gate ✓"| PL
-    PL -->|"Eindreview"| PA
-    PA -->|"Opgeleverd"| U
+    PL -->|"Final review"| PA
+    PA -->|"Delivered"| U
 
-    PL -->|"schrijft"| SPEC
-    SPEC -. "referentie" .-> DD
-    SPEC -. "referentie" .-> UX
-    SPEC -. "referentie" .-> SA
-    SPEC -. "referentie" .-> BUILD
-    BUILD -. "bijwerkt" .-> FIX
+    PL -->|"writes"| SPEC
+    SPEC -. "reference" .-> DD
+    SPEC -. "reference" .-> UX
+    SPEC -. "reference" .-> SA
+    SPEC -. "reference" .-> BUILD
+    BUILD -. "updates" .-> FIX
 ```
 
 ---
 
 ## Agents
 
-| Agent | Model | Rol |
-|-------|-------|-----|
-| `product-accelerator` | Opus | Primair aanspreekpunt · Sparring · Quality Gate · Eindreviewer |
-| `product-lead` | Sonnet | Process routing · Phase Briefs · Phase Locks · project-spec |
-| `discover-agent` | Sonnet | Onderzoek · Gebruikersbehoeften · Probleemruimte |
-| `define-agent` | Sonnet | POV · HMW · Succesmetrics · Probleemstelling |
-| `concept-agent` | Sonnet | Conceptrichtingen · Flows · Aanbeveling |
-| `ux-design` | Opus | Buildable spec · Design System State · Motion · Consistency check |
-| `qa-agent` | Opus | Onafhankelijke kwaliteitspoort op alle vier gates |
-| `solution-architect` | Sonnet | Lean tech aanpak · Component strategie · Datamodel |
-| `frontend-design` | Sonnet | Greenfield UI bouwen (geen Figma) |
+| Agent | Model | Role |
+|-------|-------|------|
+| `product-accelerator` | Opus | Primary point of contact · Sparring · Quality Gate · Final reviewer |
+| `product-lead` | Sonnet | Process routing · Phase Briefs · Phase Locks · project-spec management |
+| `discover-agent` | Sonnet | Research · User needs · Problem space mapping |
+| `define-agent` | Sonnet | POV · HMW · Success metrics · Problem statement |
+| `concept-agent` | Sonnet | Concept directions · Flows · Recommendation |
+| `ux-design` | Opus | Buildable spec · Design System State · Motion owner · Consistency check |
+| `qa-agent` | Opus | Independent quality gate at all four gates |
+| `solution-architect` | Sonnet | Lean tech approach · Component strategy · Data model |
+| `frontend-design` | Sonnet | Greenfield UI build (no Figma) |
 | `implement-design` | Sonnet | Figma → Production code |
 
 ---
 
 ## Four Quality Gates
 
-| Gate | Deelnemers | Centrale vraag |
-|------|-----------|----------------|
-| **Concept Gate** | `concept-agent` + `qa-agent` | Is de richting gefundeerd genoeg om te designen? |
-| **Design Gate** | `ux-design` + `qa-agent` | Is het design sterk genoeg om te bouwen? |
-| **Architecture Gate** | `solution-architect` + `product-accelerator` + `qa-agent` | Klopt de technische aanpak met de schaal en het probleemstatement? |
-| **Build Gate** | bouwagent + `ux-design` + `qa-agent` | Matcht de build met het probleemstatement, fixture hypotheses gedekt, analytics geïnstrumenteerd? |
+| Gate | Participants | Core question |
+|------|-------------|---------------|
+| **Concept Gate** | `concept-agent` + `qa-agent` | Is the direction grounded enough to design from? |
+| **Design Gate** | `ux-design` + `qa-agent` | Is the design strong enough to build from? |
+| **Architecture Gate** | `solution-architect` + `product-accelerator` + `qa-agent` | Does the technical approach match the scale and problem statement? |
+| **Build Gate** | `frontend-design`/`implement-design` + `ux-design` + `qa-agent` | Does the build match the problem statement, fixture hypotheses covered, analytics instrumented? |
 
-Elke gate heeft twee uitkomsten: **Ship ✓** (doorgaan naar volgende fase) of **Rethink ✗** (terug naar dezelfde fase).
+Each gate has two outcomes: **Ship ✓** (proceed to next phase) or **Rethink ✗** (return to the same phase).
 
 ---
 
 ## Session Bootstrap
 
-Elke nieuwe sessie start met een verplicht bootstrap protocol — vóór elke andere actie:
+Every new session starts with a mandatory bootstrap protocol — before any other action:
 
-1. Lees `project-spec.md` — fase, versie, organizing concept
-2. Lees `fixture-spec.md` — scenario's en hypotheses
-3. Lees componentregister — huidige atomic design staat
-4. Bepaal huidige fase + versie op basis van bovenstaande
-5. Bevestig volgende stap met de gebruiker
+1. Read `project-spec.md` — phase, version, organizing concept
+2. Read `fixture-spec.md` — scenarios and hypotheses
+3. Read component register — current atomic design state
+4. Determine current phase + version from the above
+5. Confirm next step with the user
 
-Geen agent start vóór de bootstrap bevestigd is.
+No agent starts before bootstrap is confirmed.
 
 ---
 
 ## Persistent Files
 
 ### project-spec.md
-Gedeeld projectgeheugen. Alle agents lezen dit bestand. `product-lead` schrijft het bij na elke fase en iteratie.
+Shared project memory. All agents read this file. `product-lead` updates it after each phase and iteration.
 
-Bevat: Executive Summary · Organizing Concept · Probleemstelling · Beslissingen + auteur · Scope · Phase Locks · Design System State · Design tokens · Componentregister (Atomic) · Motion & Interaction principes · Refinement iteraties + versie · Snapshot Log · Open Risico's
+Contains: Executive Summary · Organizing Concept · Problem Statement · Decisions + author · Scope · Phase Locks · Design System State · Design tokens · Component Register (Atomic) · Motion & Interaction principles · Refinement iterations + version · Snapshot Log · Open Risks
 
 ### fixture-spec.md
-Scenario-testinstrument. Elke bouwagent bijwerkt dit na elke bouwiteratie.
+Scenario test instrument. Each build agent updates this after every build iteration.
 
-Bevat: Scenario's per hypothese · Gebruikersstatus (nieuw/bestaand) × Datavolume (leeg/weinig/veel) matrix · Analytics events per scenario
+Contains: Scenarios per hypothesis · User status (new/existing) × Data volume (empty/sparse/full) matrix · Analytics events per scenario
 
 ---
 
 ## Refinement Re-entry
 
-Bij elke iteratieprompt classificeert `product-accelerator` de re-entry vóór de pipeline start:
+On every iteration prompt, `product-accelerator` classifies the re-entry before the pipeline starts:
 
-| Type | Re-entry bij | Vereist |
-|------|-------------|---------|
-| Concept aanpassing | `concept-agent` | Alle gates |
-| Design tweak — functioneel | `ux-design` | Design + Architecture + Build gate |
-| Architectuur tweak | `solution-architect` | Architecture + Build gate |
-| Design tweak — cosmetic (nano-tweak) | bouwagent | Consistency check + Build gate |
-| Nieuwe prototype variant | `concept-agent` | Volledige cyclus naast bestaande |
+| Type | Re-entry at | Requires |
+|------|------------|---------|
+| Concept change | `concept-agent` | All gates |
+| Design tweak — functional | `ux-design` | Design + Architecture + Build gate |
+| Architecture tweak | `solution-architect` | Architecture + Build gate |
+| Design tweak — cosmetic (nano-tweak) | build agent | Consistency check + Build gate |
+| New prototype variant | `concept-agent` | Full cycle alongside existing variant |
 
-Risicovolle iteraties vereisen een snapshot vóór de pipeline start: `snapshot-v[n]-[datum]`.
+Risky iterations require a snapshot before the pipeline starts: `snapshot-v[n]-[date]`.

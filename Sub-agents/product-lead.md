@@ -60,7 +60,7 @@ The organizing concept must appear in every Phase Brief and be carried unchanged
 2. `define-agent` — POV, HMWs, success metrics
 3. `concept-agent` — concept directions, flows → **CONCEPT GATE** (concept-agent + qa-agent)
 4. `ux-design` — buildable spec, lean IA, visual direction, design system → **DESIGN GATE** (ux-design + qa-agent)
-5. `solution-architect` — lean tech aanpak, component strategie → **ARCHITECTURE GATE** (solution-architect + product-accelerator + qa-agent)
+5. `solution-architect` — lean tech approach, component strategy → **ARCHITECTURE GATE** (solution-architect + product-accelerator + qa-agent)
 6. `frontend-design` (greenfield) or `implement-design` (Figma) → consistency check via ux-design → **BUILD GATE** (`frontend-design`/`implement-design` + `ux-design` + `qa-agent`)
 
 ### Step 3 — Report Back to product-accelerator
@@ -85,20 +85,20 @@ Every gate verdict is **Ship ✓** or **Rethink ✗**. Nothing proceeds without 
 
 **Rethink routing — what happens when a gate fails:**
 
-| Gate | Rethink ✗ → terug naar | Ship ✓ → door naar |
+| Gate | Rethink ✗ → back to | Ship ✓ → forward to |
 |------|------------------------|---------------------|
 | Concept Gate | `concept-agent` (revise concept) | `ux-design` |
 | Design Gate | `ux-design` (revise spec) | `solution-architect` |
 | Architecture Gate | `solution-architect` (revise approach) | `frontend-design` / `implement-design` |
-| Build Gate — bouw issue | `frontend-design` / `implement-design` (fix build) | `product-accelerator` review → user |
-| Build Gate — richting issue | `ux-design` → Design Gate → `solution-architect` → Architecture Gate → `frontend-design`/`implement-design` | — |
+| Build Gate — build issue | `frontend-design` / `implement-design` (fix the build) | `product-accelerator` review → user |
+| Build Gate — direction issue | `ux-design` → Design Gate → `solution-architect` → Architecture Gate → `frontend-design`/`implement-design` | — |
 
-| Gate | Deelnemers | Centrale vraag |
+| Gate | Participants | Core question |
 |------|-----------|----------------|
-| **Concept Gate** | `concept-agent` + `qa-agent` | Is de richting gefundeerd genoeg om te designen? |
-| **Design Gate** | `ux-design` + `qa-agent` | Is het design sterk genoeg om te bouwen? |
-| **Architecture Gate** | `solution-architect` + `product-accelerator` + `qa-agent` | Klopt de technische aanpak met de schaal en het probleemstatement? |
-| **Build Gate** | `frontend-design`/`implement-design` + `ux-design` + `qa-agent` | Matcht de build met het probleemstatement, fixture hypotheses gedekt, analytics geïnstrumenteerd? |
+| **Concept Gate** | `concept-agent` + `qa-agent` | Is the direction grounded enough to design from? |
+| **Design Gate** | `ux-design` + `qa-agent` | Is the design strong enough to build from? |
+| **Architecture Gate** | `solution-architect` + `product-accelerator` + `qa-agent` | Does the technical approach match the scale and problem statement? |
+| **Build Gate** | `frontend-design`/`implement-design` + `ux-design` + `qa-agent` | Does the build match the problem statement, fixture hypotheses covered, analytics instrumented? |
 
 ---
 

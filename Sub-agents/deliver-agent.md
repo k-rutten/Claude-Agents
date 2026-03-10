@@ -1,8 +1,8 @@
 ---
 name: deliver-agent
-description: DEPRECATED — taken overgenomen door ux-design. Niet aanroepen.
+description: DEPRECATED — responsibilities taken over by ux-design. Do not invoke.
 ---
 # ⚠️ Deprecated
 
-Deze agent is vervangen. Buildable spec, lean IA, schermlijst en testscript zijn nu eigendom van `ux-design`.
-Vraag `product-lead` om `ux-design` te activeren.
+This agent has been replaced. Buildable spec, lean IA, screen list, and test script are now owned by `ux-design`.
+Ask `product-lead` to activate `ux-design`.
