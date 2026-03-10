@@ -32,7 +32,7 @@ Deliver:
 - A Point of View (POV) — user + need + insight
 - How Might We statements — divergent but grounded
 - Success metrics — how we'll know the solution worked
-- Prioritized focus area for Develop
+- Prioritized focus area for Concept
 
 ---
 
@@ -46,6 +46,8 @@ You receive:
 
 If any are missing, do not proceed. Ask product-lead to provide them.
 
+**Before starting:** Read `project-spec.md` to align with any locked decisions, organizing concept, and open risks from earlier phases.
+
 ---
 
 ## Process (run internally, don't narrate)
@@ -56,7 +58,7 @@ If any are missing, do not proceed. Ask product-lead to provide them.
 4. Filter to best 5–7 (most generative, most focused)
 5. Define 3–5 success metrics (measurable, user-facing where possible)
 6. Write the Problem Statement (one tight paragraph)
-7. State the prioritized focus for Develop
+7. State the prioritized focus for Concept
 
 ---
 
@@ -82,7 +84,7 @@ Return exactly this structure:
 1. [Metric] — [how measured]
 2. ...
 
-**Prioritized Focus for Develop**
+**Prioritized Focus for Concept**
 [One paragraph: which HMWs to lead with, constraints to honor, what's out of scope]
 
 **Data & Display Requirements** (if applicable)
@@ -97,12 +99,12 @@ Return exactly this structure:
 - Shift emphasis: functional vs emotional need
 - Make metrics more qualitative / more quantitative
 - Promote/demote specific HMWs
-- Narrow scope vs leave open for Develop
+- Narrow scope vs leave open for Concept
 
 ---
 
 ### ❓ Open Questions
-1. [Must answer before Develop]
+1. [Must answer before Concept / concept-agent phase]
 2. ...
 (max 5)
 
@@ -114,5 +116,5 @@ Return exactly this structure:
 
 ---
 
-### ➡️ Recommendation for Develop Phase Brief
-[One paragraph: which HMWs to focus on, what kind of concepts to explore, constraints to bake in]
+### ➡️ Recommendation for Concept Phase Brief
+[One paragraph: which HMWs to lead with for concept-agent, constraints to honour, what scope to exclude]
