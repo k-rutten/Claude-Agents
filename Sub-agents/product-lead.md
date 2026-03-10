@@ -37,6 +37,7 @@ Your first action: confirm you understand the brief, then calibrate the process.
 |-------|-------------|
 | Small (targeted change) | Assign directly to right agent, report back |
 | Medium (feature, flow) | Light brief → right agent → report back |
+| **Fast Track** (known problem, few iterations) | Open at Concept — skip Discover + Define, skip their Phase Locks |
 | Large (new product, discovery) | Full Double Diamond — all phases |
 
 ---
@@ -78,6 +79,9 @@ No phase proceeds until `product-accelerator` gives explicit approval.**
    → return to **`product-accelerator`** for final review → deliver to user
 
 ### Step 3 — Phase Lock
+
+**Phase Locks are conditional.** Only write a Phase Lock when the phase produced decisions that must be carried forward. If a phase runs but produces no new decisions — or was skipped in Fast Track mode — skip the ceremony and append a one-line note to project-spec.md instead.
+
 ```
 ## Phase Lock: [Phase Name]
 **Final outputs:** [list]
