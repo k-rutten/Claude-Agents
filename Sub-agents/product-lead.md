@@ -106,10 +106,10 @@ Every gate verdict is **Ship ✓** or **Rethink ✗**. Nothing proceeds without 
 
 | Gate | Participants | Core question |
 |------|-----------|----------------|
-| **Concept Gate** | `concept-agent` + `qa-agent` | Is the direction grounded enough to design from? |
-| **Design Gate** | `ux-design` + `qa-agent` | Is the design strong enough to build from? |
-| **Architecture Gate** | `solution-architect` + `product-accelerator` + `qa-agent` | Does the technical approach match the scale and problem statement? |
-| **Build Gate** | `frontend-design`/`implement-design` + `ux-design` + `qa-agent` | Does the build match the problem statement, fixture hypotheses covered, analytics instrumented? |
+| **Concept Gate** | `concept-agent` + `qa-agent` + `product-accelerator` | Is the direction grounded enough to design from? |
+| **Design Gate** | `ux-design` + `qa-agent` + `product-accelerator` | Is the design strong enough to build from? |
+| **Architecture Gate** | `solution-architect` + `qa-agent` + `product-accelerator` | Does the technical approach match the scale and problem statement? |
+| **Build Gate** | `frontend-design`/`implement-design` + `ux-design` + `qa-agent` + `product-accelerator` | Does the build match the problem statement, fixture hypotheses covered, analytics instrumented? |
 
 ---
 
