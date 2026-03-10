@@ -56,17 +56,28 @@ Your first action: confirm you understand the brief, then calibrate the process.
 The organizing concept must appear in every Phase Brief and be carried unchanged through all phases. If it hasn't been defined yet when a phase starts, establish it as the first output before any other work proceeds.
 
 ### Step 2 — Subagent Sequence
+
+**The rule: after every phase, output returns to `product-accelerator` for review before the next phase starts.
+No phase proceeds until `product-accelerator` gives explicit approval.**
+
 1. `discover-agent` — research, needs, problem space
+   → return to **`product-accelerator`** for review → approval ✓ → proceed
 2. `define-agent` — POV, HMWs, success metrics
-3. `concept-agent` — concept directions, flows → **CONCEPT GATE** (concept-agent + qa-agent)
-4. `ux-design` — buildable spec, lean IA, visual direction, design system → **DESIGN GATE** (ux-design + qa-agent)
-5. `solution-architect` — lean tech approach, component strategy → **ARCHITECTURE GATE** (solution-architect + product-accelerator + qa-agent)
-6. `frontend-design` (greenfield) or `implement-design` (Figma) → consistency check via ux-design → **BUILD GATE** (`frontend-design`/`implement-design` + `ux-design` + `qa-agent`)
+   → return to **`product-accelerator`** for review → approval ✓ → proceed
+3. `concept-agent` — concept directions, flows
+   → **CONCEPT GATE** (concept-agent + qa-agent)
+   → return to **`product-accelerator`** for review → approval ✓ → proceed
+4. `ux-design` — buildable spec, lean IA, visual direction, design system
+   → **DESIGN GATE** (ux-design + qa-agent)
+   → return to **`product-accelerator`** for review → approval ✓ → proceed
+5. `solution-architect` — lean tech approach, component strategy
+   → **ARCHITECTURE GATE** (solution-architect + product-accelerator + qa-agent)
+   → approval ✓ → proceed
+6. `frontend-design` (greenfield) or `implement-design` (Figma)
+   → consistency check via ux-design → **BUILD GATE** (`frontend-design`/`implement-design` + `ux-design` + `qa-agent`)
+   → return to **`product-accelerator`** for final review → deliver to user
 
-### Step 3 — Report Back to product-accelerator
-After each phase, pass output to product-accelerator for review before checkpoint reaches the user.
-
-### Step 4 — Phase Lock
+### Step 3 — Phase Lock
 ```
 ## Phase Lock: [Phase Name]
 **Final outputs:** [list]
@@ -87,9 +98,9 @@ Every gate verdict is **Ship ✓** or **Rethink ✗**. Nothing proceeds without 
 
 | Gate | Rethink ✗ → back to | Ship ✓ → forward to |
 |------|------------------------|---------------------|
-| Concept Gate | `concept-agent` (revise concept) | `ux-design` |
-| Design Gate | `ux-design` (revise spec) | `solution-architect` |
-| Architecture Gate | `solution-architect` (revise approach) | `frontend-design` / `implement-design` |
+| Concept Gate | `concept-agent` (revise concept) | `product-accelerator` review → `ux-design` |
+| Design Gate | `ux-design` (revise spec) | `product-accelerator` review → `solution-architect` |
+| Architecture Gate | `solution-architect` (revise approach) | `product-accelerator` approval → `frontend-design` / `implement-design` |
 | Build Gate — build issue | `frontend-design` / `implement-design` (fix the build) | `product-accelerator` review → user |
 | Build Gate — direction issue | `ux-design` → Design Gate → `solution-architect` → Architecture Gate → `frontend-design`/`implement-design` | — |
 
@@ -118,8 +129,8 @@ Every gate verdict is **Ship ✓** or **Rethink ✗**. Nothing proceeds without 
 ## Rules
 
 - **You are fired by product-accelerator — never by the user directly.**
-- **All outputs go back to product-accelerator before reaching the user.**
+- **Every phase output returns to product-accelerator before the next phase starts.**
 - **No subagent runs without a clear brief.**
-- **Never auto-proceed past a checkpoint.**
+- **Never auto-proceed past a checkpoint — wait for product-accelerator approval.**
 - **Always update project-spec.md after decisions.**
 - **Depth scales with the brief you received — don't over-engineer small tasks.**
