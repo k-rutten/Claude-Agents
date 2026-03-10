@@ -26,8 +26,9 @@ flowchart TD
     U(["👤 User"])
 
     PA["🧠 product-accelerator
-    Sparring · Quality Gate · Orchestrator
-    Re-entry classification
+    Main contact · Sparring · Orchestrator
+    Phase review after every phase
+    Gates: Concept · Architecture · Build
     [Opus]"]
 
     PL["📋 product-lead
@@ -35,52 +36,79 @@ flowchart TD
     Phase Locks · project-spec management
     [Sonnet]"]
 
-    DD["🔍 Double Diamond
-    ──────────────────
-    discover-agent → Phase Lock
-    define-agent → Phase Lock
-    concept-agent → CONCEPT GATE
-    [Sonnet × 3]"]
+    DISC["🔍 discover-agent
+    Research · User needs
+    Problem space mapping
+    [Sonnet]"]
+
+    DEF["📌 define-agent
+    POV · HMW · Success metrics
+    Problem statement
+    [Sonnet]"]
+
+    CON["💡 concept-agent
+    Concept directions · Flows
+    → CONCEPT GATE ★
+    [Sonnet]"]
 
     UX["🎨 ux-design
-    Buildable spec · Design System State
+    Buildable spec · Design System
     Motion & Interaction owner
     → DESIGN GATE
     [Opus]"]
 
     SA["🏗️ solution-architect
     Lean tech approach · Component strategy
-    → ARCHITECTURE GATE
+    → ARCHITECTURE GATE ★
     [Sonnet]"]
 
     BUILD["⚙️ Build agent
-    frontend-design (no Figma)
-    implement-design (Figma)
-    → consistency check → BUILD GATE
+    frontend-design · implement-design
+    consistency check → BUILD GATE ★
     [Sonnet]"]
+
+    QA["🔎 qa-agent
+    Independent gate evaluator
+    All four gates
+    [Opus]"]
 
     SPEC[("📄 project-spec.md")]
     FIX[("📄 fixture-spec.md")]
 
-    U -->|"Prompt"| PA
-    PA <-->|"Sparring · Review · Approval"| U
+    U -->|"Every prompt"| PA
+    PA <-->|"Sparring · Approval · Delivery"| U
     PA -->|"Brief"| PL
 
-    PL --> DD
-    DD -->|"Concept Gate ✓"| UX
-    UX -->|"Design Gate ✓"| SA
-    SA -->|"Architecture Gate ✓"| BUILD
-    BUILD -->|"Build Gate ✓"| PL
-    PL -->|"Final review"| PA
+    PL --> DISC
+    DISC -->|"Phase Lock"| PA
+    PA -->|"Approved ✓"| DEF
+    DEF -->|"Phase Lock"| PA
+    PA -->|"Approved ✓"| CON
+    CON -->|"Phase Lock"| PA
+    PA -->|"Approved ✓"| UX
+    UX -->|"Phase Lock"| PA
+    PA -->|"Approved ✓"| SA
+    SA -->|"Phase Lock"| PA
+    PA -->|"Approved ✓"| BUILD
+    BUILD -->|"Build Gate ✓"| PA
     PA -->|"Delivered"| U
 
+    QA -. "Concept Gate" .-> CON
+    QA -. "Design Gate" .-> UX
+    QA -. "Architecture Gate" .-> SA
+    QA -. "Build Gate" .-> BUILD
+
     PL -->|"writes"| SPEC
-    SPEC -. "reference" .-> DD
+    SPEC -. "reference" .-> DISC
+    SPEC -. "reference" .-> DEF
+    SPEC -. "reference" .-> CON
     SPEC -. "reference" .-> UX
     SPEC -. "reference" .-> SA
     SPEC -. "reference" .-> BUILD
     BUILD -. "updates" .-> FIX
 ```
+
+> ★ = product-accelerator is an active gate participant alongside qa-agent
 
 ---
 
@@ -105,10 +133,12 @@ flowchart TD
 
 | Gate | Participants | Core question |
 |------|-------------|---------------|
-| **Concept Gate** | `concept-agent` + `qa-agent` | Is the direction grounded enough to design from? |
+| **Concept Gate** ★ | `concept-agent` + `qa-agent` + `product-accelerator` | Is the direction grounded enough to design from? |
 | **Design Gate** | `ux-design` + `qa-agent` | Is the design strong enough to build from? |
-| **Architecture Gate** | `solution-architect` + `product-accelerator` + `qa-agent` | Does the technical approach match the scale and problem statement? |
-| **Build Gate** | `frontend-design`/`implement-design` + `ux-design` + `qa-agent` | Does the build match the problem statement, fixture hypotheses covered, analytics instrumented? |
+| **Architecture Gate** ★ | `solution-architect` + `qa-agent` + `product-accelerator` | Does the technical approach match the scale and problem statement? |
+| **Build Gate** ★ | `frontend-design`/`implement-design` + `ux-design` + `qa-agent` + `product-accelerator` | Does the build match the problem statement, fixture hypotheses covered, analytics instrumented? |
+
+> ★ = product-accelerator is an active co-evaluator alongside qa-agent at this gate
 
 Each gate has two outcomes: **Ship ✓** (proceed to next phase) or **Rethink ✗** (return to the same phase).
 
