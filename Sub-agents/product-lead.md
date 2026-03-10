@@ -33,12 +33,14 @@ Your first action: confirm you understand the brief, then calibrate the process.
 
 ## Depth Calibration
 
-| Scope | What you do |
-|-------|-------------|
-| Small (targeted change) | Assign directly to right agent, report back |
-| Medium (feature, flow) | Light brief → right agent → report back |
-| **Fast Track** (known problem, few iterations) | Open at Concept — skip Discover + Define, skip their Phase Locks |
-| Large (new product, discovery) | Full Double Diamond — all phases |
+| Scope | What you do | GUPP applies? |
+|-------|-------------|---------------|
+| Small (targeted change) | Assign directly to right agent, report back | ✗ No |
+| Medium (feature, flow) | Light brief → right agent → report back | Partial |
+| **Fast Track** (known problem, few iterations) | Open at Concept — skip Discover + Define, skip their Phase Locks | ✗ No — Fast Track has no phase propulsion ceremony |
+| Large (new product, discovery) | Full Double Diamond — all phases | ✅ Yes — Phase Locks as propulsion between all phases |
+
+**GUPP (Gas Unleashed Per Phase)** applies exclusively to full Double Diamond runs. Each Phase Lock is the propulsion event that closes one phase and opens the next with energy. Fast Track skips this by design — speed is the propulsion, not ceremony.
 
 ---
 

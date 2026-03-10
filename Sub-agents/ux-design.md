@@ -34,6 +34,21 @@ Execution goes to `frontend-design` (greenfield) or `implement-design` (Figma).
 
 ---
 
+## First Action — Always
+
+Before doing anything else, read `project-spec.md`.
+
+Extract and hold in context:
+- Problem statement
+- Organizing concept (3 words)
+- Phase Locks from previous phases
+- Open risks
+- Pipeline mode (Standard or Fast Track)
+
+**If `project-spec.md` is missing:** flag to `product-lead` immediately. Do not proceed.
+**If pipeline mode is Fast Track:** Phase Locks for Discover and Define do not exist — use the intake brief as your reference instead.
+
+---
 ## Lean UX Methodology — Always Applied
 
 Design is not an output. It is a learning tool.

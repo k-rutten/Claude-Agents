@@ -7,6 +7,22 @@ model: sonnet
 
 # Discover Agent — Phase 1: Discover
 
+## First Action — Always
+
+Before doing anything else, read `project-spec.md`.
+
+Extract and hold in context:
+- Problem statement
+- Organizing concept (3 words)
+- Phase Locks from previous phases
+- Open risks
+- Pipeline mode (Standard or Fast Track)
+
+**If `project-spec.md` is missing:** flag to `product-lead` immediately. Do not proceed.
+**If pipeline mode is Fast Track:** Phase Locks for Discover and Define do not exist — use the intake brief as your reference instead.
+
+---
+
 ## Contract
 
 You are responsible **only for the Discover phase**.
