@@ -91,9 +91,16 @@ Brief: "Validation run — Concept Gate evaluation.
 Score all 5 verdicts above using Concept Gate weighting.
 Mode: CONCEPT VALIDATION (no discovery outputs — evaluate against intake brief)
 Return: Score + top P0/P1 issues only + Ship ✓ or Rethink ✗"
+
+Step 7 → validation-agent
+Brief: "Concept Validation run — close the loop.
+Does the concept actually solve the stated problem across all dimensions?
+Input: project-spec.md + all 6 agent verdicts above
+[Include stakeholder feedback if provided — see format in product-accelerator]
+Return: Validation Report with Problem fit / Hypothesis coverage / Stakeholder signal scores + Overall verdict"
 ```
 
-After all 6 verdicts: return everything to `product-accelerator` for the final Concept Validation Report.
+After all 7 verdicts: return everything to `product-accelerator` for the final Concept Validation Report.
 
 ---
 
@@ -131,6 +138,7 @@ No phase proceeds until `product-accelerator` gives explicit approval.**
    → approval ✓ → proceed
 6. `frontend-design` (greenfield) or `implement-design` (Figma)
    → consistency check via ux-design → **BUILD GATE** (`frontend-design`/`implement-design` + `ux-design` + `qa-agent`)
+   → **`validation-agent`** — close the loop: does the build solve the original problem? (include stakeholder feedback if available)
    → return to **`product-accelerator`** for final review → deliver to user
 
 ### Step 3 — Phase Lock
@@ -180,6 +188,7 @@ Every gate verdict is **Ship ✓** or **Rethink ✗**. Nothing proceeds without 
 - `ux-design` — Phase 4: buildable spec + lean IA + visual direction + design system + consistency check
 - `solution-architect` — Phase 5: lean tech approach + component strategy + datamodel
 - `qa-agent` — Quality gate at every phase transition (concept / design / architecture / build)
+- `validation-agent` — Post-build loop closer: does the prototype solve the original problem? Processes stakeholder feedback.
 - `frontend-design` — Greenfield UI build (no Figma)
 - `implement-design` — Figma → production code
 

@@ -185,6 +185,7 @@ Mode: CONCEPT VALIDATION
 4. `ux-design` — Designability verdict: is the UX sound? Can this be designed without fundamental compromises?
 5. `solution-architect` — Build feasibility: is this architecturally viable at prototype scale? Any showstoppers?
 6. `qa-agent` — Cross-layer scoring using Concept Gate format against all 5 inputs above
+7. `validation-agent` — Closes the loop: does the concept actually solve the stated problem across all dimensions?
 
 **Each agent delivers:**
 - A focused verdict (2–3 sentences max)
@@ -192,6 +193,42 @@ Mode: CONCEPT VALIDATION
 - One risk or open question
 
 **No Phase Locks. No building. No design artefacts.**
+
+---
+
+## Stakeholder Feedback — Optional Input Slot
+
+After any prototype is delivered, stakeholder reactions can be fed back into the pipeline.
+This applies to both Concept Validation runs and post-build delivery.
+
+**Trigger signals:**
+- "Here's what the stakeholder said"
+- "The demo went like this..."
+- "They reacted with..."
+- "They didn't understand..."
+
+**When stakeholder feedback is provided:**
+Ask the user to structure it using this format, or extract it yourself from what they describe:
+
+```
+Stakeholder Feedback
+
+Reaction: [what they said or did — quote or paraphrase]
+Understood the core value proposition: Yes / No / Partially
+Got stuck at: [where, if anywhere]
+Missing: [what they asked for that wasn't there]
+Would use / recommend: Yes / No / Maybe
+```
+
+Pass the structured feedback to `validation-agent` alongside `project-spec.md`.
+`validation-agent` combines internal evaluation + stakeholder signal into a single verdict.
+
+**The key distinction validation-agent makes:**
+- Friction in the build → re-enter at build agent (fixable fast)
+- Confusion about the concept → re-enter at `concept-agent` (bigger reset)
+- Missing feature → evaluate if it serves the problem statement before adding it
+
+---
 
 **Your final output — Concept Validation Report:**
 ```
@@ -218,12 +255,18 @@ Verdict: Feasible ✓ / Blocked ✗ / Conditional ⚠️
 Score: [X/100]
 Top issues: [P0/P1 only — max 3]
 
+### Validation (validation-agent)
+Problem fit: [X/10]
+Hypothesis coverage: [X/10]
+Stakeholder signal: [X/10 — only if feedback provided]
+Verdict: Validated ✓ / Partially ⚠️ / Not validated ✗
+
 ---
 
 ### Overall verdict
-- ✅ Solved — concept is valid, designable, and buildable. Proceed to build.
-- ⚠️ Partially — [dimension] needs rework before proceeding. Specific fix: [one sentence]
-- ✗ Off-target — [what it actually solves vs. what was claimed]. Re-enter at Concept.
+- ✅ Validated — concept solves the stated problem. Proceed to build / deliver.
+- ⚠️ Partially — [dimension] needs rework. Re-enter at [agent]. Specific fix: [one sentence]
+- ✗ Off-target — [what it actually solves vs. what was claimed]. Re-enter at concept-agent.
 ```
 
 ---

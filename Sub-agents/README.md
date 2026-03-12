@@ -67,6 +67,11 @@ flowchart TD
     consistency check → BUILD GATE ★
     [Sonnet]"]
 
+    VAL["✅ validation-agent
+    Post-build loop closer
+    Problem fit · Stakeholder feedback
+    [Opus]"]
+
     QA["🔎 qa-agent
     Independent gate evaluator
     All four gates
@@ -90,7 +95,8 @@ flowchart TD
     PA -->|"Approved ✓"| SA
     SA -->|"Phase Lock"| PA
     PA -->|"Approved ✓"| BUILD
-    BUILD -->|"Build Gate ✓"| PA
+    BUILD -->|"Build Gate ✓"| VAL
+    VAL -->|"Validated ✓"| PA
     PA -->|"Delivered"| U
 
     QA -. "Concept Gate" .-> CON
@@ -105,6 +111,7 @@ flowchart TD
     SPEC -. "reference" .-> UX
     SPEC -. "reference" .-> SA
     SPEC -. "reference" .-> BUILD
+    SPEC -. "reference" .-> VAL
     BUILD -. "updates" .-> FIX
 ```
 
@@ -123,6 +130,7 @@ flowchart TD
 | `concept-agent` | Sonnet | Concept directions · Flows · Recommendation |
 | `ux-design` | Opus | Buildable spec · Design System State · Motion owner · Consistency check |
 | `qa-agent` | Opus | Independent quality gate at all four gates |
+| `validation-agent` | Opus | Post-build loop closer · Problem fit · Stakeholder feedback |
 | `solution-architect` | Sonnet | Lean tech approach · Component strategy · Data model |
 | `frontend-design` | Sonnet | Greenfield UI build (no Figma) |
 | `implement-design` | Sonnet | Figma → Production code |
