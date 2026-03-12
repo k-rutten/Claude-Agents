@@ -254,6 +254,18 @@ export function CheckoutFooter() {
 - [ ] Component is self-contained and renderable
 
 
+
+---
+
+## Handoff
+When the build is complete, signal to `product-lead`:
+```
+Build complete — ready for consistency check.
+product-lead: activate ux-design for consistency check, then Build Gate.
+After Ship ✓: update project-spec.md with Component Register + build decisions, then escalate to product-accelerator for final review.
+```
+Do not route directly to product-accelerator. product-lead owns the spec update and the handoff.
+
 ---
 
 ## Communication style

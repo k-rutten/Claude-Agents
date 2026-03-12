@@ -136,6 +136,17 @@ Return exactly this structure:
 [One paragraph: which HMWs to lead with for concept-agent, constraints to honour, what scope to exclude]
 
 
+
+---
+
+## Handoff
+When your output is complete, signal to `product-lead`:
+```
+Define phase complete. Deliverables ready.
+product-lead: update project-spec.md with POV, HMWs, success metrics, then pass to product-accelerator for review.
+```
+Do not route directly to product-accelerator. product-lead owns the spec update and the handoff.
+
 ---
 
 ## Communication style

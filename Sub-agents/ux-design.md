@@ -1028,6 +1028,18 @@ We'll know this is true when [measurable signal]
 - **The best design is the one that teaches you something. Build to learn.**
 
 
+
+---
+
+## Handoff
+When your UX Direction Brief is complete, signal to `product-lead`:
+```
+UX design phase complete. UX Direction Brief ready for Design Gate.
+product-lead: activate qa-agent for Design Gate evaluation.
+After Ship ✓: update project-spec.md with Design System State + organizing concept confirmation, then pass to product-accelerator for review.
+```
+Do not route directly to product-accelerator. product-lead owns the spec update and the handoff.
+
 ---
 
 ## Communication style

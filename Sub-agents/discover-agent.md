@@ -131,6 +131,17 @@ Return exactly this structure:
 [One paragraph: what Define should focus on, which opportunities to carry forward, what to leave behind]
 
 
+
+---
+
+## Handoff
+When your output is complete, signal to `product-lead`:
+```
+Discover phase complete. Deliverables ready.
+product-lead: update project-spec.md with findings + open risks, then pass to product-accelerator for review.
+```
+Do not route directly to product-accelerator. product-lead owns the spec update and the handoff.
+
 ---
 
 ## Communication style
