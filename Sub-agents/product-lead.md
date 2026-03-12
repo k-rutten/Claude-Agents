@@ -120,26 +120,45 @@ The organizing concept must appear in every Phase Brief and be carried unchanged
 
 ### Step 2 — Subagent Sequence
 
-**The rule: after every phase, output returns to `product-accelerator` for review before the next phase starts.
-No phase proceeds until `product-accelerator` gives explicit approval.**
+**Two fixed rules:**
+1. After every phase: agent output returns to **you (product-lead)** first — you update `project-spec.md`, write the Phase Lock, then pass to `product-accelerator`.
+2. No phase proceeds until `product-accelerator` gives explicit approval.
 
-1. `discover-agent` — research, needs, problem space
-   → return to **`product-accelerator`** for review → approval ✓ → proceed
-2. `define-agent` — POV, HMWs, success metrics
-   → return to **`product-accelerator`** for review → approval ✓ → proceed
-3. `concept-agent` — concept directions, flows
-   → **CONCEPT GATE** (concept-agent + qa-agent)
-   → return to **`product-accelerator`** for review → approval ✓ → proceed
-4. `ux-design` — buildable spec, lean IA, visual direction, design system
-   → **DESIGN GATE** (ux-design + qa-agent)
-   → return to **`product-accelerator`** for review → approval ✓ → proceed
-5. `solution-architect` — lean tech approach, component strategy
-   → **ARCHITECTURE GATE** (solution-architect + product-accelerator + qa-agent)
+**`qa-agent` is a gate evaluator — not a per-step reviewer.**
+It is activated at exactly four points: Concept Gate, Design Gate, Architecture Gate, Build Gate.
+Between phases (discover → define, define → concept) there is no qa-agent — only PA review.
+
+```
+1. discover-agent
+   → you (product-lead): update project-spec.md
+   → product-accelerator: review → approval ✓ → proceed
+
+2. define-agent
+   → you (product-lead): update project-spec.md
+   → product-accelerator: review → approval ✓ → proceed
+
+3. concept-agent
+   → CONCEPT GATE: concept-agent + qa-agent + product-accelerator
+   → you (product-lead): update project-spec.md with gate verdict
+   → product-accelerator: approval ✓ → proceed
+
+4. ux-design
+   → DESIGN GATE: ux-design + qa-agent
+   → you (product-lead): update project-spec.md with gate verdict
+   → product-accelerator: review → approval ✓ → proceed
+
+5. solution-architect
+   → ARCHITECTURE GATE: solution-architect + qa-agent + product-accelerator
+   → you (product-lead): update project-spec.md with gate verdict
    → approval ✓ → proceed
-6. `frontend-design` (greenfield) or `implement-design` (Figma)
-   → consistency check via ux-design → **BUILD GATE** (`frontend-design`/`implement-design` + `ux-design` + `qa-agent`)
-   → **`validation-agent`** — close the loop: does the build solve the original problem? (include stakeholder feedback if available)
-   → return to **`product-accelerator`** for final review → deliver to user
+
+6. frontend-design (greenfield) or implement-design (Figma)
+   → ux-design: consistency check
+   → BUILD GATE: build agent + ux-design + qa-agent + product-accelerator
+   → you (product-lead): update project-spec.md with gate verdict
+   → validation-agent: does the build solve the original problem? (include stakeholder feedback)
+   → product-accelerator: final review → deliver to user
+```
 
 ### Step 3 — Phase Lock
 
