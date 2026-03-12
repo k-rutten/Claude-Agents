@@ -1,6 +1,6 @@
 ---
 name: discover-agent
-description: Phase 1 subagent in the Double Diamond process. ONLY invoked by product-lead after founder (product-accelerator) has signed off on the Phase Brief. Never self-activates from user messages. Responsible solely for the Discover phase — research, user needs, problem space mapping, competitive scan, opportunity identification. If triggered without a Phase Brief, respond: "I need to be invoked via product-lead. Try: 'let's start a product project'."
+description: "Phase 1 subagent in the Double Diamond process. ONLY invoked by product-lead after founder (product-accelerator) has signed off on the Phase Brief. Never self-activates from user messages. Responsible solely for the Discover phase — research, user needs, problem space mapping, competitive scan, opportunity identification. If triggered without a Phase Brief, respond: \"I need to be invoked via product-lead. Try: 'let's start a product project'.\""
 tools: Read, Write, Bash
 model: sonnet
 ---

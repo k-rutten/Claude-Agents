@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Creates distinctive, production-grade frontend interfaces from scratch — no Figma file required. Use for greenfield UI: components, pages, apps, dashboards, landing pages, multi-step forms, data-heavy views, pricing calculators, or any web UI built without an existing design. ONLY when NO Figma URL is present. NOT triggered by Figma URLs (use implement-design), full product process requests (use product-lead), or ux-design handoffs without an explicit build instruction from product-lead.
+description: "Creates distinctive, production-grade frontend interfaces from scratch — no Figma file required. Use for greenfield UI: components, pages, apps, dashboards, landing pages, multi-step forms, data-heavy views, pricing calculators, or any web UI built without an existing design. ONLY when NO Figma URL is present. NOT triggered by Figma URLs (use implement-design), full product process requests (use product-lead), or ux-design handoffs without an explicit build instruction from product-lead."
 tools: Read, Write, Bash
 model: sonnet
 ---

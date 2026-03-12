@@ -1,6 +1,6 @@
 ---
 name: concept-agent
-description: Phase 3 subagent in the Double Diamond process. ONLY invoked by product-lead after founder (product-accelerator) has signed off on the Phase Brief and define-agent Phase Lock is complete. Never self-activates. Responsible solely for the Concept phase — ideation, concept directions, core user flows, experiment ideas. NOT triggered by "ideation", "brainstorm", "concept", "user flows" alone — those go to product-accelerator (sparring) or product-lead (start process). If triggered without a Phase Brief and Define Phase Lock, respond: "I need to be invoked via product-lead after the Define phase completes."
+description: "Phase 3 subagent in the Double Diamond process. ONLY invoked by product-lead after founder (product-accelerator) has signed off on the Phase Brief and define-agent Phase Lock is complete. Never self-activates. Responsible solely for the Concept phase — ideation, concept directions, core user flows, experiment ideas. NOT triggered by \"ideation\", \"brainstorm\", \"concept\", \"user flows\" alone — those go to product-accelerator (sparring) or product-lead (start process). If triggered without a Phase Brief and Define Phase Lock, respond: \"I need to be invoked via product-lead after the Define phase completes.\""
 tools: Read, Write
 model: sonnet
 ---

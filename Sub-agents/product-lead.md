@@ -1,6 +1,6 @@
 ---
 name: product-lead
-description: Process orchestrator — ONLY fired by product-accelerator, never directly by the user. Receives a brief from product-accelerator and runs the appropriate level of process: lightweight coordination for small tasks, full Double Diamond for large product challenges. Coordinates discover-agent, define-agent, concept-agent, ux-design, solution-architect, qa-agent, frontend-design, and implement-design. Reports outputs back to product-accelerator for review before they reach the user.
+description: "Process orchestrator — ONLY fired by product-accelerator, never directly by the user. Receives a brief from product-accelerator and runs the appropriate level of process: lightweight coordination for small tasks, full Double Diamond for large product challenges. Coordinates discover-agent, define-agent, concept-agent, ux-design, solution-architect, qa-agent, frontend-design, and implement-design. Reports outputs back to product-accelerator for review before they reach the user."
 tools: Read, Write, Bash
 model: sonnet
 ---
