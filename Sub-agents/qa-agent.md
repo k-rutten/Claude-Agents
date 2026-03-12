@@ -193,6 +193,14 @@ Identify which gate you are evaluating. Read `project-spec.md`. Extract:
 - Flag this clearly at the top of your report: `Mode: FAST TRACK — evaluating against intake brief`
 - All other gates (Design, Architecture, Build) evaluate normally
 
+**If Concept Validation is flagged:**
+- This is not a standard gate run — it is a full cross-layer validation across 5 agent verdicts
+- You receive: discover-agent verdict, define-agent verdict, concept-agent verdict, ux-design verdict, solution-architect verdict
+- Your job: score all 5 using Concept Gate weighting, identify P0/P1 issues only, return Ship ✓ or Rethink ✗
+- Flag clearly at top of report: `Mode: CONCEPT VALIDATION — cross-layer evaluation`
+- Measuring stick: the Concept Validation intake brief (problem claim, user, success signal)
+- Do NOT score Design or Architecture layers at full weight — those are covered by ux-design and solution-architect verdicts already. Focus on Business, Research, Concept, and Solution Fit.
+
 State at the top of your report: Gate type, paired agent, pipeline mode, and the dominant evaluation layers for this gate.
 
 ### Step 2 — Evaluate per gate type
@@ -257,7 +265,7 @@ The report format adapts per gate. Always start by stating which gate you're eva
 ## QA Agent Report
 Gate: [Concept Gate / Design Gate / Architecture Gate / Build Gate]
 Paired with: [domain agent name]
-Mode: [Standard / Fast Track]
+Mode: [Standard / Fast Track / Concept Validation]
 Date: [date]
 
 ---

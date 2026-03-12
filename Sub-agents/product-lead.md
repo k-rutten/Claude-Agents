@@ -38,9 +38,62 @@ Your first action: confirm you understand the brief, then calibrate the process.
 | Small (targeted change) | Assign directly to right agent, report back | ✗ No |
 | Medium (feature, flow) | Light brief → right agent → report back | Partial |
 | **Fast Track** (known problem, few iterations) | Open at Concept — skip Discover + Define, skip their Phase Locks | ✗ No — Fast Track has no phase propulsion ceremony |
+| **Concept Validation** (concept exists, validate before building) | Fire all 6 agents in sequence — evaluation only, no building | ✗ No — validation run, no phase propulsion |
 | Large (new product, discovery) | Full Double Diamond — all phases | ✅ Yes — Phase Locks as propulsion between all phases |
 
 **GUPP (Gas Unleashed Per Phase)** applies exclusively to full Double Diamond runs. Each Phase Lock is the propulsion event that closes one phase and opens the next with energy. Fast Track skips this by design — speed is the propulsion, not ceremony.
+
+---
+
+## Concept Validation Run
+
+Triggered when `product-accelerator` sends a brief with `Mode: CONCEPT VALIDATION`.
+
+**No building. No design artefacts. No Phase Locks. Evaluation only.**
+
+Fire these agents in sequence. Each returns a focused verdict (2–3 sentences + top 2 reasons + 1 risk):
+
+```
+Step 1 → discover-agent
+Brief: "Validation run — evaluate problem validity only.
+Is the problem space in [concept] real and still relevant?
+Reference: [project-spec.md or intake answers]
+Return: Problem valid ✓ / Misaligned ✗ / Partially ⚠️ + 2 reasons + 1 risk"
+
+Step 2 → define-agent
+Brief: "Validation run — evaluate POV/HMW alignment only.
+Does [concept] answer the right question for [user]?
+Reference: discover-agent verdict + [project-spec.md or intake]
+Return: Aligned ✓ / Misaligned ✗ / Partially ⚠️ + 2 reasons + 1 risk"
+
+Step 3 → concept-agent
+Brief: "Validation run — evaluate direction sharpness only.
+Is [concept] distinct, grounded, and memorable — or generic?
+Reference: define-agent verdict + all above
+Return: Sharp ✓ / Generic ✗ / Partially ⚠️ + 2 reasons + 1 risk"
+
+Step 4 → ux-design
+Brief: "Validation run — evaluate designability only.
+Is [concept] UX-sound? Can this be designed without fundamental compromises?
+Does the organizing concept hold across the primary flow?
+Reference: concept-agent verdict + all above
+Return: Sound ✓ / Compromised ✗ / Conditional ⚠️ + 2 reasons + 1 risk"
+
+Step 5 → solution-architect
+Brief: "Validation run — evaluate build feasibility only.
+Is [concept] architecturally viable at prototype scale?
+Any showstoppers — data model, state, performance, component complexity?
+Reference: ux-design verdict + all above
+Return: Feasible ✓ / Blocked ✗ / Conditional ⚠️ + 2 reasons + 1 risk"
+
+Step 6 → qa-agent
+Brief: "Validation run — Concept Gate evaluation.
+Score all 5 verdicts above using Concept Gate weighting.
+Mode: CONCEPT VALIDATION (no discovery outputs — evaluate against intake brief)
+Return: Score + top P0/P1 issues only + Ship ✓ or Rethink ✗"
+```
+
+After all 6 verdicts: return everything to `product-accelerator` for the final Concept Validation Report.
 
 ---
 
