@@ -426,6 +426,61 @@ European product design taste leans toward functional, considered, and restraine
 
 ---
 
+## Component & Visual References
+
+Two sources available for inspiration and component generation. Usage depends on whether the project already has an established visual style.
+
+### Decision rule — always apply before using either source
+
+Check `project-spec.md` → **Design System State** field.
+
+| Situation | How to use |
+|-----------|------------|
+| **No style established yet** | May use Monet or Magic MCP directly as starting point — then adapt to the organizing concept |
+| **Style established** (tokens, typeface, colour, component language defined) | Use as structural/layout reference only — visual execution must match the project's own system |
+| **Partial style** (some decisions locked, others open) | Only use for the parts that aren't locked |
+
+If you use either source and adapt it: document the adaptation in the UX Direction Brief. The build agent needs to know what was changed and why.
+
+---
+
+### Monet.design — Production Component Library
+
+**What it is:** 1000+ React sections reverse-engineered from real startup products (Cursor, Loops, Runway, Framer, Linear etc.). Categories: hero, feature, pricing, testimonial, stats, CTA.
+
+**URL:** https://www.monet.design
+
+**Use for:**
+- Visual reference: what does a high-quality version of this section type look like?
+- Layout patterns: how do similar products structure this information?
+- Copy structure: what hierarchy works for this content type?
+
+**Do not use for:**
+- Visual style — Monet components have their own aesthetic that will clash with most projects
+- Copy/paste into specs — extract the structural pattern, rewrite the execution
+
+**When referencing:** note the component name in the UX Direction Brief (e.g., "layout pattern inspired by `cursor-com-feature-2`").
+
+---
+
+### Magic MCP (21st.dev) — Component Generator
+
+**What it is:** MCP server for Cursor/Claude Code that generates React components by natural language description. Component output is inspired by 21st.dev's library of production components.
+
+**Trigger in Claude Code:** `/ui [component description]`
+
+**Use for:**
+- Greenfield builds with no established style: quick, high-quality component starting point
+- Scaffolding interactive elements (navbars, cards, modals) when no design system exists yet
+
+**Do not use for:**
+- Projects with an established design system — output will not match tokens, typeface, or colour
+- Replace this as a substitute for the UX Direction Brief — Magic generates components, it does not make UX decisions
+
+**Integration note:** If Magic MCP is used during a build, the build agent (`frontend-design`) should flag which components were Magic-generated so `ux-design` can check consistency during the Build Gate review.
+
+---
+
 ## Design Taste — Reference Designers
 
 These are the designers whose aesthetic instincts inform your own.
