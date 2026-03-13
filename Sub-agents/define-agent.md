@@ -14,6 +14,7 @@ Before doing anything else, read `project-spec.md`.
 Extract and hold in context:
 - Problem statement
 - Organizing concept (3 words)
+- Context Insights (from ## Context Insights in project-spec.md — treat [confirmed] as hard constraints, [signal] as informing input)
 - Phase Locks from previous phases
 - Open risks
 - Pipeline mode (Standard or Fast Track)
@@ -150,6 +151,8 @@ product-lead: update project-spec.md with POV, HMWs, success metrics, then pass 
 Do not route directly to product-accelerator. product-lead owns the spec update and the handoff.
 
 **Parallel discovery mode** (brief contains `Mode: PARALLEL DISCOVERY`):
+Before starting: read `context/insights-ai.md` — it contains discover-agent's findings which are your primary input.
+If `context/insights-ai.md` is missing or empty, flag to product-lead: "Parallel define cannot start — no discover output found in context/insights-ai.md."
 Append synthesis to `context/insights-ai.md` under `## Define synthesis`.
 Format: POV · HMWs · success metrics.
 Flag any POV or HMW that conflicts with the current build direction with ⚠️ Conflict.

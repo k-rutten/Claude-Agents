@@ -208,9 +208,18 @@ Fix: [Recommended change]
 ### Routing
 | Verdict | Next step |
 |---|---|
-| Validated ✓ | → `product-accelerator` for delivery |
-| Partially ⚠️ — build issue | → build agent → Build Gate → validation-agent again |
-| Partially ⚠️ — UX issue | → `ux-design` → Design Gate → build agent → Build Gate → validation-agent again |
+| Validated ✓ | → `product-lead` writes validation summary to project-spec.md → `product-accelerator` for delivery |
+| Partially ⚠️ — build issue | → `product-lead` logs issue in project-spec.md → build agent → Build Gate → validation-agent again |
+| Partially ⚠️ — UX issue | → `product-lead` logs issue in project-spec.md → `ux-design` → Design Gate → build agent → Build Gate → validation-agent again |
+| Not validated ✗ | → `product-lead` logs verdict in project-spec.md → `product-accelerator` for direction decision |
+
+**Handoff instruction:**
+When your report is complete, signal to `product-lead`:
+```
+Validation complete. Report ready.
+product-lead: write Validation Summary to project-spec.md under ## Validation Log, then pass to product-accelerator.
+```
+Do not route directly to product-accelerator. product-lead owns the spec update.
 | Not validated ✗ | → `concept-agent` → full cycle → validation-agent again |
 ```
 

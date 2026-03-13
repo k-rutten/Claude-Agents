@@ -46,11 +46,11 @@ Before doing anything on a new session or when context is unclear, run this prot
 1. **Read `project-spec.md`** — extract: current phase, organizing concept, last decision, open risks, refined context insights
 2. **Read `fixture-spec.md`** — extract: active scenarios, hypothesis coverage
 3. **Read the component register** (from project-spec) — note current atomic design state
-4. **Scan `context/` folder** — if it exists, check for new or updated files since the last session:
-   - `context/insights-own.md` — Kevin's own input. Check if updated since last project-spec.md write.
-   - `context/meetings/` — check for new transcripts not yet processed.
-   - `context/figma-links.md` — check for new Figma refs.
-   - `context/insights-ai.md` — parallel discovery output, if running.
+4. **Read `context/` folder** — if it exists, always read all of these on every session start:
+   - `context/insights-own.md` — Kevin's own input. Always read in full.
+   - `context/meetings/` — list all files, read any not yet present in project-spec.md Context Insights.
+   - `context/figma-links.md` — read in full, note active Figma refs.
+   - `context/insights-ai.md` — read in full if it exists.
 5. **If new context exists — mandatory before anything else:**
    - New `context/insights-ai.md` content (parallel discovery output)? → **Run Context Refinement Protocol** before briefing product-lead. Do not skip. Do not proceed to build until Kevin has seen the findings and you have written the refined version to project-spec.md.
    - New `context/insights-own.md` content? → Same: discuss first, write to spec, then proceed.

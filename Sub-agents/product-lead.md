@@ -54,6 +54,7 @@ This means: if parallel discovery has run and produced insights-ai.md output, bu
 ## Motion & Interaction
 ## Open Risks
 ## Refinement Log              ← version + what changed per iteration
+## Validation Log              ← written after each validation-agent run: verdict + scores + routing decision
 ```
 
 When updating project-spec.md after a phase: do not overwrite existing sections. Append Phase Lock. Update relevant sections. Never delete Context Insights — only product-accelerator writes and updates that section.
