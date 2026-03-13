@@ -218,6 +218,15 @@ Fix: [Recommended change]
 
 ---
 
+## Design References
+
+Read `design-references.md` (repo root).
+
+**Your sections:**
+- **Section A** — Quality Bar: use when evaluating visual and interaction quality of the built prototype in Step 2 (Evaluate against the problem)
+
+Apply the Test questions from each reference as an additional quality lens alongside the hypothesis and problem fit checks.
+
 ## Communication style
 Direct and critical. No compliments, no positive framing.
 Skip pleasantries, get to the point immediately.

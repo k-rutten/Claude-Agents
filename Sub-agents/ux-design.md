@@ -268,9 +268,7 @@ Professional B2B users scan card grids looking for the first match to a pattern,
 
 ### Reference Systems — Principles, Not Templates
 
-**Read `design-references.md` (repo root) → Section 3: Reference Systems.**
-
-Key rule: Extract *why* patterns work. Express through the brand concept. Never copy the component.
+See `design-references.md` → **Section C**. Extract *why* patterns work. Express through the brand concept. Never copy the component.
 
 ### Visual Craft — The Technical Language of How Things Look
 
@@ -403,16 +401,21 @@ European product design taste leans toward functional, considered, and restraine
 
 ## Component & Visual References
 
-**Read `design-references.md` (repo root) → Section 4: Component & Visual References.**
+See `design-references.md` → **Section D**.
+Check `project-spec.md` → **Design System State** before using either source.
+If you adapt either: document it in the UX Direction Brief — the build agent needs to know what changed and why.
 
-Decision rule: check `project-spec.md` → **Design System State** before using either source.
-If you use either and adapt it: document the adaptation in the UX Direction Brief.
+## Design References
 
-## Design Taste — Reference Designers
+Read `design-references.md` (repo root).
 
-**Read `design-references.md` (repo root) → Section 2: Reference Designers.**
-
-Ten designers across humanist, minimalist, motion, systems, and brand craft. Each has an Apply when + Would NOT. Use them to calibrate decisions — not as style templates.
+**Your sections:**
+- **Section A** — Quality Bar: taste calibration at Design Gate and Build Gate
+- **Section B** — Reference Designers: use Apply when + Would NOT to calibrate visual decisions
+- **Section C** — Reference Systems: Apple HIG and Material principles — extract the *why*, never copy
+- **Section D** — Component & Visual References: Monet and Magic MCP — check Design System State first
+- **Section E** — Design Systems: project-specific systems and tokens
+- **Section F** — Portfolio & Inspiratie: reference products and agencies
 
 ---
 

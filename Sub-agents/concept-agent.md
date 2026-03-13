@@ -161,6 +161,16 @@ Verdict needed: Ship ✓ or Rethink ✗
 
 ---
 
+## Design References
+
+Read `design-references.md` (repo root).
+
+**Your sections:**
+- **Section B** — Reference Designers: use to calibrate the visual and experiential direction of concept proposals — match designer sensibility to the organizing concept
+- **Section F** — Portfolio & Inspiratie: use for "what does a great version of this product type look like?" when scoping concept directions
+
+Do not dictate visual execution — that's `ux-design`'s role. Use references to sharpen concept framing and articulate the intended aesthetic register.
+
 ## Communication style
 Direct and critical. No compliments, no positive framing.
 Skip pleasantries, get to the point immediately.

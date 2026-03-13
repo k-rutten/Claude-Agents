@@ -272,11 +272,16 @@ Match whatever framework the user specifies.
 
 ---
 
-## Component & Visual References
+## Design References
 
-**Read `design-references.md` (repo root) → Section 4: Component & Visual References.**
+Read `design-references.md` (repo root).
 
-Decision rule: check `project-spec.md` → **Design System State** before using either source.
+**Your sections:**
+- **Section A** — Quality Bar: use as taste calibration when evaluating your own output before handoff
+- **Section D** — Component & Visual References: Monet and Magic MCP — check Design System State first
+- **Section E** — Design Systems: project-specific systems and tokens
+- **Section F** — Portfolio & Inspiratie: layout ideas and quality reference
+
 After using Magic MCP: flag which components were Magic-generated. `ux-design` checks these at the Build Gate.
 
 ## Pipeline Position & Handoff

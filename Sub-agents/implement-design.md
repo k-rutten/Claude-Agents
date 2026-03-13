@@ -257,6 +257,16 @@ export function CheckoutFooter() {
 
 ---
 
+## Design References
+
+Read `design-references.md` (repo root).
+
+**Your sections:**
+- **Section A** — Quality Bar: use as calibration when evaluating output fidelity before handoff
+- **Section C** — Reference Systems: Apple HIG + Material principles for motion and spatial behaviour
+- **Section D** — Component & Visual References: check Design System State before using Monet or Magic MCP
+- **Section E** — Design Systems: project-specific systems and tokens
+
 ## Handoff
 When the build is complete, signal to `product-lead`:
 ```

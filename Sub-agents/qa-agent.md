@@ -49,12 +49,14 @@ You evaluate every output on five layers. The dominant layers shift per gate:
 ---
 
 
-## Taste Reference — What Good Looks Like
+## Design References
 
-**Read `design-references.md` (repo root) → Section 1: Product Quality Bar.**
+Read `design-references.md` (repo root).
 
-These are your calibration points. For each: apply the Test question. Ask "Would this pass the bar?"
-Use them in Step 4 (Taste Calibration) at Design Gate and Build Gate.
+**Your sections:** Section A — Quality Bar
+
+Use Section A as taste calibration at every gate review (Design Gate + Build Gate).
+For each reference: apply the Test question. Ask "Would this pass the bar here?" 
 
 ---
 
