@@ -10,8 +10,8 @@
 
 | Server | Categorie | Waarde voor pipeline | Status |
 |---|---|---|---|
-| `design-inspiration-mcp-server` | Referentie | ⭐⭐⭐⭐⭐ Primair — Dribbble + Behance + Awwwards + Mobbin + Pinterest + token-extractie | **Aanbevolen** |
-| `studio-design-mcp` | Referentie | ⭐⭐⭐⭐ Alternatief — Mobbin local catalog + Dribbble. Geen API key nodig | **Aanbevolen als fallback** |
+| `studio-design-mcp` | Referentie | ⭐⭐⭐⭐⭐ Primair — Mobbin local catalog + Dribbble + Pinterest. Geen API key nodig | **Aanbevolen** |
+| `design-inspiration-mcp-server` | Referentie | ⭐⭐⭐⭐ Optioneel — Dribbble + Behance + Awwwards + Mobbin + Pinterest + token-extractie. Vereist betaalde Serper API key | **Optioneel (betaald)** |
 | `ui-ux-pro-mcp` | Kennisbase | ⭐⭐⭐⭐ 1519+ curated resources — design systems, kleurpaletten, UX guidelines, platform HIG | **Aanbevolen** |
 | `ux-mcp-server` | Kennisbase | ⭐⭐⭐⭐ 28 resources + 23 tools — WCAG, Nielsen, contrast check, dark pattern detection | **Aanbevolen** |
 | `mcp-ui` (MCP-UI-Org) | Protocol | ❌ Niet relevant — gaat over renderen van UI in MCP clients, niet over design inspiratie | Skip |
@@ -19,7 +19,7 @@
 
 ---
 
-## 1. design-inspiration-mcp-server ⭐ Primair
+## 1. studio-design-mcp ⭐ Primair (gratis)
 
 **Wat het doet:** Zoekt in Dribbble, Behance, Awwwards, Mobbin én Pinterest via Serper API. Geeft image URLs, source links, dimensies terug. Heeft ook token-extractie: geef een live URL op, haalt kleuren, fonts en spacing eruit.
 
@@ -60,7 +60,7 @@ npm install -g design-inspiration-mcp-server
 
 ---
 
-## 2. studio-design-mcp ⭐ Fallback (geen API key)
+## 2. design-inspiration-mcp-server — Optioneel (betaald)
 
 **Wat het doet:** Mobbin local catalog (flows + screens data) + Dribbble + Pinterest. Geen authenticatie vereist. Python. Mobbin data is lokaal gebundeld — waardevol voor user journeys per app-type.
 
