@@ -139,6 +139,10 @@ flowchart TD
 | `solution-architect` | Sonnet | Lean tech approach · Component strategy · Data model |
 | `frontend-design` | Sonnet | Greenfield UI build (no Figma) |
 | `implement-design` | Sonnet | Figma → Production code |
+| `validation-agent` | Opus | Post-build loop closer · Problem fit · Stakeholder feedback · Retrospective |
+
+**Planned (not yet built):**
+| `user-panel-agent` | — | Simulates a panel of fictional users based on the prototype spec. Returns reactions per user profile: what they understand, where they drop off, what they miss. Fills the gap between internal validation and real user tests. |
 
 ---
 
@@ -164,10 +168,12 @@ Every new session starts with a mandatory bootstrap protocol — before any othe
 1. Read `project-spec.md` — phase, version, organizing concept
 2. Read `fixture-spec.md` — scenarios and hypotheses
 3. Read component register — current atomic design state
-4. Determine current phase + version from the above
-5. Confirm next step with the user
+4. Read `context/` folder (if exists) — insights-own, insights-ai, latest meeting transcript
+5. Run conflict check — flag any discovery insights that contradict current build decisions
+6. Determine current phase + version
+7. Confirm next step with the user
 
-No agent starts before bootstrap is confirmed.
+No agent starts before bootstrap is confirmed. See `context-folder-README.md` for folder spec.
 
 ---
 

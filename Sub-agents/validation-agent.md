@@ -58,6 +58,15 @@ Every agent upstream evaluated their own output. You evaluate the full chain.
 
 ## Two Input Types
 
+**Active stakeholder check — always run this first:**
+Before evaluating anything, ask explicitly:
+"Heb je dit al gedeeld met stakeholders of gebruikers? Zo ja: wat was hun reactie — wat begreep niet, wat miste, wat verbaasde hen?
+Zo nee: is er een stakeholder demo of gebruikerstest gepland? Wanneer?"
+
+This is not optional. Internal evaluation without stakeholder signal has a known ceiling. If the answer is no — proceed internally, but flag it in the verdict: "Stakeholder validation not yet done — internal verdict only."
+
+---
+
 ### A — Internal only (no stakeholder feedback)
 You have: project-spec.md, fixture-spec.md, Build Gate output, all upstream verdicts.
 You evaluate the chain internally.
@@ -203,6 +212,14 @@ Fix: [Recommended change]
 | Partially ⚠️ — UX issue | → `ux-design` → Design Gate → build agent → Build Gate → validation-agent again |
 | Not validated ✗ | → `concept-agent` → full cycle → validation-agent again |
 ```
+
+---
+
+## Future: AI User Panel Agent
+
+A planned extension to this agent: `user-panel-agent` — simulates a panel of fictieve gebruikers op basis van de prototype spec en het probleemstatement. Geeft reacties terug per gebruikersprofiel: wat begrijpen ze, waar haken ze af, wat missen ze. Vult het gat tussen interne validatie en echte gebruikerstests.
+
+Status: not yet built. When built, it runs before Step 2 (Evaluate prototype) and its output feeds into the Problem Fit score.
 
 ---
 

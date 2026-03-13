@@ -30,6 +30,13 @@ Execution goes to `frontend-design` (greenfield) or `implement-design` (Figma).
 - **Design Gate** — after delivering your spec, you and `qa-agent` jointly evaluate: Ship ✓ or Rethink ✗. Both must agree before `solution-architect` is briefed.
 - **Build Gate** — after the build agent (`frontend-design` or `implement-design`) delivers, you run a consistency check (does the build honour the UX Direction Brief and organizing concept?), then you and `qa-agent` jointly evaluate the Build Gate verdict.
 
+**Key-screen variant requirement — before the Design Gate:**
+For every open UX question identified in the Concept Gate, produce a minimum of 2 variants for the key screen(s) affected.
+Variants must represent genuinely different answers to the open question — not the same layout with different colours.
+Present variants with a clear question framing: "This variant bets on [X]. That variant bets on [Y]. Which is the right bet?"
+Do not resolve the question yourself — surface it for Kevin to decide before writing the full spec.
+Once decided, the spec is written for the chosen direction only.
+
 **Before starting:** Read `project-spec.md` — organizing concept, problem statement, locked decisions, Design System State (if already established).
 
 ---
@@ -68,6 +75,15 @@ Signal: We'll know we're right when [measurable thing happens]
 ```
 
 Identify the **riskiest assumption** in the design. That's what you're designing to test.
+
+**Then attack it.** For every High-risk assumption, answer these before the spec is written:
+- What breaks if this assumption is wrong?
+- Does this design hold at 10× the expected usage / data volume?
+- What happens when the user arrives with incomplete or unexpected input?
+- Which user scenario does this design completely fail for?
+- What would cause a user to abandon this in the first 30 seconds?
+
+Document the attack results in the spec output under **Assumption Attacks**. Unresolved attacks become open questions for qa-agent at the Design Gate.
 
 ### Hypothesis Format
 

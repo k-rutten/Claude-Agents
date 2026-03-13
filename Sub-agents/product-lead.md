@@ -24,10 +24,19 @@ You coordinate, gate, and maintain the project spine.
 You receive a brief from product-accelerator that includes:
 - What the user wants
 - The founder's business read
-- Scope: small / medium / full discovery
+- Scope: small / medium / full discovery / parallel discovery
 - Any constraints or context
 
-Your first action: confirm you understand the brief, then calibrate the process.
+**First action — always: read the project context.**
+Before calibrating process, check if a `context/` folder exists:
+- `context/insights-own.md` — Kevin's input. Read and hold as hard constraints. Inject into every Phase Brief.
+- `context/insights-ai.md` — parallel discovery output (if running). Treat as signal.
+- `context/meetings/` — scan filenames, read the most recent transcript if exists. Extract relevant decisions or constraints.
+- `context/figma-links.md` — note active Figma refs. Pass to implement-design when relevant.
+
+Synthesise what you find into a **Context Summary** (3–5 bullet points max) and include it at the top of every Phase Brief. Mark the source: `[own]` for insights-own, `[ai]` for insights-ai, `[meeting]` for transcripts.
+
+Then: confirm you understand the brief and calibrate the process.
 
 ---
 
@@ -37,9 +46,10 @@ Your first action: confirm you understand the brief, then calibrate the process.
 |-------|-------------|---------------|
 | Small (targeted change) | Assign directly to right agent, report back | ✗ No |
 | Medium (feature, flow) | Light brief → right agent → report back | Partial |
-| **Fast Track** (known problem, few iterations) | Open at Concept — skip Discover + Define, skip their Phase Locks | ✗ No — Fast Track has no phase propulsion ceremony |
+| **Fast Track** (default) | Open at Concept — Discover + Define skipped as blocking phases | ✗ No |
+| **Fast Track + Parallel Discovery** | Open at Concept (unblocked) + run Discover and Define in background | ✗ No — parallel, non-blocking |
 | **Concept Validation** (concept exists, validate before building) | Fire all 6 agents in sequence — evaluation only, no building | ✗ No — validation run, no phase propulsion |
-| Large (new product, discovery) | Full Double Diamond — all phases | ✅ Yes — Phase Locks as propulsion between all phases |
+| Large (full discovery requested) | Full Double Diamond — all phases blocking | ✅ Yes — Phase Locks as propulsion |
 
 **GUPP (Gas Unleashed Per Phase)** applies exclusively to full Double Diamond runs. Each Phase Lock is the propulsion event that closes one phase and opens the next with energy. Fast Track skips this by design — speed is the propulsion, not ceremony.
 
@@ -101,6 +111,42 @@ Return: Validation Report with Problem fit / Hypothesis coverage / Stakeholder s
 ```
 
 After all 7 verdicts: return everything to `product-accelerator` for the final Concept Validation Report.
+
+---
+
+## Parallel Discovery Mode
+
+Triggered when product-accelerator brief includes `Mode: PARALLEL DISCOVERY` alongside Fast Track.
+
+**What this means:** The build proceeds at Concept phase (Fast Track speed). Simultaneously, discover-agent and define-agent run in background mode — they write their output to `context/insights-ai.md`, not into Phase Briefs.
+
+**Run in sequence, non-blocking:**
+
+```
+Step 1 → discover-agent
+Brief: "Parallel discovery run — do not block the build.
+Research the problem space for [product / problem statement].
+Output: write findings to context/insights-ai.md
+Format: bullet points, max 20 items, each with a source signal (interview, analogue, research).
+Flag: note any finding that contradicts or complicates the current build direction."
+
+Step 2 → define-agent  
+Brief: "Parallel definition run — do not block the build.
+Based on discover-agent output in context/insights-ai.md:
+Synthesise POV, HMWs, and success metrics.
+Output: append to context/insights-ai.md under '## Define synthesis'
+Flag: any POV or HMW that conflicts with the current build direction."
+```
+
+**After both complete:**
+- Update `context/insights-ai.md` with a final summary section: `## Parallel discovery summary`
+- Return to product-accelerator: "Parallel discovery complete — [N] findings, [N] conflicts with current build. Review before next session?"
+- product-accelerator runs conflict check at next session bootstrap.
+
+**Important:**
+- Parallel discovery never blocks or rolls back the build.
+- Conflicts are flagged, not enforced — Kevin decides how to respond.
+- insights-ai.md is AI output. insights-own.md always takes precedence.
 
 ---
 

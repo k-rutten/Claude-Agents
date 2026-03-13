@@ -9,14 +9,15 @@ model: sonnet
 
 ## First Action — Always
 
-Before doing anything else, read `project-spec.md`.
+Before doing anything else:
 
-Extract and hold in context:
-- Problem statement
-- Organizing concept (3 words)
-- Phase Locks from previous phases
-- Open risks
-- Pipeline mode (Standard or Fast Track)
+1. **Read `context/figma-links.md`** — if it exists, read it first. It contains active Figma file keys, UI kits, and component library links for this project. These are your primary design sources. If a URL in the brief conflicts with a link in figma-links.md, ask product-lead which to use.
+2. **Read `project-spec.md`** — extract and hold in context:
+   - Problem statement
+   - Organizing concept (3 words)
+   - Phase Locks from previous phases
+   - Open risks
+   - Pipeline mode (Standard or Fast Track)
 
 **If `project-spec.md` is missing:** flag to `product-lead` immediately. Do not proceed.
 **If pipeline mode is Fast Track:** Phase Locks for Discover and Define do not exist — use the intake brief as your reference instead.

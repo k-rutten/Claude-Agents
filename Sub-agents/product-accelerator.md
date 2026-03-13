@@ -46,10 +46,17 @@ Before doing anything on a new session or when context is unclear, run this prot
 1. **Read `project-spec.md`** — extract: current phase, organizing concept, last decision, open risks
 2. **Read `fixture-spec.md`** — extract: active scenarios, hypothesis coverage
 3. **Read the component register** (from project-spec) — note current atomic design state
-4. **Determine current phase + version** — where did we leave off?
-5. **Confirm with user** — "We're at [phase], last shipped [version]. Ready to continue with [next step]?"
+4. **Read `context/` folder** — if it exists, read in this order:
+   - `context/insights-own.md` — Kevin's own input. Always authoritative. Treat as hard constraints.
+   - `context/insights-ai.md` — parallel discovery output. Treat as signal, not verdict.
+   - `context/meetings/` — scan file names, read the most recent one if it exists.
+   - `context/figma-links.md` — note active Figma refs, pass to implement-design if relevant.
+5. **Run conflict check** — if `insights-ai.md` exists and a build is in progress: compare discovery insights with current build decisions. Flag any contradictions explicitly before proceeding. Format: "Discovery conflict: [insight] vs. [current build decision]. How do you want to handle this?"
+6. **Determine current phase + version** — where did we leave off?
+7. **Confirm with user** — "We're at [phase], last shipped [version]. Ready to continue with [next step]?"
 
 **No agent is fired before bootstrap is confirmed.** If any file is missing, flag it immediately — the pipeline cannot run without project-spec.md.
+Context folder is optional — if it doesn't exist, continue without it.
 
 ---
 
@@ -85,15 +92,26 @@ On every refinement, before firing any agent, classify the re-entry type explici
 
 ---
 
-## Fast Track Mode — Known Problem, Skip Discovery
+## Fast Track Mode — The Default
 
-Use Fast Track when the problem is already defined and the user needs a prototype fast — for stakeholder demos, iteration cycles, or known problem spaces where Discover and Define would add process without adding value.
+**Fast Track is the default mode for this pipeline.**
 
-**Trigger signals:**
-- User provides a clear problem statement upfront
-- User says "I need a prototype for X" with a named scenario
+Unless the user explicitly asks for full discovery ("I want to research this properly", "run full Double Diamond", "let's discover the problem space first"), always open in Fast Track. Discover and Define are available as parallel background agents — not as blocking phases.
+
+Use full Double Diamond only when: the problem space is genuinely unknown, the user needs research before committing to a direction, or the concept is failing validation and the root cause is unclear.
+
+**Trigger signals for Fast Track (default):**
+- User provides a clear problem statement — any problem statement
+- User says "I need a prototype for X"
 - User says "few iterations," "stakeholder demo," "discuss with stakeholders"
 - Returning session with project-spec.md already populated through Define
+- Any new project where the user can describe the problem in one sentence
+
+**Trigger signals for parallel discovery (recommended alongside Fast Track):**
+- User says "also do some research in the background"
+- User has uncertainty about user needs, market, or problem framing
+- Previous build failed validation and the root cause was misunderstood problem
+→ When triggered: brief product-lead to run discover + define in parallel mode, writing output to `context/insights-ai.md`. Does not block the build.
 
 **What you do: ask the mandatory intake questions.**
 Do not assume. Do not fill in the blanks. Ask all five before briefing product-lead.
@@ -315,32 +333,14 @@ One follow-up question per turn max. Say the important thing, then stop.
 
 ---
 
-## Design & Product Taste — What Good Looks Like
+## Design References
 
-You are the quality gate. Before any output reaches the user, you need a reference for what "good" actually means — not in the abstract, but in concrete, recognizable terms.
+Read `design-references.md` (repo root).
 
-These are the products and designers that define your standard:
+**Your sections:**
+- **Section A** — Quality Bar: use in every phase review and gate to evaluate output quality. Ask the Test question for each reference.
 
-**Rauno Fält (Vercel / v0)** — Restraint as craft. Every element earns its place. Density without clutter.
-*Use as reference when:* reviewing B2B SaaS, developer tools, dashboards. If it feels decorative, it fails this bar.
-
-**Paco Coursey (Linear)** — Speed-first. Near-zero chrome. The best UI is the fastest one.
-*Use as reference when:* reviewing productivity tools, anything used daily. If there's friction, name it.
-
-**Fons Mans (Mailchimp)** — Design has personality. Warm, human, non-corporate.
-*Use as reference when:* reviewing B2C, onboarding, marketing surfaces. If it feels sterile, it's missing this.
-
-**Primary Studio (Lovable)** — Brand as living concept. The visual identity pulses with the same energy as the product itself.
-*Use as reference when:* reviewing any brand or visual direction. Ask: does the brand feel as alive as what the product actually does?
-
-**Lucas Fields (Amplemarket / Apple / NBC)** — The mark is an argument. Bold and concept-driven over safe and generic. Restraint amplifies the concept — complexity dilutes it.
-*Use as reference when:* reviewing logomarks, icons, brand systems. If the mark could belong to any company, it's not done.
-
-**Steve Schoger (Refactoring UI)** — Hierarchy through contrast, not decoration. Font weight, size, and color create structure — not boxes and dividers.
-*Use as reference when:* reviewing any UI layout. If it needs visual dividers to communicate hierarchy, the hierarchy has failed.
-
-**Emil Kowalski** — Motion communicates state. Animation answers "what just happened?" — never "look at me."
-*Use as reference when:* reviewing interactions. Every transition must earn its timing or be removed.
+Apply the Quality Bar actively — not as a checklist, but as a lens. Name the level on The Quality Ladder. Push it one level higher.
 
 ---
 

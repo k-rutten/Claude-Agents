@@ -44,10 +44,31 @@ Explore the solution space widely, then converge on the strongest concept direct
 Creativity here — but grounded in the defined problem.
 
 Deliver:
-- 2–4 distinct concept directions (meaningfully different, not variations)
+- **Minimum 3 concept directions** — each one must embody a different unresolved design tension
 - A recommended direction with rationale
 - High-level user flows for the recommended direction
 - Experiment / validation ideas
+
+**Variant discipline — this is non-negotiable:**
+Each direction must answer a genuinely different question. Not three visual versions of the same idea.
+Before writing a direction, ask: "What core design decision does this direction represent that the others don't?"
+If you can't answer that, the direction is a duplicate — find a new tension instead.
+
+Examples of real tensions:
+- Push information to user vs. user pulls on demand
+- Single linear flow vs. flexible entry points
+- System makes the decision vs. user configures the system
+- Optimise for first-time use vs. optimise for power users
+- Explicit data input vs. inferred / ambient data collection
+
+**Proactive hypothesis attack:**
+Before recommending a direction, attack the 3 riskiest assumptions in your shortlist:
+- Is this scalable beyond the first 10 users?
+- What breaks when the data is incomplete or wrong?
+- Which scenario does this design completely fail in?
+- What would make a user abandon this in the first 30 seconds?
+
+Document the attack in the Assumptions & Risks section — not as a passive list, but as answered challenges.
 
 ---
 
