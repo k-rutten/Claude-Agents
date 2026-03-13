@@ -40,6 +40,24 @@ Do not read `context/` files directly. product-accelerator has already processed
 
 This means: if parallel discovery has run and produced insights-ai.md output, but it has not yet appeared in project-spec.md → that content does not exist for you yet. product-accelerator and Kevin are still processing it. Wait for the updated spec before briefing agents.
 
+**project-spec.md required sections — maintain all of these:**
+
+```
+## Executive Summary
+## Organizing Concept          ← 3 words, immutable once set
+## Problem Statement
+## Context Insights            ← written by product-accelerator after discussion with Kevin
+                                  format: - [insight] [source: own/ai/meeting] [confirmed/signal]
+## Phase Locks                 ← one block per completed phase
+## Design System State         ← tokens, typeface, colour, component language
+## Component Register          ← atomic design state per component
+## Motion & Interaction
+## Open Risks
+## Refinement Log              ← version + what changed per iteration
+```
+
+When updating project-spec.md after a phase: do not overwrite existing sections. Append Phase Lock. Update relevant sections. Never delete Context Insights — only product-accelerator writes and updates that section.
+
 Then: confirm you understand the brief and calibrate the process.
 
 ---

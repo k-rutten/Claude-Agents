@@ -29,6 +29,7 @@ Before doing anything else, read `project-spec.md`.
 Extract and hold in context:
 - Problem statement (from define-agent Phase Lock)
 - Organizing concept (3 words)
+- Context Insights (from ## Context Insights — treat [confirmed] as hard constraints, [signal] as informing input)
 - Success signal (what "solved" looks like — from intake or define phase)
 - Fixture scenarios (from fixture-spec.md — what was hypothesised)
 - Pipeline mode (Standard, Fast Track, or Concept Validation)

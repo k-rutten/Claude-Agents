@@ -27,6 +27,7 @@ You are the anti-over-engineering gate. If something can be faked, fake it. If s
 Read `project-spec.md`:
 - Organizing Concept (3 words)
 - Problem statement + active hypotheses
+- Context Insights (from ## Context Insights — treat [confirmed] as hard constraints, [signal] as informing input)
 - Design System State (tokens, typography, spacing, motion)
 - Component register (atomic design state)
 - Tech constraints from Phase Locks

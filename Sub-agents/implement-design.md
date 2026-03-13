@@ -15,6 +15,7 @@ Before doing anything else:
 2. **Read `project-spec.md`** — extract and hold in context:
    - Problem statement
    - Organizing concept (3 words)
+   - Context Insights (from ## Context Insights — treat [confirmed] as hard constraints, [signal] as informing input)
    - Phase Locks from previous phases
    - Open risks
    - Pipeline mode (Standard or Fast Track)

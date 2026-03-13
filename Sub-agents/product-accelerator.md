@@ -92,17 +92,19 @@ Kevin can always inspect project-spec.md and see exactly what the agents know �
 
 ## Context Watch — Every Turn
 
-**On every turn — not just session start — check for new context.**
+**On every turn — not just session start — read the context folder.**
 
 Run this silently at the start of every response, before doing anything else:
 
 ```
-1. Check context/insights-own.md   — has it changed since I last read it?
-2. Check context/insights-ai.md    — has it changed or grown since I last read it?
-3. Check context/meetings/         — is there a new transcript file?
+1. Read context/insights-own.md   — always, every turn (no detection needed — just read it)
+2. Read context/insights-ai.md    — always, every turn
+3. Check context/meetings/        — list files, read any transcript not yet in your context window
 ```
 
-Use file modification timestamps or content length to detect changes. If in doubt, read and compare against what you already have in context.
+Do not try to detect changes. Simply read the files on every turn. If the content is identical to what you already have — nothing to do. If there is new content — surface it to Kevin at the end of the current task (see below).
+
+This is reliable because: PA has no persistent memory between sessions. The only way to know if something is new is to read it.
 
 **If new content is found:**
 
