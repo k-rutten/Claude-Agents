@@ -180,9 +180,17 @@ No agent starts before bootstrap is confirmed. See `context-folder-README.md` fo
 ## Persistent Files
 
 ### project-spec.md
-Shared project memory. All agents read this file. `product-lead` updates it after each phase and iteration.
+Shared project memory. All agents read this file. `product-lead` updates it after each phase. `product-accelerator` writes Context Insights after discussing with Kevin.
 
-Contains: Executive Summary · Organizing Concept · Problem Statement · Decisions + author · Scope · Phase Locks · Design System State · Design tokens · Component Register (Atomic) · Motion & Interaction principles · Refinement iterations + version · Snapshot Log · Open Risks
+**Single source of truth — the only file agents act on.**
+
+Contains:
+- Executive Summary · Organizing Concept · Problem Statement
+- **Context Insights** — refined insights written by product-accelerator after discussion with Kevin. Each insight marked with source `[own]` / `[ai]` / `[meeting: filename]` and status `[confirmed]` / `[signal]`
+- Decisions + author · Scope · Phase Locks
+- Design System State · Design tokens · Component Register (Atomic)
+- Motion & Interaction principles · Refinement iterations + version
+- Snapshot Log · Open Risks
 
 ### fixture-spec.md
 Scenario test instrument. Each build agent updates this after every build iteration.

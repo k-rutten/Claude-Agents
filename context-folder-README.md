@@ -3,7 +3,30 @@
 This folder contains project-specific context that feeds the agent pipeline.
 
 **Owner:** Kevin Rutten
-**Read by:** `product-lead` (synthesises into Phase Briefs) · `product-accelerator` (conflict check at session bootstrap) · `implement-design` (reads figma-links.md directly)
+**Read by:** `product-accelerator` (reads at session bootstrap, refines with Kevin, writes to project-spec.md) · `implement-design` (reads figma-links.md directly for Figma MCP calls)
+**Not read by:** `product-lead` or any other agent — they read project-spec.md only
+
+## Information flow
+
+```
+Kevin → context/ folder
+           ↓
+   product-accelerator reads context/
+           ↓
+   discusses with Kevin → refines
+           ↓
+   writes to project-spec.md → ## Context Insights
+           ↓
+   product-lead reads project-spec.md
+           ↓
+   agents receive context via Phase Briefs
+```
+
+This means:
+- Kevin always sees exactly what agents know — it's in project-spec.md
+- No silent filtering by product-lead
+- product-accelerator is the only one with the product skills to refine raw input
+- insights-own.md always takes precedence over insights-ai.md if they conflict — PA resolves the conflict with Kevin before writing to spec
 
 ---
 

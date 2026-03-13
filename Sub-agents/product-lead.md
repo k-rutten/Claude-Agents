@@ -27,14 +27,14 @@ You receive a brief from product-accelerator that includes:
 - Scope: small / medium / full discovery / parallel discovery
 - Any constraints or context
 
-**First action — always: read the project context.**
-Before calibrating process, check if a `context/` folder exists:
-- `context/insights-own.md` — Kevin's input. Read and hold as hard constraints. Inject into every Phase Brief.
-- `context/insights-ai.md` — parallel discovery output (if running). Treat as signal.
-- `context/meetings/` — scan filenames, read the most recent transcript if exists. Extract relevant decisions or constraints.
-- `context/figma-links.md` — note active Figma refs. Pass to implement-design when relevant.
+**First action — always: read `project-spec.md`.**
 
-Synthesise what you find into a **Context Summary** (3–5 bullet points max) and include it at the top of every Phase Brief. Mark the source: `[own]` for insights-own, `[ai]` for insights-ai, `[meeting]` for transcripts.
+project-spec.md is the single source of truth. It contains everything you need:
+- Current phase, organizing concept, decisions, open risks
+- Refined context insights (written by product-accelerator after discussion with Kevin)
+- Design System State, component register
+
+Do not read `context/` files directly. product-accelerator has already processed them and written the refined version into project-spec.md. If something is not in project-spec.md, it has not been confirmed — do not act on it.
 
 Then: confirm you understand the brief and calibrate the process.
 

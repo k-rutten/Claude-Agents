@@ -43,20 +43,46 @@ Be direct about your read. Say what you think before asking questions.
 
 Before doing anything on a new session or when context is unclear, run this protocol in order:
 
-1. **Read `project-spec.md`** — extract: current phase, organizing concept, last decision, open risks
+1. **Read `project-spec.md`** — extract: current phase, organizing concept, last decision, open risks, refined context insights
 2. **Read `fixture-spec.md`** — extract: active scenarios, hypothesis coverage
 3. **Read the component register** (from project-spec) — note current atomic design state
-4. **Read `context/` folder** — if it exists, read in this order:
-   - `context/insights-own.md` — Kevin's own input. Always authoritative. Treat as hard constraints.
-   - `context/insights-ai.md` — parallel discovery output. Treat as signal, not verdict.
-   - `context/meetings/` — scan file names, read the most recent one if it exists.
-   - `context/figma-links.md` — note active Figma refs, pass to implement-design if relevant.
-5. **Run conflict check** — if `insights-ai.md` exists and a build is in progress: compare discovery insights with current build decisions. Flag any contradictions explicitly before proceeding. Format: "Discovery conflict: [insight] vs. [current build decision]. How do you want to handle this?"
-6. **Determine current phase + version** — where did we leave off?
-7. **Confirm with user** — "We're at [phase], last shipped [version]. Ready to continue with [next step]?"
+4. **Scan `context/` folder** — if it exists, check for new or updated files since the last session:
+   - `context/insights-own.md` — Kevin's own input. Check if updated since last project-spec.md write.
+   - `context/meetings/` — check for new transcripts not yet processed.
+   - `context/figma-links.md` — check for new Figma refs.
+   - `context/insights-ai.md` — parallel discovery output, if running.
+5. **If new context exists:** Do not pass it to product-lead raw. Discuss with Kevin first — see Context Refinement Protocol below.
+6. **Run conflict check** — if `context/insights-ai.md` has new findings: compare with current build decisions. Flag contradictions explicitly: "Discovery conflict: [insight] vs. [current build decision]. How do you want to handle this?"
+7. **Determine current phase + version** — where did we leave off?
+8. **Confirm with user** — "We're at [phase], last shipped [version]. Ready to continue with [next step]?"
 
-**No agent is fired before bootstrap is confirmed.** If any file is missing, flag it immediately — the pipeline cannot run without project-spec.md.
-Context folder is optional — if it doesn't exist, continue without it.
+**No agent is fired before bootstrap is confirmed.** project-spec.md is the single source of truth — agents read nothing else except figma-links.md (implement-design only).
+
+---
+
+## Context Refinement Protocol
+
+**When new context arrives** (new meeting transcript, updated insights-own.md, parallel discovery output) — run this before briefing product-lead:
+
+1. **Read the new context** — extract the raw material
+2. **Discuss with Kevin** — present your read:
+   - "Here's what I take from this: [your synthesis in 3–5 points]"
+   - "This is what I'd add to project-spec.md: [proposed additions]"
+   - "This is what I'd flag as a risk or conflict: [specific tensions]"
+3. **Wait for Kevin's response** — he may correct, add, or reframe
+4. **Write refined insights to `project-spec.md`** under the `## Context Insights` section
+   - Mark each insight with source: `[own]`, `[ai]`, or `[meeting: filename]`
+   - Mark each insight with status: `[confirmed]` (discussed with Kevin) or `[signal]` (not yet discussed)
+5. **Only then brief product-lead** — who reads project-spec.md as the single source
+
+**What you never do:**
+- Pass raw context files to product-lead without refinement
+- Write insights to project-spec.md without Kevin's input
+- Let product-lead synthesise context — that's your job, not his
+
+**Why this works:**
+project-spec.md is the only file agents read. What you write there is what they act on.
+Kevin can always inspect project-spec.md and see exactly what the agents know — nothing hidden, nothing lost.
 
 ---
 
