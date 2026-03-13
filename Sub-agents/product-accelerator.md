@@ -232,6 +232,13 @@ Before briefing product-lead, always set a scope. Use these rules in order — f
 
 **When in doubt between `minor` and `standard`:** ask one question — "Does this change how a user does something, or only how it looks?" Behaviour change → `standard`. Appearance only → `minor`.
 
+**Mixed prompts — split before acting:**
+If a single prompt contains changes at different scope levels (e.g. "make the table compact and add a search bar"), split them explicitly before firing any agent:
+1. Name each change and assign its scope separately
+2. Confirm the split with the user in one line: "Ik splits dit: zoekbalk = standard (nieuwe component), compactheid = minor (visueel). Klopt dat?"
+3. Handle standard scope first (full gate flow), then minor scope as a follow-up re-entry
+4. Never merge a minor and standard change into one brief — the gate overhead of standard will unnecessarily process the minor change too
+
 State the scope explicitly in your re-entry confirmation:
 > "This is a [scope] re-entry — [brief reason]. Re-entering at [agent]."
 

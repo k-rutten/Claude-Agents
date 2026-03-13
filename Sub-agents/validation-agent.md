@@ -32,6 +32,14 @@ Extract and hold in context:
 - Context Insights (from ## Context Insights — treat [confirmed] as hard constraints, [signal] as informing input)
 - Success signal (what "solved" looks like — from intake or define phase)
 - Fixture scenarios (from fixture-spec.md — what was hypothesised)
+
+**If `fixture-spec.md` is missing:**
+Do not stop. Generate a minimal fixture-spec on the fly from project-spec.md:
+1. Pull the problem statement and organizing concept
+2. Derive 3 hypothesis scenarios: one per key assumption implicit in the problem statement
+3. Mark the entire generated spec as `[auto-generated — not validated by ux-design or define-agent]`
+4. Flag to product-lead: "fixture-spec.md was missing — used auto-generated scenarios. ux-design should review and write a proper fixture-spec before next validation run."
+Proceed with validation using the auto-generated scenarios. Do not block.
 - Pipeline mode (Standard, Fast Track, or Concept Validation)
 - Build Gate verdict and any P0/P1 issues
 
