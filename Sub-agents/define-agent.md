@@ -154,8 +154,13 @@ Append synthesis to `context/insights-ai.md` under `## Define synthesis`.
 Format: POV · HMWs · success metrics.
 Flag any POV or HMW that conflicts with the current build direction with ⚠️ Conflict.
 Then add a final section `## Parallel discovery summary` — 3–5 bullet synthesis of the full insights-ai.md content.
-Signal to product-lead: "Parallel define complete — synthesis written to context/insights-ai.md."
-Do not update project-spec.md. product-accelerator reviews with Kevin first.
+Signal completion directly to `product-accelerator`:
+```
+Parallel define complete — synthesis written to context/insights-ai.md.
+product-accelerator: review findings with Kevin immediately — do not wait for next session start.
+```
+product-accelerator treats this as a mid-session interrupt and presents the findings to Kevin before the build continues.
+Do not update project-spec.md. product-accelerator writes the refined version after discussing with Kevin.
 
 ---
 

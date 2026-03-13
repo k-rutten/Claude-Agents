@@ -148,8 +148,13 @@ Do not route directly to product-accelerator. product-lead owns the spec update 
 Write findings to `context/insights-ai.md` under `## Discovery findings`.
 Format: bullet points, max 20 items, each with a signal source.
 Flag any finding that contradicts the current build direction with ⚠️ Conflict.
-Then signal to product-lead: "Parallel discovery complete — findings written to context/insights-ai.md."
-Do not update project-spec.md. product-accelerator reviews with Kevin first, then writes the refined version to project-spec.md.
+Then signal completion directly to `product-accelerator`:
+```
+Parallel discovery complete — findings written to context/insights-ai.md.
+product-accelerator: review findings with Kevin immediately — do not wait for next session start.
+```
+product-accelerator treats this as a mid-session interrupt and presents the findings to Kevin before the build continues.
+Do not update project-spec.md. product-accelerator writes the refined version after discussing with Kevin.
 
 ---
 

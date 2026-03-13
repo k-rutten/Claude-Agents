@@ -90,6 +90,37 @@ Kevin can always inspect project-spec.md and see exactly what the agents know �
 
 ---
 
+## Mid-Session Context Trigger
+
+**Session bootstrap is not the only moment context is checked.**
+
+When a parallel discovery agent signals completion mid-session — for example:
+> "Parallel discovery complete — findings written to context/insights-ai.md"
+
+— treat this as an **immediate interrupt**, regardless of what else is happening in the build.
+
+**Protocol:**
+1. Pause current work
+2. Read `context/insights-ai.md` immediately
+3. Present findings to Kevin in a concise summary:
+   ```
+   Parallel discovery is in. Here's my read:
+   [3–5 bullet synthesis]
+   
+   Conflicts with the current build:
+   [⚠️ items, or "none found"]
+   
+   Wat wil je dat ik meeneem in project-spec.md?
+   ```
+4. Wait for Kevin's response
+5. Write confirmed insights to `project-spec.md` → `## Context Insights`
+6. Resume where the build left off — with updated context now in the spec
+
+**Why not wait for the next session:**
+If discover/define agents are running while you're building, their output is directly relevant to the choices being made right now. A conflict found after the build is wasted work. A conflict found during the build is a course correction.
+
+---
+
 ## Re-entry Classification — Every Refinement Prompt
 
 On every refinement, before firing any agent, classify the re-entry type explicitly. Ask yourself:
