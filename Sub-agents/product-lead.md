@@ -54,6 +54,8 @@ This means: if parallel discovery has run and produced insights-ai.md output, bu
 ## Motion & Interaction
 ## Open Risks
 ## Refinement Log              ← version + what changed per iteration
+## Known Patterns              ← logged by product-lead after first successful build of a pattern
+                                  format: - [pattern name]: [brief description] [first used: phase/date]
 ## Validation Log              ← written after each validation-agent run: verdict + scores + routing decision
 ```
 
@@ -180,6 +182,11 @@ Flag: any POV or HMW that conflicts with the current build direction."
 ## Phase Brief: [Phase Name] — DRAFT
 **Goal:** [one sentence]
 **Organizing concept:** [3 words or fewer — carry from product-accelerator brief, or TBD]
+**Scope:** [minor / standard / full]
+- `minor` — targeted change on existing component or flow. Gates downscaled: no Architecture Gate, Build Gate = spot check only.
+- `standard` — new feature or screen. All gates active.
+- `full` — new product, full discovery, or major architectural change. All gates mandatory, GUPP applies.
+
 **Context Insights:** [copy verbatim from project-spec.md → ## Context Insights — include all items marked [confirmed]]
 **Inputs:** [what we carry forward]
 **Constraints:** [timebox, audience, platform, tech, scope]
@@ -188,7 +195,20 @@ Flag: any POV or HMW that conflicts with the current build direction."
 
 The organizing concept must appear in every Phase Brief and be carried unchanged through all phases. If it hasn't been defined yet when a phase starts, establish it as the first output before any other work proceeds.
 
-**Context Insights are mandatory in every Phase Brief.** Copy them verbatim from project-spec.md — do not summarise or reinterpret. Agents act on what you write here. Items marked `[signal]` should be included but flagged as unconfirmed. Items marked `[confirmed]` are hard constraints.
+**Context Insights are mandatory in every Phase Brief.** Copy them verbatim from project-spec.md — do not summarise or reinterpret. Agents act on what you write here. Items marked `[signal]` should be included but flagged as unconfirmed. Items marked `[confirmed]` are hard constraints. Items marked `[superseded by: ...]` should be excluded.
+
+**Gate behaviour per scope:**
+
+| Scope | Concept Gate | Design Gate | Architecture Gate | Build Gate |
+|---|---|---|---|---|
+| `minor` | — skip | spot check (ux-design only, no qa-agent) | — skip | spot check (ux-design only) |
+| `standard` | ✓ full | ✓ full | ✓ full | ✓ full |
+| `full` | ✓ full | ✓ full | ✓ full | ✓ full |
+
+For `minor` scope: product-accelerator approves directly after build, no full gate ceremony.
+
+**Known Patterns shortcut:**
+If the Phase Brief contains `Pattern: known` and references a pattern logged in `project-spec.md → ## Known Patterns`, skip the Architecture Gate and brief the build agent directly. product-accelerator must approve the pattern match before skipping.
 
 ### Step 2 — Subagent Sequence
 

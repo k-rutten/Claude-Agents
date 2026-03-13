@@ -97,6 +97,16 @@
 
 ---
 
+## Known Patterns
+
+> Logged by product-lead after the first successful build of a repeating component or UX pattern.
+> When product-accelerator marks a build as `Pattern: known`, the Architecture Gate may be skipped for future uses of this pattern.
+> Format: - [pattern name]: [brief description] [first used: phase/date]
+
+- [example: card-list-filter: filterable list with card layout, no modals] [first used: Tender tool / 2025-Q4]
+
+---
+
 ## Validation Log
 
 > Written by product-lead after each validation-agent run.

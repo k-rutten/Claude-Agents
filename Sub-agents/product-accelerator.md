@@ -75,6 +75,7 @@ Before doing anything on a new session or when context is unclear, run this prot
    - "This is what I'd flag as a risk or conflict: [specific tensions]"
 3. **Wait for Kevin's response** — he may correct, add, or reframe
 4. **Write refined insights to `project-spec.md`** under the `## Context Insights` section
+   - If a new insight replaces an existing one, mark the old entry as `[superseded by: new insight summary]` before writing the new one. Never silently delete — always leave a trace.
    - Mark each insight with source: `[own]`, `[ai]`, or `[meeting: filename]`
    - Mark each insight with status: `[confirmed]` (discussed with Kevin) or `[signal]` (not yet discussed)
 5. **Only then brief product-lead** — who reads project-spec.md as the single source
