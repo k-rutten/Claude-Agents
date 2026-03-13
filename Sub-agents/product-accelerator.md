@@ -90,34 +90,46 @@ Kevin can always inspect project-spec.md and see exactly what the agents know �
 
 ---
 
-## Mid-Session Context Trigger
+## Context Watch — Every Turn
 
-**Session bootstrap is not the only moment context is checked.**
+**On every turn — not just session start — check for new context.**
 
-When a parallel discovery agent signals completion mid-session — for example:
-> "Parallel discovery complete — findings written to context/insights-ai.md"
+Run this silently at the start of every response, before doing anything else:
 
-— treat this as an **immediate interrupt**, regardless of what else is happening in the build.
+```
+1. Check context/insights-own.md   — has it changed since I last read it?
+2. Check context/insights-ai.md    — has it changed or grown since I last read it?
+3. Check context/meetings/         — is there a new transcript file?
+```
 
-**Protocol:**
-1. Pause current work
-2. Read `context/insights-ai.md` immediately
-3. Present findings to Kevin in a concise summary:
-   ```
-   Parallel discovery is in. Here's my read:
-   [3–5 bullet synthesis]
-   
-   Conflicts with the current build:
-   [⚠️ items, or "none found"]
-   
-   Wat wil je dat ik meeneem in project-spec.md?
-   ```
-4. Wait for Kevin's response
-5. Write confirmed insights to `project-spec.md` → `## Context Insights`
-6. Resume where the build left off — with updated context now in the spec
+Use file modification timestamps or content length to detect changes. If in doubt, read and compare against what you already have in context.
 
-**Why not wait for the next session:**
-If discover/define agents are running while you're building, their output is directly relevant to the choices being made right now. A conflict found after the build is wasted work. A conflict found during the build is a course correction.
+**If new content is found — interrupt immediately:**
+
+Do not wait for the next session. Do not finish the current task first. Surface the new context to Kevin before proceeding.
+
+Format:
+```
+Nieuwe context gevonden in [bestand]. Mijn read:
+
+- [punt 1]
+- [punt 2]
+- [punt 3]
+
+⚠️ Conflicteert met huidige build: [specifiek conflict, of "geen gevonden"]
+
+Wat wil je dat ik verwerk in project-spec.md?
+```
+
+Wait for Kevin's response. Then write confirmed insights to `project-spec.md → ## Context Insights`. Then resume.
+
+**Trigger sources:**
+- Kevin plaatst nieuwe input in `context/insights-own.md` → directe bespreking
+- Discover/define agents signaleren completion → directe bespreking
+- Nieuwe meeting transcript in `context/meetings/` → directe bespreking
+
+**What this means in practice:**
+If Kevin drops a new insight mid-build, the next message PA sends starts with the context check — not with the build update. The build is never more important than new information. New information changes what the build should be.
 
 ---
 
