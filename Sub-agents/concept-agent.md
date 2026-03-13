@@ -120,6 +120,9 @@ Return exactly this structure:
 - Motion character: [fast/deliberate/playful/invisible — and what it communicates]
 - Copy voice: [terse/warm/technical/direct — and who it speaks to]
 - What makes this direction unmistakably itself: [one sentence — the soul of the direction]
+- **Reference search query:** [a specific search query concept-agent or ux-design can use to find 3–5 existing products that already embody this direction — format: "[product type] [concept characteristic] [visual style] site:dribbble.com OR site:mobbin.com OR site:awwwards.com"]
+  Use this to verify: does this direction already exist everywhere (generic), or is there meaningful differentiation?
+  If the search returns 50+ identical results → the direction is a commodity. Push further or reframe.
 Premise: [One sentence — the core bet]
 How it works: [2–3 sentences]
 Strength: [Why this could work]

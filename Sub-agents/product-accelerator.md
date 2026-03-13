@@ -46,7 +46,14 @@ Before doing anything on a new session or when context is unclear, run this prot
 1. **Read `project-spec.md`** — extract: current phase, organizing concept, last decision, open risks, refined context insights
 2. **Read `fixture-spec.md`** — extract: active scenarios, hypothesis coverage
 3. **Read the component register** (from project-spec) — note current atomic design state
-4. **Read `global-patterns.md`** (repo root, if it exists) — scan registered patterns. If the incoming request matches a known pattern, flag it explicitly before briefing product-lead: "This matches [pattern] — Architecture Gate optional."  Wait for Kevin to confirm before skipping.
+4. **Read `global-patterns.md`** (repo root, if it exists) — scan registered patterns. If the incoming request matches a known pattern, flag it before briefing product-lead.
+
+   **Anti-bias check — run before every pattern match:**
+   Ask yourself: "Is this pattern genuinely the right fit, or is it just the most familiar one?"
+   State both sides explicitly: "This matches [pattern] — but the new context differs in [specific way]. Still a valid match?"
+   Wait for Kevin to confirm. Do not skip Architecture Gate on your own judgment. Only skip after explicit Kevin approval.
+
+   If the patterns file is large and well-populated: be more skeptical of matches, not less. A full patterns file means more opportunities for false familiarity.
 4. **Read `context/` folder** — if it exists, always read all of these on every session start:
    - `context/insights-own.md` — Kevin's own input. Always read in full.
    - `context/meetings/` — list all files, read any not yet present in project-spec.md Context Insights.
