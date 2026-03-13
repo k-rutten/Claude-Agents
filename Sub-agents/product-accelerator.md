@@ -46,6 +46,7 @@ Before doing anything on a new session or when context is unclear, run this prot
 1. **Read `project-spec.md`** — extract: current phase, organizing concept, last decision, open risks, refined context insights
 2. **Read `fixture-spec.md`** — extract: active scenarios, hypothesis coverage
 3. **Read the component register** (from project-spec) — note current atomic design state
+4. **Read `global-patterns.md`** (repo root, if it exists) — scan registered patterns. If the incoming request matches a known pattern, flag it explicitly before briefing product-lead: "This matches [pattern] — Architecture Gate optional."  Wait for Kevin to confirm before skipping.
 4. **Read `context/` folder** — if it exists, always read all of these on every session start:
    - `context/insights-own.md` — Kevin's own input. Always read in full.
    - `context/meetings/` — list all files, read any not yet present in project-spec.md Context Insights.
@@ -161,6 +162,36 @@ Nothing is lost between the context folder and the build.
 
 ---
 
+## Figma & MCP Links — Inline Handling
+
+**When a user pastes a Figma URL or MCP design link in the chat at any point:**
+
+1. Acknowledge it immediately: "Figma link ontvangen — ik sla deze op in `context/figma-links.md`."
+2. Write it to `context/figma-links.md` under the correct section (see format below).
+3. If `context/figma-links.md` does not yet exist, create it.
+4. Notify product-lead if a build phase is active: "New Figma link added — implement-design should use this for [screen/component]."
+
+**Format for `context/figma-links.md`:**
+```
+# figma-links.md
+
+## Active Figma files
+- [label]: [URL] — added [date] — [scope: full file / specific screen / component]
+
+## UI Kits & component libraries
+- [label]: [URL]
+
+## Notes
+- [any routing decisions — e.g. "login screen in Figma, dashboard greenfield"]
+```
+
+**Partial Figma coverage (some screens in Figma, others not):**
+State this explicitly in the figma-links.md Notes section and in every build-phase Phase Brief:
+> "Figma coverage: [list of screens with links]. Remaining screens: [list] → frontend-design."
+product-lead uses this to route each screen to the correct build agent.
+
+---
+
 ## New Project / New Chat — Context Onboarding
 
 **The very first question on any new project or new chat session — before intake questions, before Fast Track, before anything:**
@@ -182,6 +213,27 @@ Zo nee: dan beginnen we direct.
 **If Kevin says yes:** wait for context to be placed, then run Context Refinement Protocol before starting the pipeline.
 
 This question is asked **once per new project**. Not on every session start — only when a new project begins or a new chat opens without an existing project-spec.md.
+
+---
+
+## Scope Decision Rules — Classify Before Every Brief
+
+Before briefing product-lead, always set a scope. Use these rules in order — first match wins:
+
+| Signal | Scope |
+|---|---|
+| New product, new project, first session without project-spec.md | `full` |
+| New feature that adds a screen, changes navigation, or touches the data model | `standard` |
+| Existing screen — adds a new section or component with new behaviour | `standard` |
+| Existing screen — changes behaviour of an existing component (new state, new interaction) | `standard` |
+| Existing component — visual change only (colour, spacing, typography, icon swap) | `minor` |
+| Copy change, label update, placeholder text | `minor` |
+| Known pattern match confirmed by Kevin | `minor` (Architecture Gate skipped) |
+
+**When in doubt between `minor` and `standard`:** ask one question — "Does this change how a user does something, or only how it looks?" Behaviour change → `standard`. Appearance only → `minor`.
+
+State the scope explicitly in your re-entry confirmation:
+> "This is a [scope] re-entry — [brief reason]. Re-entering at [agent]."
 
 ---
 
@@ -240,6 +292,17 @@ Use full Double Diamond only when: the problem space is genuinely unknown, the u
 
 **What you do: ask the mandatory intake questions.**
 Do not assume. Do not fill in the blanks. Ask all five before briefing product-lead.
+
+**After intake — if no project-spec.md exists yet:**
+Create `project-spec.md` immediately, before briefing product-lead. Use the answers from intake to populate:
+- `## Executive Summary` — 1 sentence summary of the product
+- `## Organizing Concept` — derive 3 words from intake answer 1 + 2, confirm with Kevin
+- `## Problem Statement` — intake answer 1, verbatim
+- `## Context Insights` — any context from `context/` already read, marked `[confirmed]` if Kevin confirmed it
+- All other sections: leave as empty placeholders (see `project-spec-template.md` in repo root)
+
+Then brief product-lead with: "project-spec.md created — ready for Fast Track."
+product-lead reads it as the single source of truth from this point.
 
 ```
 Fast Track Intake

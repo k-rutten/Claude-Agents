@@ -256,6 +256,14 @@ Between phases (discover → define, define → concept) there is no qa-agent �
 
 **Phase Locks are conditional.** Only write a Phase Lock when the phase produced decisions that must be carried forward. If a phase runs but produces no new decisions — or was skipped in Fast Track mode — skip the ceremony and append a one-line note to project-spec.md instead.
 
+**Refinement Log — write a new entry after:**
+- Every gate that produces Ship ✓ (state: which gate, what was approved, version bump)
+- Every vibecoding re-entry that reaches a build agent and produces a change (state: what changed, which agent, scope)
+- Every Context Insights update in project-spec.md (state: what was added/superseded)
+
+Format: `| v[x.y] | [date] | [what changed — 1 sentence] | [agent or PA] |`
+Version numbering: major increment on new phase start, minor increment on every build change.
+
 ```
 ## Phase Lock: [Phase Name]
 **Final outputs:** [list]
@@ -300,8 +308,17 @@ Every gate verdict is **Ship ✓** or **Rethink ✗**. Nothing proceeds without 
 - `solution-architect` — Phase 5: lean tech approach + component strategy + datamodel
 - `qa-agent` — Quality gate at every phase transition (concept / design / architecture / build)
 - `validation-agent` — Post-build loop closer: does the prototype solve the original problem? Processes stakeholder feedback.
-- `frontend-design` — Greenfield UI build (no Figma)
-- `implement-design` — Figma → production code
+- `frontend-design` — Greenfield UI build (no Figma available for this screen)
+- `implement-design` — Figma → production code (Figma URL present for this screen)
+
+**Build agent routing — per screen/component:**
+Before briefing any build agent, check `context/figma-links.md`:
+1. If a Figma link exists for the screen/component being built → use `implement-design`
+2. If no Figma link exists → use `frontend-design`
+3. If partial coverage (some screens in Figma, others not) → split the brief: run `implement-design` and `frontend-design` in parallel, one per screen group. State the split explicitly in each Phase Brief: "implement-design handles [X, Y]. frontend-design handles [A, B]."
+4. If `context/figma-links.md` does not exist → use `frontend-design` for all screens.
+
+Never assume Figma coverage. Always check the file.
 
 ---
 
