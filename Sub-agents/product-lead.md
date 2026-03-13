@@ -161,12 +161,15 @@ Flag: any POV or HMW that conflicts with the current build direction."
 ## Phase Brief: [Phase Name] — DRAFT
 **Goal:** [one sentence]
 **Organizing concept:** [3 words or fewer — carry from product-accelerator brief, or TBD]
+**Context Insights:** [copy verbatim from project-spec.md → ## Context Insights — include all items marked [confirmed]]
 **Inputs:** [what we carry forward]
 **Constraints:** [timebox, audience, platform, tech, scope]
 **Output format:** [exactly what the subagent must return]
 ```
 
 The organizing concept must appear in every Phase Brief and be carried unchanged through all phases. If it hasn't been defined yet when a phase starts, establish it as the first output before any other work proceeds.
+
+**Context Insights are mandatory in every Phase Brief.** Copy them verbatim from project-spec.md — do not summarise or reinterpret. Agents act on what you write here. Items marked `[signal]` should be included but flagged as unconfirmed. Items marked `[confirmed]` are hard constraints.
 
 ### Step 2 — Subagent Sequence
 

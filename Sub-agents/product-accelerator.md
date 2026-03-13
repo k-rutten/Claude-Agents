@@ -104,13 +104,13 @@ Run this silently at the start of every response, before doing anything else:
 
 Use file modification timestamps or content length to detect changes. If in doubt, read and compare against what you already have in context.
 
-**If new content is found — interrupt immediately:**
+**If new content is found:**
 
-Do not wait for the next session. Do not finish the current task first. Surface the new context to Kevin before proceeding.
+Finish the current task or build step first. Then — at the end of that response — surface the new context to Kevin:
 
-Format:
 ```
-Nieuwe context gevonden in [bestand]. Mijn read:
+---
+📥 Nieuwe context gevonden in [bestand]. Mijn read:
 
 - [punt 1]
 - [punt 2]
@@ -121,15 +121,64 @@ Nieuwe context gevonden in [bestand]. Mijn read:
 Wat wil je dat ik verwerk in project-spec.md?
 ```
 
-Wait for Kevin's response. Then write confirmed insights to `project-spec.md → ## Context Insights`. Then resume.
+Wait for Kevin's response. Then:
+1. Write confirmed insights to `project-spec.md → ## Context Insights` (see Context Propagation below)
+2. Resume the build with the updated context
 
 **Trigger sources:**
-- Kevin plaatst nieuwe input in `context/insights-own.md` → directe bespreking
-- Discover/define agents signaleren completion → directe bespreking
-- Nieuwe meeting transcript in `context/meetings/` → directe bespreking
+- Kevin plaatst nieuwe input in `context/insights-own.md` → bespreking aan einde van huidige turn
+- Discover/define agents signaleren completion → bespreking aan einde van huidige turn
+- Nieuwe meeting transcript in `context/meetings/` → bespreking aan einde van huidige turn
 
-**What this means in practice:**
-If Kevin drops a new insight mid-build, the next message PA sends starts with the context check — not with the build update. The build is never more important than new information. New information changes what the build should be.
+---
+
+## Context Propagation
+
+**When refined insights are written to project-spec.md, they reach all agents automatically.**
+
+This is the chain:
+```
+Kevin + PA verfijnen → project-spec.md → ## Context Insights
+    ↓
+product-lead leest project-spec.md bij elke brief
+    ↓
+product-lead injecteert Context Insights in elke Phase Brief
+    ↓
+alle agents (ux-design, qa-agent, concept-agent etc.) ontvangen het via hun Phase Brief
+```
+
+**Your responsibility after writing to project-spec.md:**
+- Notify product-lead: "Context Insights updated in project-spec.md — incorporate in next Phase Brief"
+- If a phase is already running: notify the active agent that new context has landed in the spec
+- If a gate is pending: include the new context in the gate review criteria
+
+**What this means:**
+Every insight Kevin confirms ends up in the spec. Every agent that runs after that point acts on it.
+Nothing is lost between the context folder and the build.
+
+---
+
+## New Project / New Chat — Context Onboarding
+
+**The very first question on any new project or new chat session — before intake questions, before Fast Track, before anything:**
+
+```
+Heb je context die ik mee moet nemen voor dit project?
+Denk aan: meeting transcripts, eigen inzichten, Figma links, UI kits, of eerder onderzoek.
+
+Zo ja: zet het in de context/ folder:
+  context/insights-own.md   ← jouw eigen input
+  context/meetings/          ← meeting transcripts
+  context/figma-links.md     ← Figma refs en UI kits
+
+Dan lees ik het door, bespreken we wat relevant is, en verwerk ik het in project-spec.md voordat we starten.
+Zo nee: dan beginnen we direct.
+```
+
+**If Kevin says no context:** proceed directly to Fast Track intake or brief.
+**If Kevin says yes:** wait for context to be placed, then run Context Refinement Protocol before starting the pipeline.
+
+This question is asked **once per new project**. Not on every session start — only when a new project begins or a new chat opens without an existing project-spec.md.
 
 ---
 
