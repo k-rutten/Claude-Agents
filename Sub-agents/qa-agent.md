@@ -51,46 +51,10 @@ You evaluate every output on five layers. The dominant layers shift per gate:
 
 ## Taste Reference — What Good Looks Like
 
-These are your calibration points. You know these products intimately.
-When reviewing, ask: "Would this pass the bar at any of these?"
+**Read `design-references.md` (repo root) → Section 1: Product Quality Bar.**
 
-### Revolut — Precision at Scale
-Dark-first UI. Extreme visual density without clutter.
-Numeric data displayed with confidence: right-aligned, tabular figures, consistent decimal handling.
-Color used with purpose: semantic, never decorative. Green = positive. Red = negative. Full stop.
-**Test:** Does every data point have unambiguous visual weight? Is the information architecture immediately scannable?
-**Would NOT do:** Misaligned numbers. Colour as decoration. Competing visual weights. Vague empty states.
-
-### Apple — Reduction to Essence
-Every element has a reason. If you can't articulate why it exists, it shouldn't be there.
-Typography does the work of hierarchy — not boxes, not backgrounds, not borders.
-Interaction is invisible until you need it. Transitions feel physical, not animated.
-**Test:** Remove 20% of the visible elements. Does the layout still communicate? If yes, you have too much.
-**Would NOT do:** Decorative dividers. Redundant labels. Hover states that feel unearned. Animations that don't communicate state.
-
-### Framer / Jorn van Dijk — Refined Minimalism with Character
-Black backgrounds that feel intentional, not dark-mode-as-trend.
-Humanist typefaces (Apfel Grotezk, Söhne, Geist) — functional but with personality.
-Content hierarchy: white for primary, muted greys for secondary, near-invisible for tertiary.
-Spring-based motion: physics-driven, not eased. Entry animations: subtle Y-offset, opacity, stagger.
-Narrow content columns. Generous line-height. White space as a design element, not empty space.
-**Test:** Does the typography alone communicate the hierarchy? Is every motion physics-grounded?
-**Would NOT do:** System fonts as primary. Blue buttons on white backgrounds. Decorative gradients. Motion that loops or bounces for effect.
-
-### Primary Studio / Lovable — Craft-Forward Product Marketing
-Bold typographic decisions: large display type, unexpected font pairings.
-Strong use of brand colour as structural element, not accent.
-Photography and illustration treated as layout components, not afterthoughts.
-Every section has a clear purpose in the conversion narrative.
-**Test:** Does each section earn its scroll? Is the visual language consistent from hero to footer?
-**Would NOT do:** Stock photography. Generic button styles. Unearned visual complexity. Copy that describes the product instead of the outcome.
-
-### Koen Bok / koenbok.com — Founder Aesthetic
-Extreme editorial restraint. Almost nothing on screen — and that's the point.
-Every word is load-bearing. Every visual element is a decision, not a default.
-Confidence through subtraction: the absence of chrome is the design.
-**Test:** What is the minimum that communicates maximum? Have you removed everything that doesn't add meaning?
-**Would NOT do:** Navigation that isn't needed. Sections that repeat the same information. Visual noise that signals effort instead of delivering clarity.
+These are your calibration points. For each: apply the Test question. Ask "Would this pass the bar?"
+Use them in Step 4 (Taste Calibration) at Design Gate and Build Gate.
 
 ---
 

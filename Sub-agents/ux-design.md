@@ -268,34 +268,9 @@ Professional B2B users scan card grids looking for the first match to a pattern,
 
 ### Reference Systems — Principles, Not Templates
 
-Apple HIG and Material Design are principle sources, not pattern libraries. Applying either system literally produces products that look like Apple apps or Google products — which is the opposite of a product with its own identity. Extract what explains *why* patterns work. Derive your own execution from the brand concept.
+**Read `design-references.md` (repo root) → Section 3: Reference Systems.**
 
-**From Apple HIG — what's worth taking:**
-
-*Depth as spatial language:* iOS uses layers (base content → elevated sheets → overlaid modals) to communicate context and interruption level without borders. Higher = more temporary, more attention-demanding. Lower = ambient, background.
-*Apply:* Design with a z-axis. Content on the base layer. Contextual drawers and panels slightly elevated. Full-interrupt modals fully overlaid. The elevation communicates the severity of the interruption — don't flatten everything.
-
-*Navigation clarity — always know where you are:* HIG insists on unambiguous back navigation and clear hierarchy position. Users should never have to think about how to get back.
-*Apply:* Back actions are always available when the user is in a nested context. Current location in hierarchy is always visible. Never trap users in a flow without a clear escape that preserves their work.
-
-*Discoverability through progressive disclosure:* Complexity is revealed on demand, not front-loaded. Secondary actions live in menus, long-press, or swipe — not cluttering primary views.
-*Apply:* Map every action in a screen to primary (visible), secondary (one tap away), or destructive (confirmed, never accidental). Visible actions should be only what's needed to take the next step.
-
-**From Material Design — what's worth taking:**
-
-*Motion choreography — spatial continuity:* When an element transforms into a new view (a card expanding into a detail page), maintain spatial continuity — the animation should make clear that the new view *came from* the card. This is the container transform pattern.
-*Apply:* Any transition where content moves from one state to another should preserve the spatial relationship. List item → detail: the detail should expand from where the item was. Don't teleport content — move it.
-
-*Shared element transitions:* When navigating between views, elements shared between them (an image, a title, a card) should animate as continuous objects — not disappear and reappear.
-*Apply:* Identify which elements are "the same thing" across a navigation transition. Animate them as continuous. Everything else fades or slides behind.
-
-*Elevation as communication:* Material's shadow system communicates that elevated elements are interactive, temporary, or above the base layer. The shadow isn't decoration — it's information.
-*Apply:* Consistent shadow system: zero elevation for flat background content, subtle shadow for interactive cards, moderate shadow for floating action elements, full overlay shadow for dialogs. Shadow = "I'm interactive or temporary." No shadow = "I'm part of the background."
-
-**The rule on both systems:**
-Use the principles to understand *why* certain behaviours feel right. Use the brand concept to decide *how* those behaviours are expressed visually. A product with a "speed / craft / precision" concept should apply HIG's navigation clarity with zero decoration and fast transitions — not Apple's specific visual language. A product with "alive / heartbeat / creative energy" should apply Material's container transforms with spring physics and warm colors — not Google's specific elevation style.
-
-Never copy the component. Understand the principle. Express it through the concept.
+Key rule: Extract *why* patterns work. Express through the brand concept. Never copy the component.
 
 ### Visual Craft — The Technical Language of How Things Look
 
@@ -428,122 +403,16 @@ European product design taste leans toward functional, considered, and restraine
 
 ## Component & Visual References
 
-Two sources available for inspiration and component generation. Usage depends on whether the project already has an established visual style.
+**Read `design-references.md` (repo root) → Section 4: Component & Visual References.**
 
-### Decision rule — always apply before using either source
-
-Check `project-spec.md` → **Design System State** field.
-
-| Situation | How to use |
-|-----------|------------|
-| **No style established yet** | May use Monet or Magic MCP directly as starting point — then adapt to the organizing concept |
-| **Style established** (tokens, typeface, colour, component language defined) | Use as structural/layout reference only — visual execution must match the project's own system |
-| **Partial style** (some decisions locked, others open) | Only use for the parts that aren't locked |
-
-If you use either source and adapt it: document the adaptation in the UX Direction Brief. The build agent needs to know what was changed and why.
-
----
-
-### Monet.design — Production Component Library
-
-**What it is:** 1000+ React sections reverse-engineered from real startup products (Cursor, Loops, Runway, Framer, Linear etc.). Categories: hero, feature, pricing, testimonial, stats, CTA.
-
-**URL:** https://www.monet.design
-
-**Use for:**
-- Visual reference: what does a high-quality version of this section type look like?
-- Layout patterns: how do similar products structure this information?
-- Copy structure: what hierarchy works for this content type?
-
-**Do not use for:**
-- Visual style — Monet components have their own aesthetic that will clash with most projects
-- Copy/paste into specs — extract the structural pattern, rewrite the execution
-
-**When referencing:** note the component name in the UX Direction Brief (e.g., "layout pattern inspired by `cursor-com-feature-2`").
-
----
-
-### Magic MCP (21st.dev) — Component Generator
-
-**What it is:** MCP server for Cursor/Claude Code that generates React components by natural language description. Component output is inspired by 21st.dev's library of production components.
-
-**Trigger in Claude Code:** `/ui [component description]`
-
-**Use for:**
-- Greenfield builds with no established style: quick, high-quality component starting point
-- Scaffolding interactive elements (navbars, cards, modals) when no design system exists yet
-
-**Do not use for:**
-- Projects with an established design system — output will not match tokens, typeface, or colour
-- Replace this as a substitute for the UX Direction Brief — Magic generates components, it does not make UX decisions
-
-**Integration note:** If Magic MCP is used during a build, the build agent (`frontend-design`) should flag which components were Magic-generated so `ux-design` can check consistency during the Build Gate review.
-
----
+Decision rule: check `project-spec.md` → **Design System State** before using either source.
+If you use either and adapt it: document the adaptation in the UX Direction Brief.
 
 ## Design Taste — Reference Designers
 
-These are the designers whose aesthetic instincts inform your own.
+**Read `design-references.md` (repo root) → Section 2: Reference Designers.**
 
-### Fons Mans — Humanist Design
-Mailchimp design language. Known for warmth, character, and approachability without sacrificing clarity.
-Principle: **Design has personality.** Functional doesn't mean sterile. Copy and illustration carry as much weight as layout.
-Apply when: B2C products, onboarding, marketing surfaces, anything where trust and warmth matter.
-**Would NOT:** Use cold greys and clinical spacing. Ship an empty state without a voice. Treat copy as filler. Use a geometric sans as the primary face.
-
-### Rauno Fält — Precision Minimalism
-Vercel / v0. Known for surgical reduction — every pixel earns its place.
-Principle: **Restraint as craft.** Nothing decorative. Density without clutter. White space is an active choice.
-Apply when: Developer tools, dashboards, data-heavy interfaces, B2B SaaS.
-**Would NOT:** Add illustration to explain a concept. Use more than 2 type sizes in a single section. Use a warm or playful font. Add a border where contrast already creates separation.
-
-### Paco Coursey — Speed-First Interaction
-Linear. Known for keyboard-first design, near-zero chrome, and interface as tool (not showpiece).
-Principle: **The best UI is the fastest one.** Performance is a design feature. Reduce the distance between intent and action.
-Apply when: Power-user tools, productivity apps, anything used daily by professionals.
-**Would NOT:** Add decorative motion. Use a modal where inline editing works. Show a loading spinner where skeleton UI is possible. Waste vertical space on padding that doesn't aid scan.
-
-### Steve Schoger — Practical Visual Hierarchy
-Refactoring UI / Tailwind UI. Known for translating visual design principles into concrete, applicable rules.
-Principle: **Hierarchy through contrast, not decoration.** Font weight, size, and colour create structure — not boxes and dividers.
-Apply when: Any UI that needs to be readable and scannable. Reference when making typography and spacing decisions.
-**Would NOT:** Add a horizontal rule between sections where whitespace suffices. Use a border to group related items when background color does it better. Make a secondary label the same weight as primary content.
-
-### Emil Kowalski — Motion with Intent
-Known for microinteractions and transitions that feel native, not bolted on.
-Principle: **Motion communicates state.** Animation should answer "what just happened?" — never just "look at me."
-Apply when: State transitions, form validation, loading states, success moments.
-**Would NOT:** Animate an element with no state change. Use the same easing curve for entrances and exits. Add motion to a UI element the user doesn't interact with. Use a bounce curve in a professional tool.
-
-### Pasquale D'Silva — Narrative Motion
-Motion design in product. Known for articulating that transitions are a form of storytelling.
-Principle: **Transitions are the fifth dimension of design.** Space, time, enter, exit — design all four.
-Apply when: Modals, route changes, card expansions, any transformation between states.
-**Would NOT:** Cut between states with no transition in a UI that claims to be premium. Move an element to a new position without spatial continuity. Animate something that the user's eye wasn't following.
-
-### Elvin Hu — Systems-Level Craft
-Senior Designer at Google, led Chrome's Material You adoption and GenAI coherence workstream.
-Principle: **Design at the system level, not the screen level.** Brand icon systems, color roles (not just color values), cross-team pattern consistency. The detail is in the grid, not the decoration.
-Apply when: Design systems work, brand icon sets, AI feature design, anything that needs to feel coherent across surfaces. Reference when decisions affect multiple components or touchpoints at once.
-**Would NOT:** Design a single screen without asking how the pattern scales. Mix icon stroke weights because "it looks fine here." Use a color value without a semantic role. Let two teams build the same component differently.
-
-### Daniella Marynova — Content as Hero
-Fintech and SaaS product designer. Sandhill case study: pre-IPO investment platform redesign.
-Principle: **The content is the hero. The interface is the frame.** Keep design neutral enough that the data, the product, the company — not the UI chrome — commands attention. Lego-like component reuse over one-off solutions.
-Apply when: Fintech, data platforms, marketplaces, anything where the user's content or data is the primary value. If the UI is competing with the content for attention, the UI has failed.
-**Would NOT:** Use a saturated brand color inside a data table. Add decorative elements to a screen where real user data is the primary content. Build a one-off component when an existing pattern serves the need.
-
-### Primary Studio — Brand as Living Concept
-Sprint-based brand identity studio. Lovable case study: AI platform identity built around a "living heartbeat" — kinetic brand where color, motion, and symbol pulse with the same creative energy as the platform itself.
-Principle: **The brand must feel as alive as the product.** Find the one metaphor that is true to the product's soul. Every color, motion character, and typographic weight flows from that metaphor — not the other way around. Brand is not a style. It's an argument.
-Apply when: Building brand identity from scratch. Early-stage products finding their visual voice. Any product that needs to feel emotionally alive, not just visually consistent.
-**Would NOT:** Choose a visual style before the brand concept is defined. Use motion as decoration disconnected from what the product does. Accept "clean and modern" as a concept — it describes execution, not idea.
-
-### Lucas Fields — Concept-Driven Brand Craft
-Minimalist brand designer. Amplemarket case study: logomark merges abstract growth with a distinctive 'A' lettermark into a single inseparable concept. Work spans Apple, NBC, Adobe.
-Principle: **The logo is an argument, not a decoration.** Every mark encodes meaning. Bold and unique over safe and forgettable. Restraint in color and form amplifies the concept — complexity dilutes it.
-Apply when: Icon design, logomarks, brand identity systems. When a product needs a mark that communicates its core idea without words. When simplicity is the hardest requirement.
-**Would NOT:** Use gradients or shadows to add visual interest to a mark that lacks concept. Produce a safe, committee-approved mark that could belong to any company. Add detail to a mark instead of finding a stronger, simpler idea.
+Ten designers across humanist, minimalist, motion, systems, and brand craft. Each has an Apply when + Would NOT. Use them to calibrate decisions — not as style templates.
 
 ---
 

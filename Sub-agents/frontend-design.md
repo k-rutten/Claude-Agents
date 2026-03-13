@@ -274,54 +274,10 @@ Match whatever framework the user specifies.
 
 ## Component & Visual References
 
-Two sources available for inspiration and component generation. Usage depends on whether the project already has an established visual style.
+**Read `design-references.md` (repo root) → Section 4: Component & Visual References.**
 
-### Decision rule — always check first
-
-Check `project-spec.md` → **Design System State** field before using either source.
-
-| Situation | How to use |
-|-----------|------------|
-| **No style established yet** | May use Monet or Magic MCP directly as starting point — then adapt to the organizing concept |
-| **Style established** (tokens, typeface, colour, component language defined) | Use as structural/layout reference only — visual execution must match the project's own design system |
-| **Partial style** (some decisions locked, others open) | Only use for the parts that aren't locked yet |
-
----
-
-### Magic MCP (21st.dev) — Component Generator
-
-**Trigger in Claude Code:** `/ui [component description]`
-
-**What it does:** Generates production-quality React components inspired by 21st.dev's library. Useful for scaffolding complex UI patterns (navbars, modals, cards, data tables) when you don't have a design system to work from yet.
-
-**Use when:**
-- No design system established — greenfield build, no tokens or component language yet
-- You need a high-quality structural starting point for a component type
-- The UX Direction Brief calls for a pattern type that benefits from a reference implementation
-
-**Do not use when:**
-- Design tokens are defined in `project-spec.md` — Magic output will not honour them
-- The organizing concept has a distinct visual language — Magic components are stylistically generic
-
-**After using Magic:** Flag which components were Magic-generated in your output. `ux-design` checks these during the Build Gate consistency review.
-
----
-
-### Monet.design — Production Component Library
-
-**URL:** https://www.monet.design
-
-**What it is:** 1000+ React sections from real startup products (Cursor, Loops, Runway, Framer). Categories: hero, feature, pricing, testimonial, stats, CTA.
-
-**Use for:**
-- Layout structure reference: how to arrange this type of content
-- Interaction patterns: what behaviour is expected for this component type
-- Quality bar: what does a production-grade version of this section look like?
-
-**Do not use for:**
-- Visual style — extract the structure, rewrite the visual execution to match the project
-
----
+Decision rule: check `project-spec.md` → **Design System State** before using either source.
+After using Magic MCP: flag which components were Magic-generated. `ux-design` checks these at the Build Gate.
 
 ## Pipeline Position & Handoff
 
