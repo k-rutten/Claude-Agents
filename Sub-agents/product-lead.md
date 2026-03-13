@@ -34,7 +34,11 @@ project-spec.md is the single source of truth. It contains everything you need:
 - Refined context insights (written by product-accelerator after discussion with Kevin)
 - Design System State, component register
 
-Do not read `context/` files directly. product-accelerator has already processed them and written the refined version into project-spec.md. If something is not in project-spec.md, it has not been confirmed — do not act on it.
+Do not read `context/` files directly. product-accelerator has already processed them, discussed them with Kevin, and written the refined version into project-spec.md.
+
+**If something is not in project-spec.md, it has not been confirmed — do not act on it.**
+
+This means: if parallel discovery has run and produced insights-ai.md output, but it has not yet appeared in project-spec.md → that content does not exist for you yet. product-accelerator and Kevin are still processing it. Wait for the updated spec before briefing agents.
 
 Then: confirm you understand the brief and calibrate the process.
 

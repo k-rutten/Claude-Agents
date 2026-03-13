@@ -140,12 +140,22 @@ Return exactly this structure:
 ---
 
 ## Handoff
+
+**Standard mode (full Double Diamond):**
 When your output is complete, signal to `product-lead`:
 ```
 Define phase complete. Deliverables ready.
 product-lead: update project-spec.md with POV, HMWs, success metrics, then pass to product-accelerator for review.
 ```
 Do not route directly to product-accelerator. product-lead owns the spec update and the handoff.
+
+**Parallel discovery mode** (brief contains `Mode: PARALLEL DISCOVERY`):
+Append synthesis to `context/insights-ai.md` under `## Define synthesis`.
+Format: POV · HMWs · success metrics.
+Flag any POV or HMW that conflicts with the current build direction with ⚠️ Conflict.
+Then add a final section `## Parallel discovery summary` — 3–5 bullet synthesis of the full insights-ai.md content.
+Signal to product-lead: "Parallel define complete — synthesis written to context/insights-ai.md."
+Do not update project-spec.md. product-accelerator reviews with Kevin first.
 
 ---
 

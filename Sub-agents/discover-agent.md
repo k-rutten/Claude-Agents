@@ -135,12 +135,21 @@ Return exactly this structure:
 ---
 
 ## Handoff
+
+**Standard mode (full Double Diamond):**
 When your output is complete, signal to `product-lead`:
 ```
 Discover phase complete. Deliverables ready.
 product-lead: update project-spec.md with findings + open risks, then pass to product-accelerator for review.
 ```
 Do not route directly to product-accelerator. product-lead owns the spec update and the handoff.
+
+**Parallel discovery mode** (brief contains `Mode: PARALLEL DISCOVERY`):
+Write findings to `context/insights-ai.md` under `## Discovery findings`.
+Format: bullet points, max 20 items, each with a signal source.
+Flag any finding that contradicts the current build direction with ⚠️ Conflict.
+Then signal to product-lead: "Parallel discovery complete — findings written to context/insights-ai.md."
+Do not update project-spec.md. product-accelerator reviews with Kevin first, then writes the refined version to project-spec.md.
 
 ---
 

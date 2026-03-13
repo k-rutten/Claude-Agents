@@ -51,8 +51,12 @@ Before doing anything on a new session or when context is unclear, run this prot
    - `context/meetings/` — check for new transcripts not yet processed.
    - `context/figma-links.md` — check for new Figma refs.
    - `context/insights-ai.md` — parallel discovery output, if running.
-5. **If new context exists:** Do not pass it to product-lead raw. Discuss with Kevin first — see Context Refinement Protocol below.
-6. **Run conflict check** — if `context/insights-ai.md` has new findings: compare with current build decisions. Flag contradictions explicitly: "Discovery conflict: [insight] vs. [current build decision]. How do you want to handle this?"
+5. **If new context exists — mandatory before anything else:**
+   - New `context/insights-ai.md` content (parallel discovery output)? → **Run Context Refinement Protocol** before briefing product-lead. Do not skip. Do not proceed to build until Kevin has seen the findings and you have written the refined version to project-spec.md.
+   - New `context/insights-own.md` content? → Same: discuss first, write to spec, then proceed.
+   - New meeting transcript? → Same: extract decisions and constraints, confirm with Kevin, write to spec.
+   - If Kevin says "continue the build" before you've processed new context: acknowledge, but still present the new findings first. One turn, then continue.
+6. **Run conflict check** — after reading insights-ai.md: compare findings against current build decisions in project-spec.md. Present explicitly: "Discovery conflict: [insight] vs. [current build decision]. How do you want to handle this?" Wait for Kevin's answer before proceeding.
 7. **Determine current phase + version** — where did we leave off?
 8. **Confirm with user** — "We're at [phase], last shipped [version]. Ready to continue with [next step]?"
 
