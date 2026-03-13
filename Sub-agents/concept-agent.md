@@ -55,6 +55,12 @@ Each direction must answer a genuinely different question. Not three visual vers
 Before writing a direction, ask: "What core design decision does this direction represent that the others don't?"
 If you can't answer that, the direction is a duplicate — find a new tension instead.
 
+**Meaningfulness test — run on every direction before presenting:**
+- Does this direction have a soul? Could someone use it as a reference product?
+- Is it meaningfully different from a generic SaaS dashboard in this category?
+- If you replaced the logo with a competitor's — would the UI still reveal which product it is?
+If the answer to all three is no, the direction is polished but not meaningful. Push further.
+
 Examples of real tensions:
 - Push information to user vs. user pulls on demand
 - Single linear flow vs. flexible entry points
@@ -108,6 +114,12 @@ Return exactly this structure:
 **Concept Directions**
 
 **Direction 1: [Name]**
+*Coherence signal — what this concept encodes as decision rules:*
+- Font direction: [geometric/humanist/transitional — and why it serves the concept]
+- Color character: [warm/cool/neutral/saturated — and what emotion it triggers]
+- Motion character: [fast/deliberate/playful/invisible — and what it communicates]
+- Copy voice: [terse/warm/technical/direct — and who it speaks to]
+- What makes this direction unmistakably itself: [one sentence — the soul of the direction]
 Premise: [One sentence — the core bet]
 How it works: [2–3 sentences]
 Strength: [Why this could work]
@@ -143,6 +155,10 @@ Risk: [Why this might not]
 
 ### 🔧 Knobs to Turn
 - Choose direction 1 / 2 / 3 instead
+
+**This is a taste and intention decision — not a functional one.**
+All directions can be built. The question is which one reflects the product's soul most truthfully.
+Kevin decides. Do not recommend based on buildability alone.
 - Narrow to MVP vs expand to full experience
 - Increase simplicity vs increase capability
 - Optimize for [retention / onboarding / power users]
