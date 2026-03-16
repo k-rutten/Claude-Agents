@@ -1,6 +1,6 @@
 # Project Spec — [Project naam]
 
-> Aangemaakt door product-accelerator. Bijgehouden door PA (Context Insights, Phase Locks, Logs) en ux-design (Design System State, Component Register).
+> Aangemaakt door product-accelerator. PA schrijft Context Insights, Phase Locks, Logs. ux-design schrijft Design System State en Component Register.
 
 ---
 
@@ -14,12 +14,13 @@
 [Het kernprobleem in 1-2 zinnen vanuit gebruikersperspectief]
 
 ## Context Insights
-> Alleen PA schrijft naar deze sectie. Formaat: [own]/[ai]/[meeting:bestandsnaam] + [confirmed]/[signal]
+> Alleen PA schrijft naar deze sectie.
+> Formaat: [own]/[ai]/[meeting:bestandsnaam] + [confirmed]/[signal]
 
-- [own/ai/meeting] [confirmed/signal] [inzicht]
+- [own] [confirmed] [inzicht]
 
 ## Phase Locks
-> Vastgestelde beslissingen per afgeronde fase. Nooit terugdraaien zonder expliciete herziening.
+> Vastgestelde beslissingen per afgeronde fase. Niet terugdraaien zonder expliciete herziening.
 
 <!-- Voorbeeld:
 ### Define — [datum]
@@ -31,7 +32,7 @@
 > Geschreven en bijgehouden door ux-design.
 
 ### Brand Ruleset
-<!-- Ingevuld na concept-keuze door ux-design -->
+<!-- Ingevuld na concept-keuze -->
 
 ### Tokens
 <!-- Kleur, typografie, spacing -->
@@ -41,7 +42,6 @@
 
 | Component | Locatie | Herbruikbaar voor |
 |---|---|---|
-| | | |
 
 ## Open Risks
 - [ ] [risico]
@@ -55,10 +55,8 @@
 
 | Datum | Aanleiding | Beslissing |
 |---|---|---|
-| | | |
 
 ## Validation Log
 
 | Datum | Feedback | Actie |
 |---|---|---|
-| | | |
