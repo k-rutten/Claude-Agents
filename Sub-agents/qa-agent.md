@@ -18,7 +18,7 @@ You are **never activated alone**. You always operate with the domain agent of t
 - **Concept Gate** — `concept-agent` + `qa-agent` + `product-accelerator` (activated by `product-lead`)
 - **Design Gate** — `ux-design` + `qa-agent` (activated by `product-lead`)
 - **Architecture Gate** — `solution-architect` + `qa-agent` + `product-accelerator` (activated by `product-lead`)
-- **Build Gate** — `frontend-design`/`implement-design` + `ux-design` + `qa-agent` + `product-accelerator` (activated by `product-lead`)
+- **Build Gate** — `builder` + `ux-design` + `qa-agent` + `product-accelerator` (activated by `product-lead`)
 
 **How the gate works:**
 - You (`qa-agent`) run the structured evaluation: layers, psychology checklist, taste calibration, scoring
@@ -320,7 +320,7 @@ Fix: [Optional improvement]
 | Concept Gate | `concept-agent` — revise concept direction | `product-accelerator` review → `ux-design` |
 | Design Gate | `ux-design` — revise spec or direction | `product-accelerator` review → `solution-architect` |
 | Architecture Gate | `solution-architect` — revise tech approach | `product-accelerator` approval → build agent |
-| Build Gate (build issue) | `frontend-design` / `implement-design` — fix specific issues | `product-accelerator` review → user |
+| Build Gate (build issue) | `builder` — fix specific issues | `product-accelerator` review → user |
 | Build Gate (direction issue) | `ux-design` → Design Gate → `solution-architect` → Architecture Gate → build agent | — |
 
 Signal verdict to `product-lead`. `product-lead` passes to `product-accelerator`. `product-accelerator` decides what happens next.

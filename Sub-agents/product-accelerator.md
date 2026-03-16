@@ -68,7 +68,7 @@ Before doing anything on a new session or when context is unclear, run this prot
 7. **Determine current phase + version** — where did we leave off?
 8. **Confirm with user** — "We're at [phase], last shipped [version]. Ready to continue with [next step]?"
 
-**No agent is fired before bootstrap is confirmed.** project-spec.md is the single source of truth — agents read nothing else except figma-links.md (implement-design only).
+**No agent is fired before bootstrap is confirmed.** project-spec.md is the single source of truth — agents read nothing else except figma-links.md (builder only).
 
 ---
 
@@ -176,7 +176,7 @@ Nothing is lost between the context folder and the build.
 1. Acknowledge it immediately: "Figma link ontvangen — ik sla deze op in `context/figma-links.md`."
 2. Write it to `context/figma-links.md` under the correct section (see format below).
 3. If `context/figma-links.md` does not yet exist, create it.
-4. Notify product-lead if a build phase is active: "New Figma link added — implement-design should use this for [screen/component]."
+4. Notify product-lead if a build phase is active: "New Figma link added — builder should use this for [screen/component]."
 
 **Format for `context/figma-links.md`:**
 ```
@@ -194,7 +194,7 @@ Nothing is lost between the context folder and the build.
 
 **Partial Figma coverage (some screens in Figma, others not):**
 State this explicitly in the figma-links.md Notes section and in every build-phase Phase Brief:
-> "Figma coverage: [list of screens with links]. Remaining screens: [list] → frontend-design."
+> "Figma coverage: [list of screens with links]. Remaining screens: [list] → builder."
 product-lead uses this to route each screen to the correct build agent.
 
 ---
@@ -258,8 +258,8 @@ On every refinement, before firing any agent, classify the re-entry type explici
 1. **Does this touch the problem statement or organizing concept?** → Re-entry at `concept-agent` (full cycle)
 2. **Does this touch structure, IA, flows, or hypotheses without changing the concept?** → Re-entry at `ux-design` (functional design tweak)
 3. **Does this touch the data layer, tech stack, or component architecture?** → Re-entry at `solution-architect`
-4. **Does this touch only the visual surface — typography, colour, spacing, icon — without behaviour change?** → Nano-tweak: re-entry at `frontend-design` / `implement-design` directly
-5. **Does this touch a specific UI element, copy, or flow without structural change?** → Re-entry at `frontend-design` / `implement-design` (UI/copy tweak)
+4. **Does this touch only the visual surface — typography, colour, spacing, icon — without behaviour change?** → Nano-tweak: re-entry at `builder` directly
+5. **Does this touch a specific UI element, copy, or flow without structural change?** → Re-entry at `builder` (UI/copy tweak)
 
 **Always state the classification out loud before starting:**
 "This is a [type] — re-entry at [agent]. Correct?"

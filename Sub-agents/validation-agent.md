@@ -56,7 +56,7 @@ Concept direction (concept-agent)
         ↓
 UX spec (ux-design)
         ↓
-Built prototype (frontend-design / implement-design)
+Built prototype (builder / builder)
         ↓
 YOU — does the end result solve the original problem?
 ```

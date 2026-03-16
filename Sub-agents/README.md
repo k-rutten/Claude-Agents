@@ -63,7 +63,7 @@ flowchart TD
     [Sonnet]"]
 
     BUILD["⚙️ Build agent
-    frontend-design · implement-design
+    builder
     consistency check → BUILD GATE ★
     [Sonnet]"]
 
@@ -132,8 +132,7 @@ flowchart TD
 | `qa-agent` | Opus | Independent quality gate at all four gates |
 | `validation-agent` | Opus | Post-build loop closer · Problem fit · Stakeholder feedback |
 | `solution-architect` | Sonnet | Lean tech approach · Component strategy · Data model |
-| `frontend-design` | Sonnet | Greenfield UI build (no Figma) |
-| `implement-design` | Sonnet | Figma → Production code |
+| `builder` | Sonnet | Greenfield UI build (no Figma) · Figma → Production code |
 
 ---
 
@@ -144,7 +143,7 @@ flowchart TD
 | **Concept Gate** ★ | `concept-agent` + `qa-agent` + `product-accelerator` | Is the direction grounded enough to design from? |
 | **Design Gate** | `ux-design` + `qa-agent` | Is the design strong enough to build from? |
 | **Architecture Gate** ★ | `solution-architect` + `qa-agent` + `product-accelerator` | Does the technical approach match the scale and problem statement? |
-| **Build Gate** ★ | `frontend-design`/`implement-design` + `ux-design` + `qa-agent` + `product-accelerator` | Does the build match the problem statement, fixture hypotheses covered, analytics instrumented? |
+| **Build Gate** ★ | `builder` + `ux-design` + `qa-agent` + `product-accelerator` | Does the build match the problem statement, fixture hypotheses covered, analytics instrumented? |
 
 > ★ = product-accelerator is an active co-evaluator alongside qa-agent at this gate
 
