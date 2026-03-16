@@ -15,6 +15,31 @@ Wait for Kevin's confirmation before skipping.
 
 ---
 
+
+## Compound Learning
+
+The system gets smarter over time. Feature 1 is the slowest. By feature 5, patterns do 40% of the thinking.
+
+**Every pattern entry must include:**
+- `[last verified: YYYY-MM-DD]` — staleness is visible
+- `[confirmed in: project name]` — traceability to where it was proven
+
+**Staleness rules:**
+- Patterns verified in the last 90 days: use with confidence
+- Patterns older than 90 days: still valid, but verify assumptions before applying
+- Patterns older than 180 days: flag to Kevin before reuse — context may have changed
+
+**Anti-patterns:** Also register what DIDN'T work. An anti-pattern is as valuable as a pattern — it prevents repeating mistakes. Format:
+
+```
+### [Anti-pattern name]
+**Type:** Anti-pattern
+**Context:** Tried in [project name]
+**What happened:** [what went wrong]
+**Instead:** [what to do instead]
+**First noted:** [Date]
+```
+
 ## Pattern format
 
 ```

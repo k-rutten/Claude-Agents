@@ -25,10 +25,12 @@
 ## Context Insights
 
 > Written exclusively by product-accelerator after discussion with Kevin. Never edited by product-lead or agents.
-> Format: - [insight] [source: own/ai/meeting:filename] [confirmed/signal]
+> Format: - [insight] [source: own/ai/meeting:filename] [confirmed/signal] [last verified: YYYY-MM-DD]
 
-- [example: Role-based data masking is a hard requirement] [source: own] [confirmed]
-- [example: Stakeholders expect Figma handoff before sprint 3] [source: meeting:2025-06-01-kickoff] [signal]
+- [example: Role-based data masking is a hard requirement] [source: own] [confirmed] [last verified: 2025-06-01]
+- [example: Stakeholders expect Figma handoff before sprint 3] [source: meeting:2025-06-01-kickoff] [signal] [last verified: 2025-06-01]
+
+> **Staleness check:** During session bootstrap, product-accelerator scans for entries with `[last verified]` dates older than 30 days. Flag these to Kevin: "These entries haven't been verified in a while — still accurate?"
 
 ---
 

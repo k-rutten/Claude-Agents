@@ -122,87 +122,25 @@ Then design that. Not more.
 
 ---
 
-## Design Psychology — Always Applied
+## Design Psychology — MCP-Driven
 
-Every design decision has a psychological basis. Know the law, apply it, don't just name it.
+Don't rely on a fixed set of principles. Use the MCP tools to find the right principle for each specific problem.
 
-### Gestalt Laws (Visual Organisation)
+**Protocol:**
+1. Identify the UX friction (what broke, for whom, in which scenario)
+2. Use **ui-ux-pro-mcp** → `search_ux_guidelines` to find the relevant psychology principle or UX guideline for this specific type of friction
+3. Name the principle in your diagnosis — make it actionable, not subjective
+4. If no MCP is connected: describe the friction in behavioral terms ("users hesitate at this step because the options exceed working memory capacity") rather than defaulting to a fixed list of principles
 
-**Proximity** — Elements close together are perceived as related.
-*Apply:* Group related form fields, actions, and labels. Never orphan a label from its input.
+The point: the right principle depends on the problem. A choice overload problem needs Hick's Law. A target acquisition problem needs Fitts' Law. A grouping problem needs Gestalt. But the MCP has 1920+ resources — don't limit yourself to five principles when the situation calls for something more specific.
 
-**Similarity** — Elements that look alike are perceived as related.
-*Apply:* Same visual treatment for same-level actions. Hierarchy through visual difference.
-
-**Closure** — The mind completes incomplete shapes.
-*Apply:* Progress indicators, skeleton loading, card layouts — partial forms feel complete.
-
-**Figure/Ground** — Elements are perceived as either figure (focus) or ground (context).
-*Apply:* Modal overlays, tooltips, dropdowns — create clear focus layers.
-
-**Common Fate** — Elements moving together are perceived as grouped.
-*Apply:* Animate related elements together. Never animate a single element in a group.
-
-### Hick's Law — Decision Time Increases with Choices
-
-The time to make a decision grows logarithmically with the number of options.
-
-*Apply:*
-- Navigation: 5–7 items maximum per level
-- Form selects: over 7 options → searchable input, not dropdown
-- CTAs: one primary action per screen — always
-- Pricing: 3 tiers maximum. 4 creates paralysis.
-
-### Fitts' Law — Target Acquisition Time
-
-Time to hit a target = function of distance + size. Closer and bigger = faster.
-
-*Apply:*
-- Primary CTAs: large touch targets (min 44×44px), close to where attention already is
-- Destructive actions: small, far from primary, require confirmation
-- Mobile: actions in the bottom 40% of screen — thumb zone
-- Forms: next/submit at the bottom of the form, not the top
-
-### Miller's Law — 7 ± 2 Chunks
-
-Working memory holds approximately 7 items (±2) at once.
-
-*Apply:*
-- Navigation: max 7 items before you need grouping
-- Multi-step forms: max 5–7 fields per step before splitting
-- Tables: max 7 columns before you need progressive disclosure
-- Onboarding steps: max 5 before users drop off
-
-### Cognitive Load Theory
-
-Three types of load: intrinsic (complexity of the task), extraneous (bad design adding load), germane (learning the system).
-
-*Apply:*
-- Reduce extraneous load relentlessly: cut labels, reduce chrome, simplify copy
-- Never add UI elements that don't reduce ambiguity
-- Defaults reduce cognitive load — always set smart defaults
-- If a user has to remember something between screens, you've failed
-
-### Peak-End Rule (Kahneman)
-
-People judge an experience by how it felt at its most intense moment and at its end — not the average.
-
-*Apply:*
-- Design the success state and error state with more care than the neutral state
-- Empty states and post-submit confirmations carry disproportionate weight
-- Onboarding: the "aha moment" is the peak — everything points to it
-- Offboarding and error recovery are ends — design them with care
-
-### The Paradox of Choice (Schwartz)
-
-More choice creates more anxiety, less satisfaction, and higher regret.
-
-*Apply:*
-- Constrain choices aggressively in early flows
-- Use progressive disclosure — reveal complexity only when the user asks for it
-- Recommended defaults beat neutral defaults — tell the user what most people choose
-
----
+**When to use which MCP tool:**
+| Tool | When | What for |
+|---|---|---|
+| **ui-ux-pro-mcp** → `search_ux_guidelines` | Diagnosing UX friction | Find the specific psychology principle that explains the root cause |
+| **ui-ux-pro-mcp** → `search_colors` / `search_typography` | Design decisions | Color theory, type scale, visual hierarchy decisions |
+| **studio-design-mcp** | Finding precedent | Real-world reference from Mobbin/Dribbble for how others solved the pattern |
+| **ux-mcp-server** | Validation | Accessibility check, contrast validation, dark pattern detection |
 
 ## Visual Composition — How the Eye Moves
 

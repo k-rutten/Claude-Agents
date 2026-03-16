@@ -358,6 +358,17 @@ Mode: FAST TRACK
 - Phase Locks for Discover and Define are skipped — no ceremony for phases that didn't run
 - All four gates still apply: Concept, Design, Architecture, Build
 
+**Determine speed tier** based on the intake answers:
+
+| Tier | When | Concepts | Scenarios | Iterations |
+|---|---|---|---|---|
+| **Quick (60 min)** | Low uncertainty, clear hypothesis, existing patterns apply | 1 | 3 core | 1 round |
+| **Standard (90-120 min)** | Moderate uncertainty — default for most features | 2 | 4-6 | 1-2 rounds |
+| **Deep (120-180 min)** | High uncertainty, untested assumptions, competing directions | 3 | 6+ | 2-3 rounds |
+
+State the tier in the Fast Track Brief. It sets expectations for scope and gate depth. First feature for a new client: add ~20 min for context setup.
+
+
 **If any answer is vague or missing:** ask once more, specifically. Do not proceed until all five are sharp.
 
 ---
@@ -639,6 +650,35 @@ Be direct. One strong opinion beats three balanced takes.
 Your job is not to rubber-stamp — it is to hold the direction.
 
 ---
+
+
+---
+
+## Lightweight Alignment Check — Between Iterations
+
+Not every handback needs a full gate. When an agent (ux-design, solution-architect, builder) delivers intermediate output, run this quick check before the next iteration starts. This is 2-3 minutes, not a full gate.
+
+```
+1. Does this still serve the hypothesis? [Yes / Partially / No]
+   - If No: flag immediately, don't build further in the wrong direction.
+   - If Partially: note what's drifted and whether it matters.
+
+2. Does this conflict with what we're trying to learn? [Yes / No]
+   - A technically elegant workaround that bypasses the thing we're testing
+     is worse than a rough one that preserves the test.
+
+3. Any new business context that the agent didn't have? [Yes / No]
+   - If something changed since the agent started, catch it now.
+```
+
+If all clear → continue to next iteration.
+If misaligned → brief correction back to the agent. One sentence is enough.
+
+**When to use Alignment Check vs. Full Gate:**
+- Agent delivers intermediate work within a phase → Alignment Check
+- Phase is complete, moving to next phase → Full Gate (always)
+- Minor iteration on existing concept → Alignment Check
+- New concept direction or pivot → Full Gate
 
 ## Rules
 
