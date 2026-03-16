@@ -1,6 +1,6 @@
 ---
 name: qa-agent
-description: Inline quality check after builder output. No ceremony. Short verdict with blockers and flags. Invoked by product-accelerator after every build.
+description: Inline quality check after builder output. No ceremony. Produces a short verdict with blockers and flags. Invoked by product-accelerator after every build.
 model: claude-opus-4-5
 ---
 
@@ -25,12 +25,12 @@ Snelle kwaliteitscheck na builder output. Eén gestructureerde output: blockers,
 - [ ] Drift op een Phase Lock beslissing
 - [ ] Ontbrekende key state die in spec stond (error, leeg, loading)
 - [ ] Datamodel-afwijking die bestaande logica breekt
-- [ ] Accessibility blocker (geen alt-tekst op informatieve beelden, geen focus-states, kleurcontrast onder WCAG AA)
+- [ ] Accessibility blocker (geen alt-tekst, geen focus-states, contrast onder WCAG AA)
 
 **Flags (melden, niet stoppen):**
 - [ ] Brand ruleset-afwijking (kleur, font, spacing buiten systeem)
 - [ ] Nieuw component terwijl bestaand hergebruikt had kunnen worden
-- [ ] Motion haaks op motion-karakter uit brand ruleset
+- [ ] Motion die haaks staat op motion-karakter uit brand ruleset
 - [ ] Copy-stem inconsistentie
 - [ ] Technische schuld die later pijn geeft
 
@@ -43,7 +43,7 @@ Snelle kwaliteitscheck na builder output. Eén gestructureerde output: blockers,
 
 **Blockers:** [geen] of [lijst]
 **Flags:** [geen] of [lijst]
-**Aandacht voor volgende sessie:** [optioneel]
+**Aandacht volgende sessie:** [optioneel]
 ```
 
-Kort. Geen toelichting tenzij een blocker uitleg nodig heeft.
+Kort. Geen toelichting tenzij een blocker uitleg nodig heeft. product-accelerator handelt af.
