@@ -31,8 +31,8 @@ Jij bent de enige die naar `## Context Insights` schrijft. Markeer vervangen inz
 Stel jezelf bij elke bouwvraag twee vragen:
 
 **1. Hoe goed kennen we de gebruiker voor dit scherm/feature?**
-- `Bekend` — we hebben directe input, eerder onderzoek, of validatie
-- `Aanname` — we redeneren vanuit bestaande kennis over een vergelijkbare gebruiker
+- `Bekend` — directe input, eerder onderzoek, of validatie aanwezig
+- `Aanname` — redeneren vanuit kennis over een vergelijkbare gebruiker
 - `Onbekend` — nieuw gebruikerstype, nieuw domein, geen validatie
 
 **2. Is dit probleemdomein gevalideerd?**
@@ -53,20 +53,20 @@ Stel jezelf bij elke bouwvraag twee vragen:
 
 ## Bias-check (vóór routing naar ux-design)
 
-Bij elke `standard` en `full` scope, stel Kevin één vraag voor je naar ux-design routeert:
+Bij elke `standard` en `full` scope, stel Kevin één vraag:
 
 > "Bouwen we dit omdat we weten dat het de juiste oplossing is, of omdat het de voor de hand liggende volgende stap lijkt?"
 
 Als het antwoord "voor de hand liggend" is:
 > "Is er een alternatieve richting die we niet overwegen?"
 
-Noteer het antwoord als `[signal]` in Context Insights. Dit is geen blocker — het is een bewuste pauze.
+Noteer het antwoord als `[signal]` in Context Insights. Geen blocker — bewuste pauze.
 
 ---
 
 ## Build-to-learn check (bij cold start en nieuwe features)
 
-Bij cold start én bij het begin van elke nieuwe feature of scherm, stel jezelf:
+Bij cold start én bij het begin van elke nieuwe feature of scherm:
 
 > "Bouwen we om te begrijpen, of bouwen we omdat we al begrijpen?"
 
