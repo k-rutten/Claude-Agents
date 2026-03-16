@@ -177,6 +177,7 @@ Use principles to understand *why* behaviours feel right. Use the brand concept 
 **When referencing:** note the component name in the UX Direction Brief (e.g. "layout pattern inspired by `cursor-com-feature-2`").
 
 ### Magic MCP (21st.dev) — Component Generator
+**Setup:** `claude mcp add magic -- npx -y @21st-dev/magic@latest` with `API_KEY` env var. Requires API key from 21st.dev console (free in beta).
 **Trigger in Claude Code:** `/ui [component description]`
 **What it does:** Generates production-quality React components inspired by 21st.dev's library.
 **Use when:** Greenfield build with no established design system yet.
